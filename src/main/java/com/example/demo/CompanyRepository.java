@@ -12,10 +12,10 @@ import java.util.List;
 @Service
 public class CompanyRepository {
 
-    private List <Company> companies;
+    private List<Company> companies;
 
     @Autowired
-     private DataSource dataSource;
+    private DataSource dataSource;
 
     Company rsCompany(ResultSet rs) throws SQLException {
         return new Company(rs.getInt("CompanyID"),
@@ -53,6 +53,22 @@ public class CompanyRepository {
 
  */
 
+   /* public int getCompanyCount() {
+        int count = 0;
+        try(Connection conn = DriverManager.getConnection(connstr);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) AS count FROM MOVIE");) {
+            System.out.println(rs);
+            while(rs.next()) {
+                count = rs.getInt("count");
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return count;
+
+    */
+
 
     public List<Company> getAllMovies() {
 
@@ -68,5 +84,23 @@ public class CompanyRepository {
             e.printStackTrace();
         }
         return companies;
+    }
+
+    public Company getCompanyById(int id) {
+        Company company = null;
+        try (Connection conn = DriverManager.getConnection(connstr);
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Company WHERE CompanyID = ?");
+
+        ) {
+            stmt.setString(1, Integer.toString(id));
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                company = rsCompany(rs);
+                System.out.println("Hello bello4");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return company;
     }
 }
