@@ -70,7 +70,7 @@ public class CompanyRepository {
     */
 
 
-    public List<Company> getAllMovies() {
+    public List<Company> getCompany(String search) {
 
         try (Connection conn = DriverManager.getConnection(connstr);
              Statement stmt = conn.createStatement();
@@ -103,4 +103,16 @@ public class CompanyRepository {
         }
         return company;
     }
+
+    public List<Company> getPage(int page, int pageSize, List<Company> companies) {
+        int from = Math.max(0,page*pageSize);
+        int to = Math.min(companies.size(),(page+1)*pageSize);
+
+        return companies.subList(from, to);
+    }
+
+    public int numberOfPages() {
+        return (int)Math.ceil(new Double(companies.size()) / 4);
+    }
+
 }

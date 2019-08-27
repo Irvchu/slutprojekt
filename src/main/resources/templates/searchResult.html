@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Result</title>
+   <!-- <link rel="stylesheet" type="text/css" href="/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" /> -->
+
+</head>
+<body id="PageBody">
+<div id="BodyContent">
+    <div id="ContentLeft">
+        <div id="Menu">
+            <div th:replace="index :: topleft"/>
+            <form action="/result/1" method="post" th:fragment="smallsearch" id="SmallSearch">
+                <input type="text" style="width: 150px;" name="search" placeholder="Search...">
+                <input type="submit" value="GO!">
+            </form>
+        </div>
+        <div id="Latest">
+            <img src="/beermug_small.png" width="80%" />
+        </div>
+    </div>
+    <div id="ContentRight">
+
+        <div th:if="${!companies.empty}">
+
+            <table class="beerTable">
+
+                <div class="beerInfo" th:each="Beer : ${companies}">
+                    <tr>
+                        <th class="thImages">
+                            <img src="https://static.systembolaget.se/imagelibrary/publishedmedia/ira2m462ibsn8vki6nxn/4368919.jpg" alt="Picture of a beer" height="20%" width="65%">
+                        </th>
+
+                        <th class="thBeerinfo">
+
+                            <p class="name_brewery">[[${Company.companyName}]]
+
+                                <span class="spanBrewery">   [[${Company.}]]</span>
+
+                            </p>
+                            <p class="style_alcohol">[[${Beer.style}]] <span class="spanAlcohol"> ([[${Beer.alcohol}]]%)</span></p>
+                            <p class="description" th:text="${Beer.description}"></p>
+
+                            <!--                        <p th:text="${Beer.name}" class="beername"></p>-->
+                            <!--                        <p th:text="${Beer.brewery}" class="brewery"></p>-->
+                            <!--                        <p th:text="${Beer.style}" class="beerstyle"></p>-->
+                            <!--                        <p th:text="' ' + '(' + ${Beer.alcohol} + ' %)' " class="alcohol"></p>-->
+                            <!--                        <p th:text="${Beer.description}" class="description"></p>-->
+                        </th>
+
+
+
+                </div>
+
+                </tr>
+            </table>
+
+
+            <div id="navBar">
+
+                <a th:if="${currentPage != 1}" th:href="'/result/' +${currentPage-1}">Previous page</a>
+
+
+                <span th:each="page : ${#numbers.sequence(1, numberOfPages)}">
+      <a th:if="${page != currentPage}"  th:href="'/result/' + ${page}"><span th:text="${page} "></span></a>
+      <span id ="currentPage" th:if="${page == currentPage} and ${numberOfPages != 1}"  th:text="${page}"></span>
+</span>
+
+                <a th:if="${currentPage != numberOfPages}" th:href="'/result/' + ${currentPage+1}">Next page</a>
+
+            </div>
+        </div>
+
+        <p th:if="${companies.empty}">
+            Something went wrong, please try again!
+        </p>
+
+
+    </div>
+</div>
+
+<div id="BodyFooter">
+    Copyright PeopleFirst 2019
+</div>
+
+</body>
+</html>

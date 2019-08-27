@@ -22,10 +22,10 @@ public class CompanyController {
     DataSource dataSource;
 
     @GetMapping("/")
-    @ResponseBody
-    public Company test () {
+    //@ResponseBody
+    public String index () {
 
-        return cr.getCompanyById(1);
+        return "index";
     }
 
 
