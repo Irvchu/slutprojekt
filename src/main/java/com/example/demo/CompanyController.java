@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -19,6 +20,13 @@ public class CompanyController {
 
     @Autowired
     DataSource dataSource;
+
+    @GetMapping("/")
+    @ResponseBody
+    public Company test () {
+
+        return cr.getCompanyById(1);
+    }
 
 
     //String connstr = "jdbc:sqlserver://localhost;databasename=Peoplefirst;user=dbadmin;password=dbadmin123";
