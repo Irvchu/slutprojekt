@@ -3,34 +3,62 @@ package com.example.demo;
 public class Company {
 
 
-    int  companyId;
-    String companyName;
-
-
-    public Company() {
-
+    private Integer id;
+    private String name;
+    private String address;
+    private int postalcode;
+    private String city;
+    private int lng;
+    private int lat;
+    public Integer getId() {
+        return id;
     }
-
-    public Company(int companyId, String companyName) {
-        this.companyId = companyId;
-        this.companyName = companyName;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
-
-    public int getCompanyId() {
-        return companyId;
+    public String getName() {
+        return name;
     }
-
-    public void setCompanyId(int companyId) {
-        this.companyId = companyId;
+    public void setName(String name) {
+        this.name = name;
     }
-
-    public String getCompanyName() {
-        return companyName;
+    public String getAddress() {
+        return address;
     }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setAddress(String address) {
+        this.address = address;
     }
-
+    public int getPostalcode() {
+        return postalcode;
+    }
+    public void setPostalcode(int postalcode) {
+        this.postalcode = postalcode;
+    }
+    public String getCity() {
+        return city;
+    }
+    public void setCity(String city) {
+        this.city = city;
+    }
+    public int getLng() {
+        return lng;
+    }
+    public void setLng(int lng) {
+        this.lng = lng;
+    }
+    public int getLat() {
+        return lat;
+    }
+    public void setLat(int lat) {
+        this.lat = lat;
+    }
+    public Company(Integer id, String name, String address, int postalcode, String city, int lng, int lat) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.postalcode = postalcode;
+        this.city = city;
+        this.lng = lng;
+        this.lat = lat;
+    }
 }

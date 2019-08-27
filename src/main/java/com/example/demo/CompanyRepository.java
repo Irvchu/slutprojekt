@@ -2,6 +2,7 @@ package com.example.demo;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
@@ -11,62 +12,43 @@ import java.util.List;
 
 @Service
 public class CompanyRepository {
-
-    private List <Company> companies;
-
+    private List<Company> companyList;
     @Autowired
-     private DataSource dataSource;
-
-    Company rsCompany(ResultSet rs) throws SQLException {
-        return new Company(rs.getInt("CompanyID"),
-                rs.getString("CompanyName"));
-
-    }
-
-
-    String connstr = "jdbc:sqlserver://localhost;databasename=Peoplefirst;user=dbadmin;password=dbadmin123";
-/*
-    private  List <Company> getCompanies (String search) throws SQLException
-
-    {
-        companies = new ArrayList<>();
+    private DataSource dataSource;
+    public List<Company> getBeer(String search) throws SQLException {
+        companyList = new ArrayList<>();
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company WHERE CompanyID LIKE ?")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company WHERE CompanyName LIKE ?")) {
             ps.setString(1, "%" + search + "%");
-
-            System.out.println("Hello bello0");
             ResultSet rs = ps.executeQuery();
-
-            System.out.println("Hello bello1");
+            int j = 1;
+            System.out.println(companyList.get(j).getName());
             while (rs.next()) {
-                companies.add(rsCompany(rs));
+                companyList.add(rsCompany(rs));
             }
-            for (int i = 0; i < companies.size(); i++) {
-                System.out.println(companies.get(i).getCompanyName());
+            for (int i = 0; i < companyList.size(); i++) {
+                System.out.println(companyList.get(i).getName());
             }
-
-            System.out.println("Hello bello2");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return companies;
-
- */
-
-
-    public List<Company> getAllMovies() {
-
-        try (Connection conn = DriverManager.getConnection(connstr);
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM COMPANY");) {
-            System.out.println("Hello bello2");
-            while (rs.next()) {
-                companies.add(rsCompany(rs));
-            }
-            System.out.println("Hello bello3");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return companies;
+        return companyList;
+    }
+    Company rsCompany(ResultSet rs) throws SQLException {
+        return new Company(rs.getInt("CompanyID"),
+                rs.getString("CompanyName"),
+                rs.getString("Address"),
+                rs.getInt("PostalCode"),
+                rs.getString("City"),
+                rs.getInt("Longitude"),
+                rs.getInt("Latitude"));
+    }
+    public List<Company> getPage(int page, int pageSize, List<Company> companyList) {
+        int from = Math.max(0,page*pageSize);
+        int to = Math.min(companyList.size(),(page+1)*pageSize);
+        return companyList.subList(from, to);
+    }
+    public int numberOfPages() {
+        return (int)Math.ceil(new Double(companyList.size()) / 4);
     }
 }
