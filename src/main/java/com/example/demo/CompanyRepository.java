@@ -2,7 +2,6 @@ package com.example.demo;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
@@ -12,43 +11,96 @@ import java.util.List;
 
 @Service
 public class CompanyRepository {
-    private List<Company> companyList;
+
+    private List<Company> companies;
+
     @Autowired
     private DataSource dataSource;
-    public List<Company> getBeer(String search) throws SQLException {
-        companyList = new ArrayList<>();
+
+    Company rsCompany(ResultSet rs) throws SQLException {
+        return new Company(rs.getInt("CompanyID"),
+                rs.getString("CompanyName"));
+
+    }
+
+
+    String connstr = "jdbc:sqlserver://localhost;databasename=Peoplefirst;user=dbadmin;password=dbadmin123";
+/*
+    private  List <Company> getCompanies (String search) throws SQLException
+
+    {
+        companies = new ArrayList<>();
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company WHERE CompanyName LIKE ?")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company WHERE CompanyID LIKE ?")) {
             ps.setString(1, "%" + search + "%");
+
+            System.out.println("Hello bello0");
             ResultSet rs = ps.executeQuery();
-            int j = 1;
-            System.out.println(companyList.get(j).getName());
+
+            System.out.println("Hello bello1");
             while (rs.next()) {
-                companyList.add(rsCompany(rs));
+                companies.add(rsCompany(rs));
             }
-            for (int i = 0; i < companyList.size(); i++) {
-                System.out.println(companyList.get(i).getName());
+            for (int i = 0; i < companies.size(); i++) {
+                System.out.println(companies.get(i).getCompanyName());
             }
+
+            System.out.println("Hello bello2");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return companyList;
+        return companies;
+
+ */
+
+   /* public int getCompanyCount() {
+        int count = 0;
+        try(Connection conn = DriverManager.getConnection(connstr);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) AS count FROM MOVIE");) {
+            System.out.println(rs);
+            while(rs.next()) {
+                count = rs.getInt("count");
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return count;
+
+    */
+
+
+    public List<Company> getAllMovies() {
+
+        try (Connection conn = DriverManager.getConnection(connstr);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM COMPANY");) {
+            System.out.println("Hello bello2");
+            while (rs.next()) {
+                companies.add(rsCompany(rs));
+            }
+            System.out.println("Hello bello3");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return companies;
     }
-    Company rsCompany(ResultSet rs) throws SQLException {
-        return new Company(rs.getInt("CompanyID"),
-                rs.getString("CompanyName"),
-                rs.getString("Address"),
-                rs.getInt("PostalCode"),
-                rs.getString("City"),
-                rs.getInt("Longitude"),
-                rs.getInt("Latitude"));
-    }
-    public List<Company> getPage(int page, int pageSize, List<Company> companyList) {
-        int from = Math.max(0,page*pageSize);
-        int to = Math.min(companyList.size(),(page+1)*pageSize);
-        return companyList.subList(from, to);
-    }
-    public int numberOfPages() {
-        return (int)Math.ceil(new Double(companyList.size()) / 4);
+
+    public Company getCompanyById(int id) {
+        Company company = null;
+        try (Connection conn = DriverManager.getConnection(connstr);
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Company WHERE CompanyID = ?");
+
+        ) {
+            stmt.setString(1, Integer.toString(id));
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                company = rsCompany(rs);
+                System.out.println("Hello bello4");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return company;
     }
 }
