@@ -18,15 +18,18 @@
     <script>
       function initMap() {
         var options = {
-          zoom: 8,
+          zoom: 6,
+          //Stockholm
           center: { lat: 59.33258, lng: 18.0649 }
         };
 
         var map = new google.maps.Map(document.getElementById("map"), options);
-
+        /*
         //Add marker
 
         var marker = new google.maps.Marker({
+
+            //Uppsala
           position: { lat: 59.85882, lng: 17.63889 },
           map: map,
           icon:
@@ -39,6 +42,48 @@
         marker.addListener("click", function() {
           infoWindow.open(map, marker);
         });
+        */
+
+        //Stockholm
+        addMarker({
+          coords: { lat: 59.33258, lng: 18.0649 },
+          iconImage:
+            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+          content: "<h1>Stockholm </h1>"
+        });
+
+        //Göteborg
+        addMarker({
+          coords: { lat: 57.70716, lng: 11.96679 },
+          content: "<h1>Göteborg </h1>"
+        });
+
+        //Add Marker Function
+
+        function addMarker(props) {
+          var marker = new google.maps.Marker({
+            position: props.coords,
+            map: map
+            //       icon: props.iconImage
+          });
+
+          //check for customicon
+          if (props.iconImage) {
+            //Set icon image
+            marker.setIcon(props.iconImage);
+          }
+
+          //Check content
+          if (props.content) {
+            var infoWindow = new google.maps.InfoWindow({
+              content: props.content
+            });
+
+            marker.addListener("click", function() {
+              infoWindow.open(map, marker);
+            });
+          }
+        }
       }
     </script>
     <script
