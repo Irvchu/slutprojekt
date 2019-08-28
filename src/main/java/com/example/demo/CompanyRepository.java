@@ -19,7 +19,7 @@ public class CompanyRepository {
 
     Company rsCompany(ResultSet rs) throws SQLException {
         return new Company(rs.getInt("CompanyID"),
-                rs.getString("CompanyName"));
+                        rs.getString("CompanyName"));
 
     }
 
@@ -70,7 +70,7 @@ public class CompanyRepository {
     */
 
 
-    public List<Company> getAllMovies() {
+    public List<Company> getCompany(String search) {
 
         try (Connection conn = DriverManager.getConnection(connstr);
              Statement stmt = conn.createStatement();
@@ -103,4 +103,37 @@ public class CompanyRepository {
         }
         return company;
     }
+
+
+    public List<Company> getCompanyByName(String companyName) {
+        List<Company> companies = new ArrayList<>();
+        String tag = "%T-centralen%";
+        try {
+            Connection conn = DriverManager.getConnection(connstr);
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company WHERE CompanyName LIKE ? OR TAG LIKE ? ");
+            ps.setString(1, companyName);
+            ps.setString(2, tag);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                companies.add(rsCompany(rs));
+                System.out.println(("ByName"));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return companies;
+    }
+
+    public List<Company> getPage(int page, int pageSize, List<Company> companies) {
+        int from = Math.max(0,page*pageSize);
+        int to = Math.min(companies.size(),(page+1)*pageSize);
+
+        return companies.subList(from, to);
+    }
+
+    public int numberOfPages() {
+        return (int)Math.ceil(new Double(companies.size()) / 4);
+    }
+
+
 }
