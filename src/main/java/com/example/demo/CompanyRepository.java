@@ -19,8 +19,10 @@ public class CompanyRepository {
     private DataSource dataSource;
 
     Company rsCompany(ResultSet rs) throws SQLException {
-        return new Company(rs.getInt("CompanyID"),
-                        rs.getString("CompanyName"));
+        return new Company(rs.getLong("companyID"),
+                        rs.getString("companyName"),
+                        rs.getString("address"));
+
 
     }
 
@@ -75,29 +77,26 @@ public class CompanyRepository {
 
         try (Connection conn = DriverManager.getConnection(connstr);
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM COMPANY");) {
-            System.out.println("Hello bello2");
+             ResultSet rs = stmt.executeQuery("SELECT * FROM COMPANY")) {
             while (rs.next()) {
                 companies.add(rsCompany(rs));
             }
-            System.out.println("Hello bello3");
         } catch (Exception e) {
             e.printStackTrace();
         }
         return companies;
     }
 
-    public Company getCompanyById(int id) {
+    public Company getCompanyById(Long id) {
         Company company = null;
         try (Connection conn = DriverManager.getConnection(connstr);
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Company WHERE CompanyID = ?");
 
         ) {
-            stmt.setString(1, Integer.toString(id));
+            stmt.setString(1,Long.toString(id));
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 company = rsCompany(rs);
-                System.out.println("Hello bello4");
             }
         } catch (Exception e) {
             e.printStackTrace();

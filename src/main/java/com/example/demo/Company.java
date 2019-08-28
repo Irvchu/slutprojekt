@@ -1,31 +1,33 @@
 package com.example.demo;
 public class Company {
-    int CompanyId, Longitude, Latitude, CarParingMonthCostSEK, NumberOfEmployee, VacationDays, NoticePeriodMonth, EducationBudgetSEK, WellnessContribution;
-    String companyName, Address, PostalCode, City, Tag, ProfitMarginal, NetSalesChange, PropotionOfWomanWithinITDep, PropotionOfWomanWithinBoard, PropotionOfWomanWithinLeadManagement, StaffTurnover, BackendProgramLanguage, FrontendProgramLanguage, OperativSystem;
+    Long companyId;
+    int longitude, latitude, CarParingMonthCostSEK, NumberOfEmployee, VacationDays, NoticePeriodMonth, EducationBudgetSEK, WellnessContribution;
+    String companyName, address, PostalCode, City, Tag, ProfitMarginal, NetSalesChange, PropotionOfWomanWithinITDep, PropotionOfWomanWithinBoard, PropotionOfWomanWithinLeadManagement, StaffTurnover, BackendProgramLanguage, FrontendProgramLanguage, OperativSystem;
     boolean BikeRoomAvailable, CarParkingAvailable, MeditationRoom, PermanentWorkplaces, MoreThanOneOffice, Benify, UnionConnected, GroupInsuranceIncluded, BusinessCareIncluded, CollectiveAgreement, OccupationalIncluded, FruitBasketIncluded, BreakfastIncluded, LunchIncluded, DinnerIncluded, ProjectSteeringAgilt;
     public Company() {
     }
-    public Company(int companyId, String companyName) {
-        CompanyId = companyId;
+    public Company(Long companyId, String companyName, String address) {
+        this.companyId = companyId;
         this.companyName = companyName;
+        this.address = address;
     }
-    public int getCompanyId() {
-        return CompanyId;
+    public Long getCompanyId() {
+        return this.companyId;
     }
-    public void setCompanyId(int companyId) {
-        this.CompanyId = companyId;
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
     }
     public int getLongitude() {
-        return Longitude;
+        return longitude;
     }
     public void setLongitude(int longitude) {
-        Longitude = longitude;
+        this.longitude = longitude;
     }
     public int getLatitude() {
-        return Latitude;
+        return latitude;
     }
     public void setLatitude(int latitude) {
-        Latitude = latitude;
+        latitude = latitude;
     }
     public int getCarParingMonthCostSEK() {
         return CarParingMonthCostSEK;
@@ -70,10 +72,10 @@ public class Company {
         this.companyName = companyName;
     }
     public String getAddress() {
-        return Address;
+        return this.address;
     }
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
     public String getPostalCode() {
         return PostalCode;

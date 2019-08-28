@@ -19,12 +19,19 @@
             </form>
 
             <ul>
-                <li th:each="company: ${Companies}" th:text="${company.companyName}"></li>
+                <li th:each="company: ${Companies}" >
+                    <a th:href="'/comparator/' +${company.companyId}" th:text="${company.companyName}"></a>
+                </li>
             </ul>
 
+            <ul>
+                <li th:each="company: ${session.Companies}" th:text="${company.companyName + company.address}">
+                </li>
+            </ul>
         </div>
 
     </div>
+
     <!--
     <div id="ContentRight">
 
@@ -64,6 +71,6 @@
 <div id="BodyFooter">
     Copyright PeopleFirst 2019
 </div>
-
+</div>
 </body>
 </html>

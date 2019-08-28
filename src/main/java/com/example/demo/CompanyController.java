@@ -3,16 +3,15 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -58,9 +57,10 @@ public class CompanyController {
      * @return
      */
     @PostMapping("/searchResult")
-    public String searchCompanyTwo(@RequestParam String search, Model model) {
+    public String searchCompanyTwo(@RequestParam String search, Model model, HttpSession session) {
         //important with the '%' when using LIKE in queries.
         search = "%" + search + "%";
+
         List<Company> companies = companyRepository.getCompanyByName(search);
         for (Company company: companies) {
             System.out.println(company.getCompanyName());
@@ -70,6 +70,21 @@ public class CompanyController {
          * "Companies" - the name of the model. "companies" - the actual data being transeffered
          */
         model.addAttribute("Companies", companies);
+
+        return "searchResult";
+    }
+
+    @GetMapping("/comparator/{id}")
+    public String compareCompanies(@PathVariable Long id, HttpSession session) {
+        Company company = companyRepository.getCompanyById(id);
+
+        List<Company> companies =  (List<Company>) session.getAttribute("Companies");
+        if(companies == null) {
+            companies = new ArrayList<>();
+        }
+        companies.add(company);
+        session.setAttribute("Companies", companies);
+        System.out.println(session.getAttribute("Companies"));
 
         return "searchResult";
     }
