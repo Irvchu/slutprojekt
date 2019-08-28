@@ -10,27 +10,38 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 @Controller
 public class CompanyController {
 
 
     @Autowired
-    CompanyRepository cr;
+    CompanyRepository companyRepository;
 
     @Autowired
     DataSource dataSource;
 
-    @GetMapping("/")
+    /*@GetMapping("/")
     @ResponseBody
     public Company test () {
 
-        return cr.getCompanyById(1);
-    }
+        //return companyRepository.getCompanyById(1);
+    }*/
 
 
     //String connstr = "jdbc:sqlserver://localhost;databasename=Peoplefirst;user=dbadmin;password=dbadmin123";
 
+    @GetMapping("/")
+    public String searchCompany() {
+
+        String input = "%Avanza%";
+        List<Company> companies = companyRepository.getCompanyByName(input);
+        for (Company company: companies) {
+            System.out.println(company.getCompanyName());
+        }
+        return "home";
+    }
   /*
     @GetMapping("/")
     public String checkUser() {
