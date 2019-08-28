@@ -31,7 +31,6 @@ public class CompanyController {
         //return companyRepository.getCompanyById(1);
     }*/
     @GetMapping("/")
-    //@ResponseBody
     public String index () {
 
         return "index";
