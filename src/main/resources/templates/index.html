@@ -25,16 +25,45 @@
         </div>
     </div>
     <div id="ContentRight">
-        <form action="/result/1" method="post">
-            <input type="text" style="width: 400px;" name="search" placeholder="Find your favorite Company or Filters">
-            <input type="submit" value="GO!">
-        </form>
+
+        <div class="playground">
+            <div class="container">
+                <div class="content">
+                    <input type="search" placeholder="Search brand"/><i class="a-icon a-icon-search"></i>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <div id="BodyFooter">
     Copyright PeopleFirst 2019
 </div>
+
+<h2 class="w3-center">Automatic Slideshow</h2>
+
+<div class="w3-content w3-section" style="max-width:500px">
+    <img class="mySlides" src="HM-symbol.jpg" style="width:100%">
+    <img class="mySlides" src="spotify.png" style="width:100%">
+    <img class="mySlides" src="avanza.png" style="width:100%">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
 
 </body>
 </html>
