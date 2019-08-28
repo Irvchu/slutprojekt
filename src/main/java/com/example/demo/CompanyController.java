@@ -40,7 +40,7 @@ public class CompanyController {
 
     //String connstr = "jdbc:sqlserver://localhost;databasename=Peoplefirst;user=dbadmin;password=dbadmin123";
 
-    @GetMapping("/")
+    @GetMapping("/searchResult")
     public String searchCompany() {
 
         String input = "%Avanza%";
@@ -48,8 +48,9 @@ public class CompanyController {
         for (Company company: companies) {
             System.out.println(company.getCompanyName());
         }
-        return "home";
+        return "searchResult/{page}";
     }
+
   /*
     @GetMapping("/")
     public String checkUser() {
