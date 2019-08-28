@@ -15,11 +15,28 @@ public class CompanyController {
     CompanyRepository companyRepository;
     @Autowired
     DataSource dataSource;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 15992789290cf92f7fea840a9e1e56808427493d
     /*@GetMapping("/")
     @ResponseBody
     public Company test () {
         //return companyRepository.getCompanyById(1);
     }*/
+<<<<<<< HEAD
+=======
+    @GetMapping("/")
+    //@ResponseBody
+    public String index () {
+
+        return "index";
+    }
+
+
+
+>>>>>>> 15992789290cf92f7fea840a9e1e56808427493d
     //String connstr = "jdbc:sqlserver://localhost;databasename=Peoplefirst;user=dbadmin;password=dbadmin123";
     @GetMapping("/")
     public String searchCompany() {
