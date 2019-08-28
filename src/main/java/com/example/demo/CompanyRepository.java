@@ -3,6 +3,7 @@ package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -105,18 +106,18 @@ public class CompanyRepository {
     }
 
 
-    public List<Company> getCompanyByName(String companyName) {
+    public List<Company> getCompanyByName(@RequestParam(defaultValue = "") String search) {
         List<Company> companies = new ArrayList<>();
-        String tag = "%T-centralen%";
         try {
             Connection conn = DriverManager.getConnection(connstr);
+            //QUERY with a tag as a search function
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company WHERE CompanyName LIKE ? OR TAG LIKE ? ");
-            ps.setString(1, companyName);
-            ps.setString(2, tag);
+            //setstring parameter is basically and index for the "=" in the query
+            ps.setString(1, search);
+            ps.setString(2, search);
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {
                 companies.add(rsCompany(rs));
-                System.out.println(("ByName"));
             }
         }catch (SQLException e) {
             e.printStackTrace();

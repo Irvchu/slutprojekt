@@ -13,13 +13,13 @@
     <div id="ContentLeft">
         <div id="Menu">
             <div th:replace="index :: topleft"/>
-           <form action="/result/1" method="post" th:fragment="smallsearch" id="SmallSearch">
+           <form action="/searchResult" method="post" th:fragment="smallsearch" id="SmallSearch">
                 <input type="text" style="width: 150px;" name="search" placeholder="Search...">
                 <input type="submit" value="GO!">
             </form>
 
             <ul>
-
+                <li th:each="company: ${Companies}" th:text="${company.companyName}"></li>
             </ul>
 
         </div>

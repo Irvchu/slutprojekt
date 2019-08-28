@@ -2,7 +2,10 @@ package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.sql.DataSource;
@@ -19,8 +22,6 @@ public class CompanyController {
     @Autowired
     CompanyRepository companyRepository;
 
-    @Autowired
-    DataSource dataSource;
 
 
     /*@GetMapping("/")
@@ -40,15 +41,38 @@ public class CompanyController {
 
     //String connstr = "jdbc:sqlserver://localhost;databasename=Peoplefirst;user=dbadmin;password=dbadmin123";
 
+    /**
+     * getmapping for search. only returns its own template.
+     * @return
+     */
     @GetMapping("/searchResult")
     public String searchCompany() {
 
-        String input = "%Avanza%";
-        List<Company> companies = companyRepository.getCompanyByName(input);
+        return "searchResult";
+    }
+
+    /**
+     * Postmapping method which requests a parameter such as a company name or some
+     * other tag the user would like to search for.
+     * @param search
+     * @param model
+     * @return
+     */
+    @PostMapping("/searchResult")
+    public String searchCompanyTwo(@RequestParam String search, Model model) {
+        //important with the '%' when using LIKE in queries.
+        search = "%" + search + "%";
+        List<Company> companies = companyRepository.getCompanyByName(search);
         for (Company company: companies) {
             System.out.println(company.getCompanyName());
         }
-        return "searchResult/{page}";
+        /**
+         * add the companies as a modelattribute so we can get hold of them in the HTML-Template
+         * "Companies" - the name of the model. "companies" - the actual data being transeffered
+         */
+        model.addAttribute("Companies", companies);
+
+        return "searchResult";
     }
 
   /*
