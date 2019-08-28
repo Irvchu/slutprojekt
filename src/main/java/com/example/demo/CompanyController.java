@@ -22,12 +22,20 @@ public class CompanyController {
     @Autowired
     DataSource dataSource;
 
+
     /*@GetMapping("/")
     @ResponseBody
     public Company test () {
 
         //return companyRepository.getCompanyById(1);
     }*/
+    @GetMapping("/")
+    //@ResponseBody
+    public String index () {
+
+        return "index";
+    }
+
 
 
     //String connstr = "jdbc:sqlserver://localhost;databasename=Peoplefirst;user=dbadmin;password=dbadmin123";
