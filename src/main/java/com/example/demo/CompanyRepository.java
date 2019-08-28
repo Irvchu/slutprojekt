@@ -19,7 +19,7 @@ public class CompanyRepository {
 
     Company rsCompany(ResultSet rs) throws SQLException {
         return new Company(rs.getInt("CompanyID"),
-                rs.getString("CompanyName"));
+                        rs.getString("CompanyName"));
 
     }
 
@@ -102,5 +102,24 @@ public class CompanyRepository {
             e.printStackTrace();
         }
         return company;
+    }
+
+    public List<Company> getCompanyByName(String companyName) {
+        List<Company> companies = new ArrayList<>();
+        String tag = "%T-centralen%";
+        try {
+            Connection conn = DriverManager.getConnection(connstr);
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company WHERE CompanyName LIKE ? OR TAG LIKE ? ");
+            ps.setString(1, companyName);
+            ps.setString(2, tag);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                companies.add(rsCompany(rs));
+                System.out.println(("ByName"));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return companies;
     }
 }
