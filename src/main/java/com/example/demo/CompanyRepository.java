@@ -12,14 +12,14 @@ import java.util.List;
 @Service
 public class CompanyRepository {
 
-    private List <Company> companies;
+    private List<Company> companies;
 
     @Autowired
-     private DataSource dataSource;
+    private DataSource dataSource;
 
     Company rsCompany(ResultSet rs) throws SQLException {
         return new Company(rs.getInt("CompanyID"),
-                rs.getString("CompanyName"));
+                        rs.getString("CompanyName"));
 
     }
 
@@ -53,8 +53,24 @@ public class CompanyRepository {
 
  */
 
+   /* public int getCompanyCount() {
+        int count = 0;
+        try(Connection conn = DriverManager.getConnection(connstr);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) AS count FROM MOVIE");) {
+            System.out.println(rs);
+            while(rs.next()) {
+                count = rs.getInt("count");
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return count;
 
-    public List<Company> getAllMovies() {
+    */
+
+
+    public List<Company> getCompany(String search) {
 
         try (Connection conn = DriverManager.getConnection(connstr);
              Statement stmt = conn.createStatement();
@@ -69,4 +85,55 @@ public class CompanyRepository {
         }
         return companies;
     }
+
+    public Company getCompanyById(int id) {
+        Company company = null;
+        try (Connection conn = DriverManager.getConnection(connstr);
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Company WHERE CompanyID = ?");
+
+        ) {
+            stmt.setString(1, Integer.toString(id));
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                company = rsCompany(rs);
+                System.out.println("Hello bello4");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return company;
+    }
+
+
+    public List<Company> getCompanyByName(String companyName) {
+        List<Company> companies = new ArrayList<>();
+        String tag = "%T-centralen%";
+        try {
+            Connection conn = DriverManager.getConnection(connstr);
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company WHERE CompanyName LIKE ? OR TAG LIKE ? ");
+            ps.setString(1, companyName);
+            ps.setString(2, tag);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                companies.add(rsCompany(rs));
+                System.out.println(("ByName"));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return companies;
+    }
+
+    public List<Company> getPage(int page, int pageSize, List<Company> companies) {
+        int from = Math.max(0,page*pageSize);
+        int to = Math.min(companies.size(),(page+1)*pageSize);
+
+        return companies.subList(from, to);
+    }
+
+    public int numberOfPages() {
+        return (int)Math.ceil(new Double(companies.size()) / 4);
+    }
+
+
 }

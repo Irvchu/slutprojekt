@@ -3,26 +3,53 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 @Controller
 public class CompanyController {
 
 
     @Autowired
-    CompanyRepository cr;
+    CompanyRepository companyRepository;
 
     @Autowired
     DataSource dataSource;
 
 
+    /*@GetMapping("/")
+    @ResponseBody
+    public Company test () {
+
+        //return companyRepository.getCompanyById(1);
+    }*/
+    @GetMapping("/")
+    //@ResponseBody
+    public String index () {
+
+        return "index";
+    }
+
+
+
     //String connstr = "jdbc:sqlserver://localhost;databasename=Peoplefirst;user=dbadmin;password=dbadmin123";
 
+    @GetMapping("/")
+    public String searchCompany() {
+
+        String input = "%Avanza%";
+        List<Company> companies = companyRepository.getCompanyByName(input);
+        for (Company company: companies) {
+            System.out.println(company.getCompanyName());
+        }
+        return "home";
+    }
   /*
     @GetMapping("/")
     public String checkUser() {
