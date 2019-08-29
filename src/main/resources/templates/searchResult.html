@@ -19,7 +19,7 @@
             </form>
 
             <ul>
-                <li th:each="company: ${Companies}" >
+                <li id="table" th:each="company: ${Companies}" >
                     <a th:href="'/comparator/' +${company.companyId}" th:text="${company.companyName}"></a>
                 </li>
             </ul>
