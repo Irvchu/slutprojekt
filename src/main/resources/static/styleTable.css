@@ -1,0 +1,26 @@
+#table {
+  table-layout: fixed;
+  width: 80%;
+  white-space: nowrap;
+
+  padding:5%;
+
+}
+#table tr {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.table3 {
+
+padding: 10px;
+
+}
+
+h2 {
+
+   margin-left:5%;
+
+}

@@ -2,59 +2,49 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Search Result</title>
+    <title> Adoor </title>
     <link rel="stylesheet" type="text/css" href="/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/style.css" />
-
+    <link rel="stylesheet" type="text/css" href="/style2.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-
-<body id="PageBody">
+<body class="PageBody">
 <div id="BodyContent">
-    <div id="ContentLeft">
-        <div id="Menu">
-            <div th:fragment="topleft">
-                <img id="MenuImg" src="/anon.png" width="30%" />
-                <br>
-                <br>
-                <a href="/profile" class="button">My Profile</a>
-                <br>
-                <a href="/logout" class="button">Logout</a>
-            </div>
-        </div>
-        <div id="Latest">
-            <img src="/beermug_small.png" width="80%" />
-        </div>
+    <img src="Adoore.png" alt="Adoor logotype" height="42" width="42">
+    <button class="buttons">My Profile</button>
+    <button class="buttons">Logout</button>
+    <div class="playground">
+        <form action="/searchResult" method="post">
+            <input type="text" name="search" placeholder="Search..">
+        </form>
     </div>
-        <div class="playground">
-            <form action="/searchResult" method="post">
-                <input type="text" name="search" placeholder="Search..">
-
-            </form>
-        </div>
+</div>
+<div class="filter_box">
+    <h4 class="header_filter">Choose what you prefer or prioritize</h4>
+    <label class="container_filter">Parking
+        <input type="checkbox" checked="checked">
+        <span class="checkmark"></span>
+    </label>
+    <label class="container_filter">25+ Hollidays
+        <input type="checkbox">
+        <span class="checkmark"></span>
+    </label>
+    <label class="container_filter">Near to train station
+        <input type="checkbox">
+        <span class="checkmark"></span>
+    </label>
+    <label class="container_filter">Flexible working hours
+        <input type="checkbox">
+        <span class="checkmark"></span>
+    </label>
+    <h5>Sallary range</h5>
+    <div class="slidecontainer">
+        <p>Minimum sallary I can accept:</p>
+        <input type="range" min="1" max="100000" value="50" class="slider" id="myRange">
     </div>
-
-<h1>Choose what you prefer or prioritize</h1>
-<label class="container_filter">Parking
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-<label class="container_filter">25+ Hollidays
-    <input type="checkbox">
-    <span class="checkmark"></span>
-</label>
-<label class="container_filter">Near to train station
-    <input type="checkbox">
-    <span class="checkmark"></span>
-</label>
-<label class="container_filter">Flexible working hours
-    <input type="checkbox">
-    <span class="checkmark"></span>
-</label>
-
+</div>
 <div class="container" id="containerid">
     <h2> Companies </h2>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -64,22 +54,18 @@
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
-
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
                 <img src="ICA-logotyp.png" alt="Avanza" style="width:100%;">
             </div>
-
             <div class="item">
                 <img src="HM-symbol.jpg" alt="Hm" style="width:100%;">
             </div>
-
             <div class="item">
                 <img src="spotify.png" alt="Spotify" style="width:100%;">
             </div>
         </div>
-
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
@@ -91,11 +77,8 @@
         </a>
     </div>
 </div>
-
-
-<footer id="BodyFooter">
-    Copyright PeopleFirst 2019
+<footer>
+    Copyright © Adoor 2019
 </footer>
-
 </body>
 </html>

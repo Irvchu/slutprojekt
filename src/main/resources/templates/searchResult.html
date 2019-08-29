@@ -1,33 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html"
+      xmlns:style="http://java.sun.com/xml/ns/persistence/orm" xmlns:color="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Search Result</title>
-   <!-- <link rel="stylesheet" type="text/css" href="/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/style.css" />
-    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/normalize.css" />
+     <link rel="stylesheet" type="text/css" href="/style2.css" />
+     <link rel="stylesheet" type="text/css" href="/styleTable.css" />
+     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
 
-</head>
-<body id="PageBody">
-<div id="BodyContent">
-    <div id="ContentLeft">
-        <div id="Menu">
-            <div th:replace="index :: topleft"/>
-           <form action="/searchResult" method="post" th:fragment="smallsearch" id="SmallSearch">
+ </head>
+ <body> <!--id="PageBody"-->
+<div> <!--id="BodyContent">-->
+    <div><!-- id="ContentLeft">-->
+        <div><!-- id="Menu">-->
+
+           <form action="/searchResult" method="post" th:fragment="smallsearch"> <!-- id="SmallSearch">-->
                 <input type="text" style="width: 150px;" name="search" placeholder="Search...">
                 <input type="submit" value="GO!">
             </form>
 
             <ul>
-                <li id="table" th:each="company: ${Companies}" >
-                    <a th:href="'/comparator/' +${company.companyId}" th:text="${company.companyName}"></a>
+                <li  th:each="company: ${Companies}" >
+                    <a th:href="'/comparator/' +${company.companyId}"  th:text="${company.companyName}"></a>
                 </li>
             </ul>
+            <h2>Your choose of the companies</h2>
 
-            <ul>
-                <li th:each="company: ${session.Companies}" th:text="${company.companyName + company.address}">
-                </li>
-            </ul>
+            <div id="table">
+            <table >
+
+
+                <tr>
+                    <td class="table3" th:each="company: ${session.Companies}" ><div id="table1" th:text="${company.companyName} + ' '"></div></td>
+                </tr>
+
+
+                <tr>
+                <br>
+                <td class="table3" th:each="company: ${session.Companies}" th:text="${company.address} + ' ' "></td>
+                </tr>
+
+
+            </table>
+
+
         </div>
 
     </div>
@@ -68,9 +85,9 @@
 </div>
 -->
 
-<div id="BodyFooter">
-    Copyright PeopleFirst 2019
-</div>
+    <footer>
+    Copyright © Adoor 2019
+    </footer>
 </div>
 </body>
 </html>
