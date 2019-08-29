@@ -1,66 +1,69 @@
 package com.example.demo;
 public class Company {
-    int CompanyId, Longitude, Latitude, CarParingMonthCostSEK, NumberOfEmployee, VacationDays, NoticePeriodMonth, EducationBudgetSEK, WellnessContribution;
+    Long CompanyId, Longitude, Latitude, CarParingMonthCostSEK, NumberOfEmployee, VacationDays, NoticePeriodMonth, EducationBudgetSEK, WellnessContribution;
     String companyName, Address, PostalCode, City, Tag, ProfitMarginal, NetSalesChange, PropotionOfWomanWithinITDep, PropotionOfWomanWithinBoard, PropotionOfWomanWithinLeadManagement, StaffTurnover, BackendProgramLanguage, FrontendProgramLanguage, OperativSystem;
     boolean BikeRoomAvailable, CarParkingAvailable, MeditationRoom, PermanentWorkplaces, MoreThanOneOffice, Benify, UnionConnected, GroupInsuranceIncluded, BusinessCareIncluded, CollectiveAgreement, OccupationalIncluded, FruitBasketIncluded, BreakfastIncluded, LunchIncluded, DinnerIncluded, ProjectSteeringAgilt;
     public Company() {
     }
-    public Company(int companyId, String companyName) {
+
+    public Company(Long companyId, String companyName, String address) {
         CompanyId = companyId;
         this.companyName = companyName;
+        this.Address = address;
     }
-    public int getCompanyId() {
+
+    public Long getCompanyId() {
         return CompanyId;
     }
-    public void setCompanyId(int companyId) {
+    public void setCompanyId(Long companyId) {
         this.CompanyId = companyId;
     }
-    public int getLongitude() {
+    public Long getLongitude() {
         return Longitude;
     }
-    public void setLongitude(int longitude) {
+    public void setLongitude(Long longitude) {
         Longitude = longitude;
     }
-    public int getLatitude() {
+    public Long getLatitude() {
         return Latitude;
     }
-    public void setLatitude(int latitude) {
+    public void setLatitude(Long latitude) {
         Latitude = latitude;
     }
-    public int getCarParingMonthCostSEK() {
+    public Long getCarParingMonthCostSEK() {
         return CarParingMonthCostSEK;
     }
-    public void setCarParingMonthCostSEK(int carParingMonthCostSEK) {
+    public void setCarParingMonthCostSEK(long carParingMonthCostSEK) {
         CarParingMonthCostSEK = carParingMonthCostSEK;
     }
-    public int getNumberOfEmployee() {
+    public long getNumberOfEmployee() {
         return NumberOfEmployee;
     }
-    public void setNumberOfEmployee(int numberOfEmployee) {
+    public void setNumberOfEmployee(Long numberOfEmployee) {
         NumberOfEmployee = numberOfEmployee;
     }
-    public int getVacationDays() {
+    public long getVacationDays() {
         return VacationDays;
     }
-    public void setVacationDays(int vacationDays) {
+    public void setVacationDays(Long vacationDays) {
         VacationDays = vacationDays;
     }
-    public int getNoticePeriodMonth() {
+    public Long getNoticePeriodMonth() {
         return NoticePeriodMonth;
     }
-    public void setNoticePeriodMonth(int noticePeriodMonth) {
+    public void setNoticePeriodMonth(Long noticePeriodMonth) {
         NoticePeriodMonth = noticePeriodMonth;
     }
-    public int getEducationBudgetSEK() {
+    public Long getEducationBudgetSEK() {
         return EducationBudgetSEK;
     }
-    public void setEducationBudgetSEK(int educationBudgetSEK) {
+    public void setEducationBudgetSEK(Long educationBudgetSEK) {
         EducationBudgetSEK = educationBudgetSEK;
     }
-    public int getWellnessContribution() {
+    public Long getWellnessContribution() {
         return WellnessContribution;
     }
-    public void setWellnessContribution(int wellnessContribution) {
+    public void setWellnessContribution(Long wellnessContribution) {
         WellnessContribution = wellnessContribution;
     }
     public String getCompanyName() {
@@ -70,7 +73,7 @@ public class Company {
         this.companyName = companyName;
     }
     public String getAddress() {
-        return Address;
+        return this.Address;
     }
     public void setAddress(String address) {
         Address = address;
