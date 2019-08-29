@@ -2,9 +2,9 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Search Result</title>
+    <title> Adoor </title>
     <link rel="stylesheet" type="text/css" href="/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="/style1.css" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -32,7 +32,7 @@
         </div>
     </div>
 
-<h1>Choose what you prefer or prioritize</h1>
+<h4 class="header_filter">Choose what you prefer or prioritize</h4>
 <label class="container_filter">Parking
     <input type="checkbox" checked="checked">
     <span class="checkmark"></span>
@@ -49,6 +49,15 @@
     <input type="checkbox">
     <span class="checkmark"></span>
 </label>
+
+
+<h5>Sallary range</h5>
+
+<div class="slidecontainer">
+    <p>Minimum sallary I can accept:</p>
+    <input type="range" min="1" max="100000" value="50" class="slider" id="myRange">
+</div>
+
 
 <div class="container" id="containerid">
     <h2> Companies </h2>
@@ -88,8 +97,8 @@
 </div>
 
 
-<footer id="BodyFooter">
-    Copyright PeopleFirst 2019
+<footer>
+    Copyright © Adoor 2019
 </footer>
 
 </body>
