@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title> Adoor </title>
     <link rel="stylesheet" type="text/css" href="/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/style1.css" />
+    <link rel="stylesheet" type="text/css" href="/style2.css" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -12,43 +12,41 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
-<body id="PageBody">
+<body class="PageBody">
 <div id="BodyContent">
-    <div id="ContentLeft">
-        <div id="Menu">
-            <div th:fragment="topleft">
-                 <br>
-                <br>
-                <a href="/profile" class="button">My Profile</a>
-                <br>
-                <a href="/logout" class="button">Logout</a>
-            </div>
-        </div>
-    </div>
+
+    <img src="Adoore.png" alt="Adoor logotype" height="42" width="42">
+    <button class="buttons">My Profile</button>
+            <button class="buttons">Logout</button>
+
+
         <div class="playground">
             <form>
                 <input type="text" name="search" placeholder="Search..">
             </form>
         </div>
+
     </div>
 
-<h4 class="header_filter">Choose what you prefer or prioritize</h4>
-<label class="container_filter">Parking
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-<label class="container_filter">25+ Hollidays
-    <input type="checkbox">
-    <span class="checkmark"></span>
-</label>
-<label class="container_filter">Near to train station
-    <input type="checkbox">
-    <span class="checkmark"></span>
-</label>
-<label class="container_filter">Flexible working hours
-    <input type="checkbox">
-    <span class="checkmark"></span>
-</label>
+<div class="filter_box">
+
+    <h4 class="header_filter">Choose what you prefer or prioritize</h4>
+    <label class="container_filter">Parking
+        <input type="checkbox" checked="checked">
+        <span class="checkmark"></span>
+    </label>
+    <label class="container_filter">25+ Hollidays
+        <input type="checkbox">
+        <span class="checkmark"></span>
+    </label>
+    <label class="container_filter">Near to train station
+        <input type="checkbox">
+        <span class="checkmark"></span>
+    </label>
+    <label class="container_filter">Flexible working hours
+        <input type="checkbox">
+        <span class="checkmark"></span>
+    </label>
 
 
 <h5>Sallary range</h5>
@@ -57,7 +55,7 @@
     <p>Minimum sallary I can accept:</p>
     <input type="range" min="1" max="100000" value="50" class="slider" id="myRange">
 </div>
-
+</div>
 
 <div class="container" id="containerid">
     <h2> Companies </h2>
