@@ -88,6 +88,24 @@ public class CompanyController {
 
         return "searchResult";
     }
+/*
+    @GetMapping("/filtered")
+    public String getFilteredCompanis(@RequestParam String[] filteredCompanies) {
+        List<Company> companies = companyRepository.getCompanySystem(filteredCompanies);
+        System.out.println(companies.get(0).getBackendProgramLanguage() + " HEAJKJA");
+        return "searchResult";
+    }
+    @PostMapping("/filtered")
+    public String filterCompanies(@RequestParam String [] filteredCompanies) {
+        for(int i = 0; i < filteredCompanies.length; i++) {
+            System.out.println(filteredCompanies[i]);
+        }
+        List<Company> companies = companyRepository.getCompanySystem(filteredCompanies);
+        System.out.println(companies.get(0).getBackendProgramLanguage() + " POST");
+        return "searchResult";
+    }
+
+ */
 
   /*
     @GetMapping("/")

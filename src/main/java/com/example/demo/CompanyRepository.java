@@ -21,10 +21,13 @@ public class CompanyRepository {
     Company rsCompany(ResultSet rs) throws SQLException {
         return new Company(rs.getLong("companyID"),
                         rs.getString("companyName"),
-                        rs.getString("address"));
+                        rs.getString("address"),
+                rs.getString("city"));
 
 
     }
+
+
 
 
     String connstr = "jdbc:sqlserver://localhost;databasename=Peoplefirst;user=dbadmin;password=dbadmin123";

@@ -6,10 +6,11 @@ public class Company {
     boolean BikeRoomAvailable, CarParkingAvailable, MeditationRoom, PermanentWorkplaces, MoreThanOneOffice, Benify, UnionConnected, GroupInsuranceIncluded, BusinessCareIncluded, CollectiveAgreement, OccupationalIncluded, FruitBasketIncluded, BreakfastIncluded, LunchIncluded, DinnerIncluded, ProjectSteeringAgilt;
     public Company() {
     }
-    public Company(Long companyId, String companyName, String address) {
+    public Company(Long companyId, String companyName, String address, String city) {
         this.companyId = companyId;
         this.companyName = companyName;
         this.address = address;
+        this.City = city;
     }
     public Long getCompanyId() {
         return this.companyId;
