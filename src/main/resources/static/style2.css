@@ -3,7 +3,7 @@ body {
   height: 100%;
 }
 .PageBody{
-  background-color:  #e1f7fa;
+  background-color:  yellow;
 
 }
 
@@ -183,6 +183,10 @@ width: 25%;
   height: 25px;
   background: #4CAF50;
   cursor: pointer;
+}
+
+.downside{
+background-color: white;
 }
 
 footer {
