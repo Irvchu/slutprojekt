@@ -1,0 +1,24 @@
+#table {
+ table-layout: fixed;
+ width: 80%;
+ white-space: nowrap;
+ padding:5%;
+}
+#table tr {
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+}
+.table3 {
+padding: 10px;
+border-color:#78D9E9;
+background-color: white;
+}
+
+
+h2 {
+color:red;
+  margin-left:5%;
+}
+
+
