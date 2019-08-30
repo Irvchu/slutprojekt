@@ -3,11 +3,7 @@ body {
   height: 100%;
 }
 .PageBody{
-<<<<<<< HEAD
-  background-color:  red;
-=======
   background-color:  white;
->>>>>>> 481c09dc202cd6b97391264787e0f632c984662d
 
 }
 
@@ -35,17 +31,16 @@ color: black;
   cursor: pointer;
 }
 
-.buttons {
-  background-color: white;
-  color: black;
-  border: 2px solid #50BFBF;
-  border-radius: 8px;
-}
+  .material-icons {
+    float: right;
+    color:#50BFBF;
+    border-radius: 8px;
+  }
 
-.buttons:hover {
-  background-color: #50BFBF;
-  color: white;
-}
+  .material-icons:hover {
+    background-color: #78D9E9;
+    color: white;
+  }
 
 
 .playground {
@@ -61,23 +56,34 @@ color: black;
 width: 100%;
 }
 
+#containerid1{
+width: 50%;
+}
+
     input[type=text] {
-     width: 130px;
-     box-sizing: border-box;
-     border: 2px solid #50BFBF;
-     border-radius: 4px;
-     font-size: 16px;
-     background-color: white;
-     background-image: url('searchicon.png');
-     background-position: 10px 10px;
-     background-repeat: no-repeat;
-     padding: 12px 20px 12px 40px;
-     -webkit-transition: width 0.4s ease-in-out;
-     transition: width 0.4s ease-in-out;
-    }
-    input[type=text]:focus {
-     width: 100%;
-    }
+           width: 80px;
+           box-sizing: border-box;
+           border: 2px solid #024959;
+           border-radius: 50px;
+           font-size: 20px;
+           background-color: #ecebeb;
+           /*background-image: url('searchicon.png');*/
+           background-position: 50px 50px;
+           background-repeat: no-repeat;
+           padding: 10px 10px 10px 40px;
+           -webkit-transition: width 0.4s ease-in-out;
+           transition: width 0.4s ease-in-out;
+          }
+          input[type=text]:focus {
+           width: 150%;
+          }
+
+         #background-image{
+           background-image: url("background.jpg");
+           background-color: #ecebeb;
+           margin: 2%;
+
+         }
 
 /* The container */
 .container {
