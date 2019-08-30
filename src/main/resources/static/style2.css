@@ -3,7 +3,7 @@ body {
   height: 100%;
 }
 .PageBody{
-  background-color:  yellow;
+  background-color:  white;
 
 }
 
@@ -54,7 +54,7 @@ color: black;
 }
 
 #containerid{
-width: 30%;
+width: 100%;
 }
 
     input[type=text] {
@@ -186,12 +186,47 @@ width: 25%;
 }
 
 .downside{
-background-color: white;
+background-color: #024959;
+height: 500px;
+}
+<!-- Irvins CSS -->
+
+#largebox{
+width: 2000px;
+height: 350px;
+background-color: blue;
+padding-top: 50px;
+padding-left: 10px;
+padding-right: 10px;
 }
 
+#box1 {
+height: 300px;
+width: 250px;
+background-color: white;
+float: left;
+margin-left: 20%;
+}
+
+#box2 {
+height: 300px;
+width: 250px;
+background-color: white;
+float: left;
+margin-left: 35px;
+}
+
+#box3 {
+height: 300px;
+width: 250px;
+background-color: white;
+float: left;
+margin-left: 35px;
+}
+
+<!-- Irvins CSS slutar-->
 footer {
       position: fixed;
-      left: 0;
       bottom: 0;
       width: 100%;
       background-color: white;
