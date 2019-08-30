@@ -21,7 +21,20 @@ public class CompanyRepository {
     Company rsCompany(ResultSet rs) throws SQLException {
         return new Company(rs.getLong("companyID"),
                         rs.getString("companyName"),
-                        rs.getString("address"));
+                        rs.getString("address"), null, null, null
+                );
+
+
+    }
+
+    Company rsCompanySystem(ResultSet rs) throws SQLException {
+        return new Company(rs.getLong("companyID"),
+                rs.getString("companyName"),
+                rs.getString("address"), null,
+               // rs.getString(/*"frontendProgramLanguage"*/null),
+                rs.getString("backendProgramLanguage"), null);
+                //rs.getString(null/*"operativeSystem"*/)
+
 
 
     }
@@ -73,13 +86,65 @@ public class CompanyRepository {
     */
 
 
+   /*public List<Company> setProgrammingLanguages() {
+       try {
+           Connection conn = DriverManager.getConnection(connstr);
+       } catch (SQLException e) {
+           e.printStackTrace();
+       }
+   }*/
+
+   public String setQuery(int size) {
+       if(size == 1) {
+           return "SELECT * FROM Company, System where Company.companyID = System.companyID" +
+                   " where BackendProgramLanguage = ?";
+       }
+       return "hej";
+   }
+    public List<Company> getCompanySystem(String[] filteredCompanies) {
+        int size = filteredCompanies.length;
+        System.out.println(size + "size");
+        String input = filteredCompanies[0];
+        List<Company> companies = new ArrayList<>();
+
+        //"SELECT * FROM Company"
+        try {Connection conn = DriverManager.getConnection(connstr);
+             //PreparedStatement ps = conn.prepareStatement(setQuery(size));
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company, System " +
+                     "where Company.companyID = System.companyID AND System.BackendProgramLanguage = 'Java'");
+
+             //ps.setString(1, "Java");
+             ResultSet rs = ps.executeQuery();
+            System.out.println(rs.toString());
+
+             /*ResultSet rs = stmt.executeQuery("SELECT * FROM Company, System" +
+                     "where Company.companyID = System.companyID"))*/
+             /*ResultSet rs = stmt.executeQuery("SELECT * FROM Company" +
+                     "INNER JOIN System ON Company.companyID = System.companyID"))*/ {
+
+            while (rs.next()) {
+
+                companies.add(rsCompanySystem(rs));
+            }
+        } }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return companies;
+    }
+
     public List<Company> getCompany(String search) {
 
+        //"SELECT * FROM Company"
         try (Connection conn = DriverManager.getConnection(connstr);
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM COMPANY")) {
+             ResultSet rs = stmt.executeQuery("SELECT * FROM Company, System" +
+                     "where Company.companyID = System.companyID"))
+             /*ResultSet rs = stmt.executeQuery("SELECT * FROM Company" +
+                     "INNER JOIN System ON Company.companyID = System.companyID"))*/ {
+
             while (rs.next()) {
-                companies.add(rsCompany(rs));
+
+                companies.add(rsCompanySystem(rs));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -114,6 +179,7 @@ public class CompanyRepository {
             //setstring parameter is basically and index for the "=" in the query
             ps.setString(1, search);
             ps.setString(2, search);
+
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {
                 companies.add(rsCompany(rs));

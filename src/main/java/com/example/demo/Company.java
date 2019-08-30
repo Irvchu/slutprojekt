@@ -1,15 +1,29 @@
 package com.example.demo;
 public class Company {
     Long companyId;
-    int longitude, latitude, CarParingMonthCostSEK, NumberOfEmployee, VacationDays, NoticePeriodMonth, EducationBudgetSEK, WellnessContribution;
-    String companyName, address, PostalCode, City, Tag, ProfitMarginal, NetSalesChange, PropotionOfWomanWithinITDep, PropotionOfWomanWithinBoard, PropotionOfWomanWithinLeadManagement, StaffTurnover, BackendProgramLanguage, FrontendProgramLanguage, OperativSystem;
-    boolean BikeRoomAvailable, CarParkingAvailable, MeditationRoom, PermanentWorkplaces, MoreThanOneOffice, Benify, UnionConnected, GroupInsuranceIncluded, BusinessCareIncluded, CollectiveAgreement, OccupationalIncluded, FruitBasketIncluded, BreakfastIncluded, LunchIncluded, DinnerIncluded, ProjectSteeringAgilt;
+    int longitude, latitude, carParingMonthCostSEK, numberOfEmployee, vacationDays, noticePeriodMonth, EducationBudgetSEK, WellnessContribution;
+    String companyName, address, postalCode, city, tag, ProfitMarginal, NetSalesChange, PropotionOfWomanWithinITDep, PropotionOfWomanWithinBoard, PropotionOfWomanWithinLeadManagement, StaffTurnover, backendProgramLanguage, frontendProgramLanguage, operativeSystem;
+
+    boolean  BikeRoomAvailable, CarParkingAvailable, MeditationRoom, PermanentWorkplaces, MoreThanOneOffice, Benify, UnionConnected, GroupInsuranceIncluded, BusinessCareIncluded, CollectiveAgreement, OccupationalIncluded, FruitBasketIncluded, BreakfastIncluded, LunchIncluded, DinnerIncluded, ProjectSteeringAgilt;
+
     public Company() {
     }
-    public Company(Long companyId, String companyName, String address) {
+   /* public Company(Long companyId, String companyName, String address) {
         this.companyId = companyId;
         this.companyName = companyName;
         this.address = address;
+
+    }*/
+
+    public Company(Long companyId, String companyName, String address, String frontendProgramLanguage,
+                   String backendProgramLanguage, String operativeSystem) {
+        this.companyId = companyId;
+        this.companyName = companyName;
+        this.address = address;
+        this.frontendProgramLanguage = frontendProgramLanguage;
+        this.backendProgramLanguage = backendProgramLanguage;
+        this.operativeSystem = operativeSystem;
+
     }
     public Long getCompanyId() {
         return this.companyId;
@@ -30,28 +44,28 @@ public class Company {
         latitude = latitude;
     }
     public int getCarParingMonthCostSEK() {
-        return CarParingMonthCostSEK;
+        return carParingMonthCostSEK;
     }
     public void setCarParingMonthCostSEK(int carParingMonthCostSEK) {
-        CarParingMonthCostSEK = carParingMonthCostSEK;
+        this.carParingMonthCostSEK = carParingMonthCostSEK;
     }
     public int getNumberOfEmployee() {
-        return NumberOfEmployee;
+        return numberOfEmployee;
     }
     public void setNumberOfEmployee(int numberOfEmployee) {
-        NumberOfEmployee = numberOfEmployee;
+        this.numberOfEmployee = numberOfEmployee;
     }
     public int getVacationDays() {
-        return VacationDays;
+        return vacationDays;
     }
     public void setVacationDays(int vacationDays) {
-        VacationDays = vacationDays;
+        this.vacationDays = vacationDays;
     }
     public int getNoticePeriodMonth() {
-        return NoticePeriodMonth;
+        return noticePeriodMonth;
     }
     public void setNoticePeriodMonth(int noticePeriodMonth) {
-        NoticePeriodMonth = noticePeriodMonth;
+        this.noticePeriodMonth = noticePeriodMonth;
     }
     public int getEducationBudgetSEK() {
         return EducationBudgetSEK;
@@ -78,22 +92,22 @@ public class Company {
         this.address = address;
     }
     public String getPostalCode() {
-        return PostalCode;
+        return postalCode;
     }
     public void setPostalCode(String postalCode) {
-        PostalCode = postalCode;
+        this.postalCode = postalCode;
     }
     public String getCity() {
-        return City;
+        return city;
     }
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
     public String getTag() {
-        return Tag;
+        return tag;
     }
     public void setTag(String tag) {
-        Tag = tag;
+        this.tag = tag;
     }
     public String getProfitMarginal() {
         return ProfitMarginal;
@@ -132,22 +146,22 @@ public class Company {
         StaffTurnover = staffTurnover;
     }
     public String getBackendProgramLanguage() {
-        return BackendProgramLanguage;
+        return backendProgramLanguage;
     }
     public void setBackendProgramLanguage(String backendProgramLanguage) {
-        BackendProgramLanguage = backendProgramLanguage;
+        this.backendProgramLanguage = backendProgramLanguage;
     }
     public String getFrontendProgramLanguage() {
-        return FrontendProgramLanguage;
+        return frontendProgramLanguage;
     }
     public void setFrontendProgramLanguage(String frontendProgramLanguage) {
-        FrontendProgramLanguage = frontendProgramLanguage;
+        this.frontendProgramLanguage = frontendProgramLanguage;
     }
-    public String getOperativSystem() {
-        return OperativSystem;
+    public String getOperativeSystem() {
+        return operativeSystem;
     }
-    public void setOperativSystem(String operativSystem) {
-        OperativSystem = operativSystem;
+    public void setOperativeSystem(String operativeSystem) {
+        this.operativeSystem = operativeSystem;
     }
     public boolean isBikeRoomAvailable() {
         return BikeRoomAvailable;

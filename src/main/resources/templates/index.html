@@ -25,9 +25,6 @@
                 <a href="/logout" class="button">Logout</a>
             </div>
         </div>
-        <div id="Latest">
-            <img src="/beermug_small.png" width="80%" />
-        </div>
     </div>
         <div class="playground">
             <form action="/searchResult" method="post">
@@ -35,9 +32,22 @@
 
             </form>
         </div>
-    </div>
+<form action="/filtered" method="post">
+    <ul>
+        <li th:each="checkboxValue: ${multiCheckboxAllValues}">
+            <input type="checkbox"
+                   name="filteredCompanies"
+                   th:value="${checkboxValue}" />
+            <label th:text="${checkboxValue}">
+                   <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
+                    </label>
+        </li>
+        <input type="submit" value="GO!">
+    </ul>
+</form>
 
 <h1>Choose what you prefer or prioritize</h1>
+<!--
 <label class="container_filter">Parking
     <input type="checkbox" checked="checked">
     <span class="checkmark"></span>
@@ -53,19 +63,24 @@
 <label class="container_filter">Flexible working hours
     <input type="checkbox">
     <span class="checkmark"></span>
-</label>
+</label> -->
 
-<div class="container" id="containerid">
+<!--
+<div class="container" id="containerId">
     <h2> Companies </h2>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel_slide" data-ride="carousel">
+    -->
         <!-- Indicators -->
+
+        <!--
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
-
+    -->
         <!-- Wrapper for slides -->
+       <!--
         <div class="carousel-inner">
             <div class="item active">
                 <img src="ICA-logotyp.png" alt="Avanza" style="width:100%;">
@@ -79,8 +94,10 @@
                 <img src="spotify.png" alt="Spotify" style="width:100%;">
             </div>
         </div>
+        -->
 
         <!-- Left and right controls -->
+       <!--
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
@@ -91,6 +108,7 @@
         </a>
     </div>
 </div>
+-->
 
 
 <footer id="BodyFooter">

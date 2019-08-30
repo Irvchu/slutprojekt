@@ -25,7 +25,8 @@
             </ul>
 
             <ul>
-                <li th:each="company: ${session.Companies}" th:text="${company.companyName + company.address}">
+                <li th:each="company: ${session.Companies}" th:text="${company.companyName + company.address + company.backendProgramLanguage
+                + company.frontendProgramLanguage}">
                 </li>
             </ul>
         </div>
