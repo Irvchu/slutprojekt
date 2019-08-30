@@ -3,7 +3,7 @@ body {
   height: 100%;
 }
 .PageBody{
-  background-color:  yellow;
+  background-color:  red;
 
 }
 
@@ -50,7 +50,7 @@ color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #50BFBF;
 }
 
 #containerid{
