@@ -109,7 +109,9 @@ width: 100%;
 }
 
 .filter_box{
-width: 25%;
+width: 100%;
+height: 40%;
+margin-bottom: 10%;
 }
 
 /* On mouse-over, add a grey background color */
@@ -186,52 +188,105 @@ width: 25%;
 }
 
 .downside{
+padding-top: 5%;
+margin-top: 5%;
 background-color: #024959;
-height: 500px;
+height: 50vw;
+margin: 2%;
 }
 <!-- Irvins CSS -->
 
 #largebox{
-width: 2000px;
-height: 350px;
+width: 100%;
+height: 30px;
 background-color: blue;
 padding-top: 50px;
 padding-left: 10px;
 padding-right: 10px;
 }
 
+.threeboxes{
+color: gray;
+text-align: center;
+}
+
 #box1 {
-height: 300px;
-width: 250px;
+height: 30vw;
+width: 25vw;
 background-color: white;
 float: left;
-margin-left: 20%;
+margin-left: 5%;
 }
 
 #box2 {
-height: 300px;
-width: 250px;
+height: 30vw;
+width: 25vw;
 background-color: white;
 float: left;
 margin-left: 35px;
 }
 
 #box3 {
-height: 300px;
-width: 250px;
+height: 30vw;
+width: 25vw;
 background-color: white;
 float: left;
 margin-left: 35px;
 }
 
-<!-- Irvins CSS slutar-->
-footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: white;
-      color: #50BFBF;
-      text-align: center;
+<!--TESTAR DROP DOWN DIV-->
+.toggle_wrapper
+{
+
 }
 
+#wrap
+{
+    margin-top: 0px;
+    margin-bottom: 30px;
+    background: gray;
+    width: auto; height: 200px;
+}
+
+
+
+#wrap_toggle
+{
+    display: block;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    background: #3FA8BF;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-variant: small-caps;
+    box-shadow: 2px 2px 3px #888888;
+    text-decoration:none;
+}
+
+#wrap_toggle:hover
+{
+    text-decoration:none;
+    border-top: 1px groove white;
+    border-left: 1px groove white;
+    border-bottom: 1px solid #7B7B78;
+    border-right: 1px solid #7B7B78;
+    color: #3FA8BF;
+    background: white;
+    box-shadow: 1px 1px 2px #888888;
+}
+
+
+<!-- Irvins CSS slutar-->
+
+footer {
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     background-color: white;
+     color: white;
+     text-align: center;
+}
 
