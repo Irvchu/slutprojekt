@@ -6,7 +6,7 @@
     <title>Search Result</title>
   <link rel="stylesheet" type="text/css" href="/normalize.css" />
     <!--<link rel="stylesheet" type="text/css" href="/style2.css" />-->
-       <link rel="stylesheet" type="text/css" href="/style4.css" />
+       <link rel="stylesheet" type="text/css" href="/style9.css" />
        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
 
    </head>
@@ -22,39 +22,40 @@
            <form action="/searchResult" method="post" th:fragment="smallsearch"> <!-- id="SmallSearch">-->
                 <input type="text" style="width: 150px;" name="search" placeholder="Search...">
                 <input type="submit" value="GO!">
-            </form>
 
+           </form>
             <ul>
                 <li  th:each="company: ${Companies}" >
-                    <a th:href="'/comparator/' +${company.companyId}"  th:text="${company.companyName}"></a>
+                    <a th:href="'/searchResult/' +${company.companyId}"  th:text="${company.companyName}"></a>
                 </li>
             </ul>
-            <h2>Your choose of the companies</h2>
 
-            <div id="table">
-            <table >
+            <div class="background">
+                <div class="container">
+                    <div class="panel pricing-table">
 
-
-                <tr>
-                    <th scope="row">Company</th>
-                    <td class="table3" th:each="company: ${session.Companies}" > <div class="table1" th:text="${company.companyName} + ' '"></div></td>
-                </tr>
-
-
-                <tr>
-                    <th scope="row">Address</th>
-                <td class="table3" th:each="company: ${session.Companies}" > <div class="table1" th:text="${company.address} + ' '"></div></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">City</th>
-                    <td class="table3" th:each="company: ${session.Companies}" > <div class="table1" th:text="${company.city} + ' '"></div></td>
-                </tr>
+                        <div class="pricing-plan" th:each="company: ${session.Companies}">
+                            <ul class="pricing-features">
+                                <li class="pricing-features-item">  <img th:src="${company.logo}" alt = "test bild" height="120px" width="120px" ></li>
+                                <li class="pricing-features-item"  th:text="${company.companyName}"></li>
+                                <li class="pricing-features-item"  th:text="${company.address}"></li>
+                                <li class="pricing-features-item">Java</li>
+                                <li class="pricing-features-item">Bikeroom: Yes</li>
+                                <li class="pricing-features-item">Woman Within IT: 40%</li>
+                                <li class="pricing-features-item">Vacation Days: 25</li>
 
 
-            </table>
 
-        </div>
+
+                            <a href="#/" class="pricing-button">Apply Now</a>
+                            </ul>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
 
     </div>
 

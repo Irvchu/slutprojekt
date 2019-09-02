@@ -22,10 +22,10 @@ public class CompanyRepository {
         return new Company(rs.getLong("companyID"),
                         rs.getString("companyName"),
                         rs.getString("address"),
-                rs.getString("city"));
-
-
+                rs.getString("city"),
+                rs.getString("logo"));
     }
+
 
 
 

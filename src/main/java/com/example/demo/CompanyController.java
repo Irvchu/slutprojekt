@@ -74,7 +74,7 @@ public class CompanyController {
         return "searchResult";
     }
 
-    @GetMapping("/comparator/{id}")
+    @GetMapping("/searchResult/{id}")
     public String compareCompanies(@PathVariable Long id, HttpSession session) {
         Company company = companyRepository.getCompanyById(id);
 
