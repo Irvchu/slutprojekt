@@ -24,9 +24,17 @@
                 </li>
             </ul>
 
+
             <ul>
                 <li th:each="company: ${session.Companies}" th:text="${company.companyName + company.address + company.backendProgramLanguage
                 + company.frontendProgramLanguage}">
+                </li>
+            </ul>
+
+            <ul>
+                <li th.each="company: ${filteredCompaniesList}">
+                    <a th:href="'/filtered/' +${company.companyId}" th:text="${company.companyName + company.address + company.backendProgramLanguage
+                    + company.frontendProgramLanguage}">
                 </li>
             </ul>
         </div>

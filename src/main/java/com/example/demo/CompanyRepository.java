@@ -34,9 +34,6 @@ public class CompanyRepository {
                // rs.getString(/*"frontendProgramLanguage"*/null),
                 rs.getString("backendProgramLanguage"), null);
                 //rs.getString(null/*"operativeSystem"*/)
-
-
-
     }
 
 
@@ -101,36 +98,80 @@ public class CompanyRepository {
        }
        return "hej";
    }
-    public List<Company> getCompanySystem(String[] filteredCompanies) {
+
+    /**
+     * Method for making queries for BackendProgrammingLanguages
+     * @param filteredCompanies
+     * @return
+     */
+   public List<Company> filterQueries(String[] filteredCompanies, List<Company> companiesFiltered) {
+
+       for(int i = 0; i < filteredCompanies.length; i++) {
+           String filteredString = filteredCompanies[i];
+           filteredCompanies[i] = "%"+filteredString+"%";
+            companiesFiltered.add(filterQueriesHelperBackendProgLang(filteredCompanies[i]));
+       }
+       System.out.println(companiesFiltered.get(0).getCompanyName()+ " filterQueries");
+       return companiesFiltered;
+   }
+
+    /**
+     * A helper method for making queries for BackendProgrammingLanguages
+     * @param filteredString
+     * @return
+     */
+   public Company filterQueriesHelperBackendProgLang(String filteredString) {
+       Company company = null;
+       System.out.println(filteredString + "Filtrerad Sträng");
+
+       try {
+           Connection conn = DriverManager.getConnection(connstr);
+           PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company, System " +
+                   "where Company.companyID = System.companyID AND System.BackendProgramLanguage = ?");
+           ps.setString(1, filteredString);
+           ResultSet rs = ps.executeQuery();
+
+           while(rs.next()) {
+               company = rsCompanySystem(rs);
+               System.out.println(company.getCompanyId() + "id in filterquery");
+               System.out.println(company.getBackendProgramLanguage() + "filterquery");
+           }
+       }catch (SQLException e) {
+           e.printStackTrace();
+       }
+       return company;
+
+   }
+
+    /*public List<Company> getCompanySystem(String[] filteredCompanies) {
         int size = filteredCompanies.length;
         System.out.println(size + "size");
         String input = filteredCompanies[0];
-        List<Company> companies = new ArrayList<>();
+        List<Company> companies = new ArrayList<>();*/
 
         //"SELECT * FROM Company"
-        try {Connection conn = DriverManager.getConnection(connstr);
-             //PreparedStatement ps = conn.prepareStatement(setQuery(size));
-             PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company, System " +
-                     "where Company.companyID = System.companyID AND System.BackendProgramLanguage = 'Java'");
+      /*  try {Connection conn = DriverManager.getConnection(connstr);
+            //PreparedStatement ps = conn.prepareStatement(setQuery(size));
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company, System " +
+                    "where Company.companyID = System.companyID AND System.BackendProgramLanguage = 'Java'");
 
-             //ps.setString(1, "Java");
-             ResultSet rs = ps.executeQuery();
-            System.out.println(rs.toString());
+            //ps.setString(1, "Java");
+            ResultSet rs = ps.executeQuery();*/
 
              /*ResultSet rs = stmt.executeQuery("SELECT * FROM Company, System" +
                      "where Company.companyID = System.companyID"))*/
              /*ResultSet rs = stmt.executeQuery("SELECT * FROM Company" +
-                     "INNER JOIN System ON Company.companyID = System.companyID"))*/ {
+                     "INNER JOIN System ON Company.companyID = System.companyID"))*/ /*{
 
-            while (rs.next()) {
+                while (rs.next()) {
 
-                companies.add(rsCompanySystem(rs));
-            }
-        } }catch (Exception e) {
+                    companies.add(rsCompanySystem(rs));
+                }
+            } }catch (Exception e) {
             e.printStackTrace();
         }
         return companies;
-    }
+    }*/
 
     public List<Company> getCompany(String search) {
 

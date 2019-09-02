@@ -91,18 +91,23 @@ public class CompanyController {
     }
 
     @GetMapping("/filtered")
-    public String getFilteredCompanis(@RequestParam String[] filteredCompanies) {
-        List<Company> companies = companyRepository.getCompanySystem(filteredCompanies);
-        System.out.println(companies.get(0).getBackendProgramLanguage() + " HEAJKJA");
+    public String getFilteredCompanis(@RequestParam String[] filteredCompanies, Model model) {
+        List<Company> filteredCompaniesList = new ArrayList<>();
+        filteredCompaniesList.addAll(companyRepository.filterQueries(filteredCompanies, filteredCompaniesList));
+        //filteredCompaniesList. = companyRepository.filterQueries(filteredCompanies, filteredCompaniesList);
+        //List<Company> companies = companyRepository.filterQueries(filteredCompanies);
+        System.out.println(filteredCompaniesList.get(1).getBackendProgramLanguage() +" HEAJKJA");
+        model.addAttribute("filteredCompaniesList", filteredCompaniesList);
         return "searchResult";
     }
     @PostMapping("/filtered")
-    public String filterCompanies(@RequestParam String [] filteredCompanies) {
+    public String filterCompanies(@RequestParam String [] filteredCompanies, Model model,@RequestParam List<Company> filteredCompaniesList) {
+
         for(int i = 0; i < filteredCompanies.length; i++) {
-            System.out.println(filteredCompanies[i]);
+            System.out.println(filteredCompanies[i] + "filterCompanies");
         }
-        List<Company> companies = companyRepository.getCompanySystem(filteredCompanies);
-        System.out.println(companies.get(0).getBackendProgramLanguage() + " POST");
+        model.addAttribute("CompaniesFiltered", filteredCompaniesList);
+        System.out.println(filteredCompaniesList.get(0).getBackendProgramLanguage()+ "test");
 
         return "searchResult";
     }
