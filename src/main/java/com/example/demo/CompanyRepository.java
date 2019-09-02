@@ -30,10 +30,10 @@ public class CompanyRepository {
     Company rsCompanySystem(ResultSet rs) throws SQLException {
         return new Company(rs.getLong("companyID"),
                 rs.getString("companyName"),
-                rs.getString("address"), null,
-               // rs.getString(/*"frontendProgramLanguage"*/null),
-                rs.getString("backendProgramLanguage"), null);
-                //rs.getString(null/*"operativeSystem"*/)
+                rs.getString("address"),
+                rs.getString("frontendProgramLanguage"),
+                rs.getString("backendProgramLanguage"),
+                rs.getString("operativeSystem"));
     }
 
 
@@ -104,15 +104,15 @@ public class CompanyRepository {
      * @param filteredCompanies
      * @return
      */
-   public List<Company> filterQueries(String[] filteredCompanies, List<Company> companiesFiltered) {
+   public List<Company> filterQueries(String[] filteredCompanies, List<Company> filteredCompaniesList) {
 
        for(int i = 0; i < filteredCompanies.length; i++) {
            String filteredString = filteredCompanies[i];
            filteredCompanies[i] = "%"+filteredString+"%";
-            companiesFiltered.add(filterQueriesHelperBackendProgLang(filteredCompanies[i]));
+            filteredCompaniesList.add(filterQueriesHelperBackendProgLang(filteredCompanies[i]));
        }
-       System.out.println(companiesFiltered.get(0).getCompanyName()+ " filterQueries");
-       return companiesFiltered;
+       System.out.println(filteredCompaniesList.get(0).getCompanyName()+ " filterQueries");
+       return filteredCompaniesList;
    }
 
     /**
@@ -127,11 +127,14 @@ public class CompanyRepository {
        try {
            Connection conn = DriverManager.getConnection(connstr);
            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company, System " +
-                   "where Company.companyID = System.companyID AND System.BackendProgramLanguage = ?");
+           "where Company.companyID = System.companyID AND System.BackendProgramLanguage = ?");
+           System.out.println("utanför");
            ps.setString(1, filteredString);
+           System.out.println("Inne i loop");
            ResultSet rs = ps.executeQuery();
+           System.out.println("hea");
 
-           while(rs.next()) {
+           if(rs.next()) {
                company = rsCompanySystem(rs);
                System.out.println(company.getCompanyId() + "id in filterquery");
                System.out.println(company.getBackendProgramLanguage() + "filterquery");

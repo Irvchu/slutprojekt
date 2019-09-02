@@ -31,12 +31,13 @@
                 </li>
             </ul>
 
+            <form action="/filtered">
             <ul>
-                <li th.each="company: ${filteredCompaniesList}">
-                    <a th:href="'/filtered/' +${company.companyId}" th:text="${company.companyName + company.address + company.backendProgramLanguage
+                <li th.each="company: ${filteredCompaniesList}" th:text="${company.companyName + company.address + company.backendProgramLanguage
                     + company.frontendProgramLanguage}">
                 </li>
             </ul>
+            </form>
         </div>
 
     </div>
