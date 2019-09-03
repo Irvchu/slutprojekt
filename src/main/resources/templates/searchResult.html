@@ -8,22 +8,25 @@
     <link rel="stylesheet" type="text/css" href="/style20.css" />
        <link rel="stylesheet" type="text/css" href="/styletable11.css" />
        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
    </head>
-   <body> <!--id="PageBody"-->
+<body class="PageBody">
+<div id="BodyContent">
 
 
-<div> <!--id="BodyContent">-->
+    <img src="Adoore.png" alt="Adoor logotype" height="150" width="150">
+    <button class="material-icons">person</button>
+    <button class="material-icons">notifications</button>
+    <div class="playground">
 
 
-    <div><!-- id="ContentLeft">-->
-        <div><!-- id="Menu">-->
-
-           <form action="/searchResult" method="post" th:fragment="smallsearch"> <!-- id="SmallSearch">-->
-                <input type="text" style="width: 150px;" name="search" placeholder="Search...">
-                <input type="submit" value="GO!">
-
-           </form>
+        <form action="/searchResult" method="post" th:fragment="smallsearch">
+            <input type="text" name="search" placeholder="Search..">
+            <input type="submit" value="GO!">
+        </form>
+    </div>
+</div>
 
             <form action="/filtered" method="post">
                 <ul>
