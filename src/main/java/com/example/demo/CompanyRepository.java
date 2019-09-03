@@ -167,23 +167,8 @@ public class CompanyRepository {
                              "Inner Join EmployeeBenefit ON Company.CompanyID = EmployeeBenefit.CompanyID " +
                              "INNER JOIN CompanyFacility ON Company.CompanyID = CompanyFacility.CompanyID " +
                      "Inner Join System ON Company.CompanyID = System.CompanyID " +
-                     "Where Company.CompanyID = ?")
-             /*PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Company INNER JOIN CompanyFacility ON Company.CompanyID = CompanyFacility.CompanyID\n" +
-                     "INNER JOIN CompanyGeneral ON Company.CompanyID = CompanyGeneral.CompanyID\n" +
-                     "Inner Join EmployeeAgreement ON Company.CompanyID  = EmployeeAgreement.CompanyID\n" +
-                     "Inner Join EmployeeBenefit ON Company.CompanyID = EmployeeBenefit.CompanyID\n" +
-                     "Inner Join System ON Company.CompanyID = System.CompanyID WHERE Company.CompanyID = 1");
+                     "Where Company.CompanyID = ?")) {
 
-        */) {
-            System.out.println("SELECT * " +
-                    "FROM Company " +
-
-                    "INNER JOIN CompanyGeneral ON Company.CompanyID = CompanyGeneral.CompanyID " +
-                    "Inner Join EmployeeAgreement ON Company.CompanyID  = EmployeeAgreement.CompanyID " +
-                    "Inner Join EmployeeBenefit ON Company.CompanyID = EmployeeBenefit.CompanyID " +
-                    "INNER JOIN CompanyFacility ON Company.CompanyID = CompanyFacility.CompanyID " +
-                    "Inner Join System ON Company.CompanyID = System.CompanyID " +
-                    "Where Company.CompanyID = ?");
             stmt.setString(1,Long.toString(id));
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
@@ -226,5 +211,83 @@ public class CompanyRepository {
         return (int)Math.ceil(new Double(companies.size()) / 4);
     }
 
+    /**
+     * A helper method for making queries for BackendProgrammingLanguages
+     * @param filteredString
+     * @return
+     */
+    public Company filterQueriesHelperBackendProgLang(String filteredString) {
+        Company company = null;
+        try {
+            Connection conn = DriverManager.getConnection(connstr);
+            PreparedStatement ps = conn.prepareStatement("SELECT * " +
+                    "FROM Company " +
 
+                    "INNER JOIN CompanyGeneral ON Company.CompanyID = CompanyGeneral.CompanyID " +
+                    "Inner Join EmployeeAgreement ON Company.CompanyID  = EmployeeAgreement.CompanyID " +
+                    "Inner Join EmployeeBenefit ON Company.CompanyID = EmployeeBenefit.CompanyID " +
+                    "INNER JOIN CompanyFacility ON Company.CompanyID = CompanyFacility.CompanyID " +
+                    "Inner Join System ON Company.CompanyID = System.CompanyID " +
+                    "Where Company.CompanyID = System.CompanyID AND System.backendProgramLanguage = ?");
+
+            ps.setString(1, filteredString);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+                company = rsEverything(rs);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return company;
+    }
+
+    /**
+     * Method for making queries for BackendProgrammingLanguages
+     * @param filteredCompanies
+     * @return
+     */
+    public List<Company> filterQueriesBackend(String[] filteredCompanies, List<Company> filteredCompaniesList) {
+        for(int i = 0; i < filteredCompanies.length; i++) {
+            String filteredString = filteredCompanies[i];
+            filteredCompanies[i] = "%"+filteredString+"%";
+            filteredCompaniesList.add(filterQueriesHelperBackendProgLang(filteredCompanies[i]));
+        }
+        System.out.println(filteredCompaniesList.get(0).getCompanyName()+ " filterQueries");
+        return filteredCompaniesList;
+    }
+
+    public Company filterQueriesHelperFrontendProgLang(String filteredString) {
+        Company company = null;
+        try {
+            Connection conn = DriverManager.getConnection(connstr);
+            PreparedStatement ps = conn.prepareStatement("SELECT * " +
+                    "FROM Company " +
+
+                    "INNER JOIN CompanyGeneral ON Company.CompanyID = CompanyGeneral.CompanyID " +
+                    "Inner Join EmployeeAgreement ON Company.CompanyID  = EmployeeAgreement.CompanyID " +
+                    "Inner Join EmployeeBenefit ON Company.CompanyID = EmployeeBenefit.CompanyID " +
+                    "INNER JOIN CompanyFacility ON Company.CompanyID = CompanyFacility.CompanyID " +
+                    "Inner Join System ON Company.CompanyID = System.CompanyID " +
+                    "Where Company.CompanyID = System.CompanyID AND System.frontendProgramLanguage = ?");
+
+            ps.setString(1, filteredString);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+                company = rsEverything(rs);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return company;
+    }
+
+    public List<Company> filterQueriesFrontend(String[] filteredCompanies, List<Company> filteredCompaniesList) {
+        for(int i = 0; i < filteredCompanies.length; i++) {
+            String filteredString = filteredCompanies[i];
+            filteredCompanies[i] = "%"+filteredString+"%";
+            filteredCompaniesList.add(filterQueriesHelperBackendProgLang(filteredCompanies[i]));
+        }
+        System.out.println(filteredCompaniesList.get(0).getCompanyName()+ " filterQueries");
+        return filteredCompaniesList;
+    }
 }

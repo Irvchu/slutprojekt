@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <title>Search Result</title>
   <link rel="stylesheet" type="text/css" href="/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/style2.css" />
-       <link rel="stylesheet" type="text/css" href="/style11.css" />
+    <link rel="stylesheet" type="text/css" href="/style20.css" />
+       <link rel="stylesheet" type="text/css" href="/styletable11.css" />
        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
 
    </head>
@@ -24,9 +24,19 @@
                 <input type="submit" value="GO!">
 
            </form>
+
+            <form action="/filtered" method="post">
+                <ul>
+                    <li th:each="company: ${filteredCompaniesList}" th:text="${company.companyName + company.address + company.backendProgramLanguage
+                   + company.frontendProgramLanguage}">
+                    </li>
+                </ul>
+            </form>
+
             <ul>
 
-                <li  th:each="company: ${Companies}"  >
+                <li th:each="company: ${Companies}"  >
+                    <span th:if="${Companies == null} "> <p>No search results</p>  </span>
                     <a th:href="'/searchResult/' +${company.companyId}"  th:text="${company.companyName}"></a>
                 </li>
 

@@ -18,7 +18,7 @@ html {
 
 .background::after {
   content: '';
-  
+
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#60a9ff', endColorstr='#4394f4',GradientType=0 );
   height: 350px;
   left: 0;
