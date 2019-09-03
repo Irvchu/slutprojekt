@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Search Result</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
    <!-- <link rel="stylesheet" type="text/css" href="/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/style2.css" />
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" /> -->
@@ -21,10 +22,20 @@
      <link rel="stylesheet" type="text/css" href="/style2.css" />
      <link rel="stylesheet" type="text/css" href="/styleTable.css" />
      <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
+=======
+  <link rel="stylesheet" type="text/css" href="/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/style2.css" />
+       <link rel="stylesheet" type="text/css" href="/style11.css" />
+       <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
 
- </head>
- <body> <!--id="PageBody"-->
+   </head>
+   <body> <!--id="PageBody"-->
+
+>>>>>>> bdaaf05d4c55185b3b008c1d3fc8ce42edac97ab
+
 <div> <!--id="BodyContent">-->
+
+
     <div><!-- id="ContentLeft">-->
         <div><!-- id="Menu">-->
 
@@ -32,34 +43,50 @@
 >>>>>>> a0adc2e81facc3db8aa00b373a89d50aaa132c1d
                 <input type="text" style="width: 150px;" name="search" placeholder="Search...">
                 <input type="submit" value="GO!">
-            </form>
 
+           </form>
             <ul>
-                <li  th:each="company: ${Companies}" >
-                    <a th:href="'/comparator/' +${company.companyId}"  th:text="${company.companyName}"></a>
+
+                <li  th:each="company: ${Companies}"  >
+                    <a th:href="'/searchResult/' +${company.companyId}"  th:text="${company.companyName}"></a>
                 </li>
+
+                <li th:if = "${Company != null}" >
+
+                    <a th:href="'/searchResult/' +${Company.companyId}"  th:text="${Company.companyName}"></a>
+                </li>
+
+
+
             </ul>
-            <h2>Your choose of the companies</h2>
 
-            <div id="table">
-            <table >
+            <div class="background">
+                <div class="container">
+                    <div class="panel pricing-table">
 
+                        <div class="pricing-plan" th:each="company: ${session.CompaniesAll}">
+                            <ul class="pricing-features">
+                                <li class="pricing-features-item">  <img th:src="'/'+ ${company.logo}" alt = "test bild" height="120px" width="120px" ></li>
+                                <li class="pricing-features-item"  th:text="${company.companyName}"></li>
+                                <li class="pricing-features-item"  th:text="${company.address}"></li>
+                                <li class="pricing-features-item"  th:text="${company.educationBudgetSEK}"></li>
 
-                <tr>
-                    <td class="table3" th:each="company: ${session.Companies}" ><div id="table1" th:text="${company.companyName} + ' '"></div></td>
-                </tr>
-
-
-                <tr>
-                <br>
-                <td class="table3" th:each="company: ${session.Companies}" th:text="${company.address} + ' ' "></td>
-                </tr>
-
-
-            </table>
+                                <li class="pricing-features-item">Bikeroom: Yes</li>
+                                <li class="pricing-features-item">Woman Within IT: 40%</li>
+                                <li class="pricing-features-item">Vacation Days: 25</li>
 
 
-        </div>
+
+
+                            <a href="#/" class="pricing-button">Apply Now</a>
+                            </ul>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
 
     </div>
 
@@ -102,6 +129,7 @@
     <footer>
     Copyright © Adoor 2019
     </footer>
+</div>
 </div>
 </body>
 </html>

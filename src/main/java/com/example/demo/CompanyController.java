@@ -17,6 +17,8 @@ import java.util.List;
 @Controller
 public class CompanyController {
 
+    List<Company> companiesAll;
+
 
     @Autowired
     CompanyRepository companyRepository;
@@ -50,6 +52,14 @@ public class CompanyController {
     }
 
     /**
+    @GetMapping("/searchResult/{id}")
+    public String searchCompanyID(@PathVariable long id) {
+
+        return "searchResult";
+    }
+    */
+
+    /**
      * Postmapping method which requests a parameter such as a company name or some
      * other tag the user would like to search for.
      * @param search
@@ -62,32 +72,63 @@ public class CompanyController {
         search = "%" + search + "%";
 
         List<Company> companies = companyRepository.getCompanyByName(search);
-        for (Company company: companies) {
-            System.out.println(company.getCompanyName());
-        }
+
+
         /**
          * add the companies as a modelattribute so we can get hold of them in the HTML-Template
          * "Companies" - the name of the model. "companies" - the actual data being transeffered
          */
         model.addAttribute("Companies", companies);
 
+
         return "searchResult";
     }
 
-    @GetMapping("/comparator/{id}")
-    public String compareCompanies(@PathVariable Long id, HttpSession session) {
-        Company company = companyRepository.getCompanyById(id);
 
+
+    @GetMapping("/searchResult/{id}")
+    public String compareCompanies(@PathVariable Long id, HttpSession session, Model model) {
+        Company companyAll = companyRepository.getEverythingById(id);
         List<Company> companies =  (List<Company>) session.getAttribute("Companies");
+
         if(companies == null) {
             companies = new ArrayList<>();
         }
-        companies.add(company);
+        if (companyAll != null) {
+            companies.add(companyAll);
+        }
+
+        if(companiesAll == null) {
+            companiesAll = new ArrayList<>();
+        }
+
+        companiesAll.add(companyAll);
+
+
         session.setAttribute("Companies", companies);
+        session.setAttribute("CompaniesAll", companiesAll);
         System.out.println(session.getAttribute("Companies"));
 
         return "searchResult";
     }
+/*
+    @GetMapping("/filtered")
+    public String getFilteredCompanis(@RequestParam String[] filteredCompanies) {
+        List<Company> companies = companyRepository.getCompanySystem(filteredCompanies);
+        System.out.println(companies.get(0).getBackendProgramLanguage() + " HEAJKJA");
+        return "searchResult";
+    }
+    @PostMapping("/filtered")
+    public String filterCompanies(@RequestParam String [] filteredCompanies) {
+        for(int i = 0; i < filteredCompanies.length; i++) {
+            System.out.println(filteredCompanies[i]);
+        }
+        List<Company> companies = companyRepository.getCompanySystem(filteredCompanies);
+        System.out.println(companies.get(0).getBackendProgramLanguage() + " POST");
+        return "searchResult";
+    }
+
+ */
 
   /*
     @GetMapping("/")

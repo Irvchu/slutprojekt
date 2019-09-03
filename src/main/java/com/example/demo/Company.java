@@ -1,69 +1,137 @@
 package com.example.demo;
 public class Company {
+    float longitude, latitude;
     Long companyId;
-    int longitude, latitude, CarParingMonthCostSEK, NumberOfEmployee, VacationDays, NoticePeriodMonth, EducationBudgetSEK, WellnessContribution;
-    String companyName, address, PostalCode, City, Tag, ProfitMarginal, NetSalesChange, PropotionOfWomanWithinITDep, PropotionOfWomanWithinBoard, PropotionOfWomanWithinLeadManagement, StaffTurnover, BackendProgramLanguage, FrontendProgramLanguage, OperativSystem;
-    boolean BikeRoomAvailable, CarParkingAvailable, MeditationRoom, PermanentWorkplaces, MoreThanOneOffice, Benify, UnionConnected, GroupInsuranceIncluded, BusinessCareIncluded, CollectiveAgreement, OccupationalIncluded, FruitBasketIncluded, BreakfastIncluded, LunchIncluded, DinnerIncluded, ProjectSteeringAgilt;
+    int  carParingMonthCostSEK, numberOfEmployee, vacationDays, noticePeriodMonth, educationBudgetSEK, wellnessContributionSEK;
+    String logo,companyName, address, postalCode, city, tag, profitMarginal, netSalesChange, propotionOfWomanWithinITDep, propotionOfWomanWithinBoard, propotionOfWomanWithinLeadManagement, staffTurnover, backendProgramLanguage, frontendProgramLanguage, operationSystem;
+    boolean bikeRoomAvailable, carParkingAvailable, meditationRoom, permanentWorkplaces, moreThanOneOffice, benify, unionConnected, groupInsuranceIncluded, businessCareIncluded, collectiveAgreement, occupationalIncluded, fruitBasketIncluded, breakfastIncluded, lunchIncluded, dinnerIncluded, projectSteeringAgilt;
+
     public Company() {
     }
-    public Company(Long companyId, String companyName, String address) {
+
+    public Company(Long companyId, String companyName, String address, String frontendProgramLanguage,
+                   String backendProgramLanguage, String operationSystem) {
         this.companyId = companyId;
         this.companyName = companyName;
         this.address = address;
+        this.frontendProgramLanguage = frontendProgramLanguage;
+        this.backendProgramLanguage = backendProgramLanguage;
+        this.operationSystem = operationSystem;
     }
+
+
+    public Company(Long companyId, float longitude, float latitude, /*int carParingMonthCostSEK,*/ int numberOfEmployee, int vacationDays, int noticePeriodMonth, int educationBudgetSEK, int wellnessContribution, String logo, String companyName, String address, String postalCode, String city, String tag, String profitMarginal, String netSalesChange, String propotionOfWomanWithinITDep, String propotionOfWomanWithinBoard, String propotionOfWomanWithinLeadManagement, String staffTurnover, String backendProgramLanguage, String frontendProgramLanguage, String operativSystem, boolean bikeRoomAvailable, boolean carParkingAvailable, boolean meditationRoom, boolean permanentWorkplaces, boolean moreThanOneOffice, boolean benify, boolean unionConnected, boolean groupInsuranceIncluded, boolean businessCareIncluded, boolean collectiveAgreement, boolean occupationalIncluded, boolean fruitBasketIncluded, boolean breakfastIncluded, boolean lunchIncluded, boolean dinnerIncluded, boolean projectSteeringAgilt) {
+        this.companyId = companyId;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.carParingMonthCostSEK = carParingMonthCostSEK;
+        this.numberOfEmployee = numberOfEmployee;
+        this.vacationDays = vacationDays;
+        this.noticePeriodMonth = noticePeriodMonth;
+        this.educationBudgetSEK = educationBudgetSEK;
+        this.wellnessContributionSEK = wellnessContributionSEK;
+        this.logo = logo;
+        this.companyName = companyName;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.tag = tag;
+        this.profitMarginal = profitMarginal;
+        this.netSalesChange = netSalesChange;
+        this.propotionOfWomanWithinITDep = propotionOfWomanWithinITDep;
+        this.propotionOfWomanWithinBoard = propotionOfWomanWithinBoard;
+        this.propotionOfWomanWithinLeadManagement = propotionOfWomanWithinLeadManagement;
+        this.staffTurnover = staffTurnover;
+        this.backendProgramLanguage = backendProgramLanguage;
+        this.frontendProgramLanguage = frontendProgramLanguage;
+        this.operationSystem = operationSystem;
+        this.bikeRoomAvailable = bikeRoomAvailable;
+        this.carParkingAvailable = carParkingAvailable;
+        this.meditationRoom = meditationRoom;
+        this.permanentWorkplaces = permanentWorkplaces;
+        this.moreThanOneOffice = moreThanOneOffice;
+        this.benify = benify;
+        this.unionConnected = unionConnected;
+        this.groupInsuranceIncluded = groupInsuranceIncluded;
+        this.businessCareIncluded = businessCareIncluded;
+        this.collectiveAgreement = collectiveAgreement;
+        this.occupationalIncluded = occupationalIncluded;
+        this.fruitBasketIncluded = fruitBasketIncluded;
+        this.breakfastIncluded = breakfastIncluded;
+        this.lunchIncluded = lunchIncluded;
+        this.dinnerIncluded = dinnerIncluded;
+        this.projectSteeringAgilt = projectSteeringAgilt;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public void setLongitude(float longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
+    }
+
     public Long getCompanyId() {
         return this.companyId;
     }
     public void setCompanyId(Long companyId) {
         this.companyId = companyId;
     }
-    public int getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
     public void setLongitude(int longitude) {
         this.longitude = longitude;
     }
-    public int getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
     public void setLatitude(int latitude) {
         latitude = latitude;
     }
     public int getCarParingMonthCostSEK() {
-        return CarParingMonthCostSEK;
+        return carParingMonthCostSEK;
     }
     public void setCarParingMonthCostSEK(int carParingMonthCostSEK) {
-        CarParingMonthCostSEK = carParingMonthCostSEK;
+        this.carParingMonthCostSEK = carParingMonthCostSEK;
     }
     public int getNumberOfEmployee() {
-        return NumberOfEmployee;
+        return numberOfEmployee;
     }
     public void setNumberOfEmployee(int numberOfEmployee) {
-        NumberOfEmployee = numberOfEmployee;
+        this.numberOfEmployee = numberOfEmployee;
     }
     public int getVacationDays() {
-        return VacationDays;
+        return vacationDays;
     }
     public void setVacationDays(int vacationDays) {
-        VacationDays = vacationDays;
+        this.vacationDays = vacationDays;
     }
     public int getNoticePeriodMonth() {
-        return NoticePeriodMonth;
+        return noticePeriodMonth;
     }
     public void setNoticePeriodMonth(int noticePeriodMonth) {
-        NoticePeriodMonth = noticePeriodMonth;
+        this.noticePeriodMonth = noticePeriodMonth;
     }
     public int getEducationBudgetSEK() {
-        return EducationBudgetSEK;
+        return educationBudgetSEK;
     }
     public void setEducationBudgetSEK(int educationBudgetSEK) {
-        EducationBudgetSEK = educationBudgetSEK;
+        this.educationBudgetSEK = educationBudgetSEK;
     }
     public int getWellnessContribution() {
-        return WellnessContribution;
+        return wellnessContributionSEK;
     }
     public void setWellnessContribution(int wellnessContribution) {
-        WellnessContribution = wellnessContribution;
+        this.wellnessContributionSEK = wellnessContribution;
     }
     public String getCompanyName() {
         return companyName;
@@ -78,172 +146,172 @@ public class Company {
         this.address = address;
     }
     public String getPostalCode() {
-        return PostalCode;
+        return postalCode;
     }
     public void setPostalCode(String postalCode) {
-        PostalCode = postalCode;
+        this.postalCode = postalCode;
     }
     public String getCity() {
-        return City;
+        return city;
     }
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
     public String getTag() {
-        return Tag;
+        return tag;
     }
     public void setTag(String tag) {
-        Tag = tag;
+        this.tag = tag;
     }
     public String getProfitMarginal() {
-        return ProfitMarginal;
+        return profitMarginal;
     }
     public void setProfitMarginal(String profitMarginal) {
-        ProfitMarginal = profitMarginal;
+        this.profitMarginal = profitMarginal;
     }
     public String getNetSalesChange() {
-        return NetSalesChange;
+        return netSalesChange;
     }
     public void setNetSalesChange(String netSalesChange) {
-        NetSalesChange = netSalesChange;
+        this.netSalesChange = netSalesChange;
     }
     public String getPropotionOfWomanWithinITDep() {
-        return PropotionOfWomanWithinITDep;
+        return propotionOfWomanWithinITDep;
     }
     public void setPropotionOfWomanWithinITDep(String propotionOfWomanWithinITDep) {
-        PropotionOfWomanWithinITDep = propotionOfWomanWithinITDep;
+        this.propotionOfWomanWithinITDep = propotionOfWomanWithinITDep;
     }
     public String getPropotionOfWomanWithinBoard() {
-        return PropotionOfWomanWithinBoard;
+        return propotionOfWomanWithinBoard;
     }
     public void setPropotionOfWomanWithinBoard(String propotionOfWomanWithinBoard) {
-        PropotionOfWomanWithinBoard = propotionOfWomanWithinBoard;
+        this.propotionOfWomanWithinBoard = propotionOfWomanWithinBoard;
     }
     public String getPropotionOfWomanWithinLeadManagement() {
-        return PropotionOfWomanWithinLeadManagement;
+        return propotionOfWomanWithinLeadManagement;
     }
     public void setPropotionOfWomanWithinLeadManagement(String propotionOfWomanWithinLeadManagement) {
-        PropotionOfWomanWithinLeadManagement = propotionOfWomanWithinLeadManagement;
+        this.propotionOfWomanWithinLeadManagement = propotionOfWomanWithinLeadManagement;
     }
     public String getStaffTurnover() {
-        return StaffTurnover;
+        return staffTurnover;
     }
     public void setStaffTurnover(String staffTurnover) {
-        StaffTurnover = staffTurnover;
+        this.staffTurnover = staffTurnover;
     }
     public String getBackendProgramLanguage() {
-        return BackendProgramLanguage;
+        return backendProgramLanguage;
     }
     public void setBackendProgramLanguage(String backendProgramLanguage) {
-        BackendProgramLanguage = backendProgramLanguage;
+        this.backendProgramLanguage = backendProgramLanguage;
     }
     public String getFrontendProgramLanguage() {
-        return FrontendProgramLanguage;
+        return frontendProgramLanguage;
     }
     public void setFrontendProgramLanguage(String frontendProgramLanguage) {
-        FrontendProgramLanguage = frontendProgramLanguage;
+        this.frontendProgramLanguage = frontendProgramLanguage;
     }
     public String getOperativSystem() {
-        return OperativSystem;
+        return operationSystem;
     }
     public void setOperativSystem(String operativSystem) {
-        OperativSystem = operativSystem;
+        this.operationSystem = operativSystem;
     }
     public boolean isBikeRoomAvailable() {
-        return BikeRoomAvailable;
+        return bikeRoomAvailable;
     }
     public void setBikeRoomAvailable(boolean bikeRoomAvailable) {
-        BikeRoomAvailable = bikeRoomAvailable;
+        this.bikeRoomAvailable = bikeRoomAvailable;
     }
     public boolean isCarParkingAvailable() {
-        return CarParkingAvailable;
+        return carParkingAvailable;
     }
     public void setCarParkingAvailable(boolean carParkingAvailable) {
-        CarParkingAvailable = carParkingAvailable;
+        this.carParkingAvailable = carParkingAvailable;
     }
     public boolean isMeditationRoom() {
-        return MeditationRoom;
+        return meditationRoom;
     }
     public void setMeditationRoom(boolean meditationRoom) {
-        MeditationRoom = meditationRoom;
+        this.meditationRoom = meditationRoom;
     }
     public boolean isPermanentWorkplaces() {
-        return PermanentWorkplaces;
+        return permanentWorkplaces;
     }
     public void setPermanentWorkplaces(boolean permanentWorkplaces) {
-        PermanentWorkplaces = permanentWorkplaces;
+        this.permanentWorkplaces = permanentWorkplaces;
     }
     public boolean isMoreThanOneOffice() {
-        return MoreThanOneOffice;
+        return moreThanOneOffice;
     }
     public void setMoreThanOneOffice(boolean moreThanOneOffice) {
-        MoreThanOneOffice = moreThanOneOffice;
+        this.moreThanOneOffice = moreThanOneOffice;
     }
     public boolean isBenify() {
-        return Benify;
+        return benify;
     }
     public void setBenify(boolean benify) {
-        Benify = benify;
+        this.benify = benify;
     }
     public boolean isUnionConnected() {
-        return UnionConnected;
+        return unionConnected;
     }
     public void setUnionConnected(boolean unionConnected) {
-        UnionConnected = unionConnected;
+        this.unionConnected = unionConnected;
     }
     public boolean isGroupInsuranceIncluded() {
-        return GroupInsuranceIncluded;
+        return groupInsuranceIncluded;
     }
     public void setGroupInsuranceIncluded(boolean groupInsuranceIncluded) {
-        GroupInsuranceIncluded = groupInsuranceIncluded;
+        this.groupInsuranceIncluded = groupInsuranceIncluded;
     }
     public boolean isBusinessCareIncluded() {
-        return BusinessCareIncluded;
+        return businessCareIncluded;
     }
     public void setBusinessCareIncluded(boolean businessCareIncluded) {
-        BusinessCareIncluded = businessCareIncluded;
+        this.businessCareIncluded = businessCareIncluded;
     }
     public boolean isCollectiveAgreement() {
-        return CollectiveAgreement;
+        return collectiveAgreement;
     }
     public void setCollectiveAgreement(boolean collectiveAgreement) {
-        CollectiveAgreement = collectiveAgreement;
+        this.collectiveAgreement = collectiveAgreement;
     }
     public boolean isOccupationalIncluded() {
-        return OccupationalIncluded;
+        return occupationalIncluded;
     }
     public void setOccupationalIncluded(boolean occupationalIncluded) {
-        OccupationalIncluded = occupationalIncluded;
+        this.occupationalIncluded = occupationalIncluded;
     }
     public boolean isFruitBasketIncluded() {
-        return FruitBasketIncluded;
+        return fruitBasketIncluded;
     }
     public void setFruitBasketIncluded(boolean fruitBasketIncluded) {
-        FruitBasketIncluded = fruitBasketIncluded;
+        this.fruitBasketIncluded = fruitBasketIncluded;
     }
     public boolean isBreakfastIncluded() {
-        return BreakfastIncluded;
+        return breakfastIncluded;
     }
     public void setBreakfastIncluded(boolean breakfastIncluded) {
-        BreakfastIncluded = breakfastIncluded;
+        this.breakfastIncluded = breakfastIncluded;
     }
     public boolean isLunchIncluded() {
-        return LunchIncluded;
+        return lunchIncluded;
     }
     public void setLunchIncluded(boolean lunchIncluded) {
-        LunchIncluded = lunchIncluded;
+        this.lunchIncluded = lunchIncluded;
     }
     public boolean isDinnerIncluded() {
-        return DinnerIncluded;
+        return dinnerIncluded;
     }
     public void setDinnerIncluded(boolean dinnerIncluded) {
-        DinnerIncluded = dinnerIncluded;
+        this.dinnerIncluded = dinnerIncluded;
     }
     public boolean isProjectSteeringAgilt() {
-        return ProjectSteeringAgilt;
+        return projectSteeringAgilt;
     }
     public void setProjectSteeringAgilt(boolean projectSteeringAgilt) {
-        ProjectSteeringAgilt = projectSteeringAgilt;
+        this.projectSteeringAgilt = projectSteeringAgilt;
     }
 }
 
