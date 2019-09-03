@@ -249,17 +249,16 @@ margin-left: 35px;
 
 }
 
-#wrap
-{
+#wrapper_container{
     margin-top: 0px;
     margin-bottom: 30px;
-    background: white;
+    background: #3FA8BF;
     width: auto; height: 200px;
 }
 
 
 
-#wrap_toggle
+#wrapper
 {
     display: block;
     width: 100%;
@@ -274,9 +273,11 @@ margin-left: 35px;
     text-decoration:none;
 }
 
-#wrap_toggle:hover
+#wrapper:hover
 {
     text-decoration:none;
+
+
     border-top: 1px groove white;
     border-left: 1px groove white;
     border-bottom: 1px solid #7B7B78;
