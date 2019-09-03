@@ -32,7 +32,7 @@
 
                 <li th:if = "${Company != null}" >
 
-                    <a th:href="'/searchResult/' +${Company.companyId}"  th:text="${Company.profitMarginal}"></a>
+                    <a th:href="'/searchResult/' +${Company.companyId}"  th:text="${Company.companyName}"></a>
                 </li>
 
 
@@ -43,11 +43,12 @@
                 <div class="container">
                     <div class="panel pricing-table">
 
-                        <div class="pricing-plan" th:each="company: ${session.Companies}">
+                        <div class="pricing-plan" th:each="company: ${session.CompaniesAll}">
                             <ul class="pricing-features">
                                 <li class="pricing-features-item">  <img th:src="'/'+ ${company.logo}" alt = "test bild" height="120px" width="120px" ></li>
                                 <li class="pricing-features-item"  th:text="${company.companyName}"></li>
                                 <li class="pricing-features-item"  th:text="${company.address}"></li>
+                                <li class="pricing-features-item"  th:text="${company.educationBudgetSEK}"></li>
 
                                 <li class="pricing-features-item">Bikeroom: Yes</li>
                                 <li class="pricing-features-item">Woman Within IT: 40%</li>

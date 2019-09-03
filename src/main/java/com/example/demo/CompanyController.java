@@ -17,6 +17,8 @@ import java.util.List;
 @Controller
 public class CompanyController {
 
+    List<Company> companiesAll;
+
 
     @Autowired
     CompanyRepository companyRepository;
@@ -72,9 +74,6 @@ public class CompanyController {
         List<Company> companies = companyRepository.getCompanyByName(search);
 
 
-        /*for (Company company: companies) {
-            System.out.println(company.getCompanyName());
-        }*/
         /**
          * add the companies as a modelattribute so we can get hold of them in the HTML-Template
          * "Companies" - the name of the model. "companies" - the actual data being transeffered
@@ -89,19 +88,25 @@ public class CompanyController {
 
     @GetMapping("/searchResult/{id}")
     public String compareCompanies(@PathVariable Long id, HttpSession session, Model model) {
-        Company company = companyRepository.getEverythingById(id);
-
+        Company companyAll = companyRepository.getEverythingById(id);
         List<Company> companies =  (List<Company>) session.getAttribute("Companies");
 
         if(companies == null) {
             companies = new ArrayList<>();
         }
-        if (company != null) {
-            companies.add(company);
+        if (companyAll != null) {
+            companies.add(companyAll);
         }
 
+        if(companiesAll == null) {
+            companiesAll = new ArrayList<>();
+        }
+
+        companiesAll.add(companyAll);
+
+
         session.setAttribute("Companies", companies);
-        model.addAttribute("Company", company);
+        session.setAttribute("CompaniesAll", companiesAll);
         System.out.println(session.getAttribute("Companies"));
 
         return "searchResult";
