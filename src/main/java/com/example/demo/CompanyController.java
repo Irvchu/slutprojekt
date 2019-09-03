@@ -93,12 +93,6 @@ public class CompanyController {
     @GetMapping("/filtered")
     public String getFilteredCompanis(@RequestParam String[] filteredCompanies, Model model) {
         System.out.println("Getmappuing");
-        //List<Company> filteredCompaniesList = new ArrayList<>();
-        //filteredCompaniesList.addAll(companyRepository.filterQueries(filteredCompanies, filteredCompaniesList));
-        //filteredCompaniesList. = companyRepository.filterQueries(filteredCompanies, filteredCompaniesList);
-        //List<Company> companies = companyRepository.filterQueries(filteredCompanies);
-        //System.out.println(filteredCompaniesList.get(1).getBackendProgramLanguage() +" HEAJKJA");
-        //model.addAttribute("filteredCompaniesList", filteredCompaniesList);
         return "searchResult";
     }
 
@@ -106,17 +100,27 @@ public class CompanyController {
     public String hej(@RequestParam String[] filteredCompanies, Model model) {
         System.out.println("postMapping");
         List<Company> filteredCompaniesList = new ArrayList<>();
-        //filteredCompaniesList = companyRepository.filterQueries(filteredCompanies, filteredCompaniesList);
-        //System.out.println(filteredCompaniesList.get(0).getCompanyName());
 
-        for(int i = 0; i < filteredCompanies.length; i++) {
-            String filteredString = filteredCompanies[i];
-            filteredCompanies[i] = filteredString;
-            System.out.println(filteredCompanies[i]+ "strängen");
-            filteredCompaniesList.add(companyRepository.filterQueriesHelperBackendProgLang(filteredCompanies[i]));
-            //System.out.println(filteredCompaniesList.get(i).getBackendProgramLanguage()+ "in the loop");
+        //filteredCompaniesList.addAll(companyRepository.filterQueriesFrontend(filteredCompanies, filteredCompaniesList));
+        //filteredCompaniesList.addAll(companyRepository.filterQueriesBackend(filteredCompanies, filteredCompaniesList));
+        for (int i = 0; i < filteredCompanies.length; i++) {
+            Company companyBackend = null;
+            Company companyFrontend = null;
+            //String filteredString = filteredCompanies[i];
+            //filteredCompanies[i] = "%" + filteredString + "%";
+            System.out.println(filteredCompanies[i] + " filtreard");
+            companyBackend = companyRepository.filterQueriesBackend(filteredCompanies[i]);
+            companyFrontend = companyRepository.filterQueriesFrontend(filteredCompanies[i]);
+            if (companyFrontend != null) {
+                //System.out.println(filteredString + companyFrontend.companyName + "frontend");
+                filteredCompaniesList.add(companyFrontend);
+            }
+            if (companyBackend != null) {
+                //System.out.println(filteredString + companyBackend + " backend");
+                filteredCompaniesList.add(companyBackend);
+            }
         }
-        //System.out.println(filteredCompaniesList.get(0).getCompanyName()+ " filterQueries");
+
         model.addAttribute("filteredCompaniesList", filteredCompaniesList);
         return "searchResult";
     }

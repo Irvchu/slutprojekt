@@ -31,9 +31,9 @@
                 </li>
             </ul>
 
-            <form action="/filtered">
+            <form action="/filtered" method="post">
             <ul>
-                <li th.each="company: ${filteredCompaniesList}" th:text="${company.companyName + company.address + company.backendProgramLanguage
+                <li th:each="company: ${filteredCompaniesList}" th:text="${company.companyName + company.address + company.backendProgramLanguage
                     + company.frontendProgramLanguage}">
                 </li>
             </ul>
