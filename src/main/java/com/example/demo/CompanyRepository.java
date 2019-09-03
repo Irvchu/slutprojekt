@@ -18,12 +18,57 @@ public class CompanyRepository {
     @Autowired
     private DataSource dataSource;
 
+
     Company rsCompany(ResultSet rs) throws SQLException {
         return new Company(rs.getLong("companyID"),
+                rs.getString("companyName"),
+                rs.getString("address"), null, null, null
+        );
+    }
+
+    Company rsEverything (ResultSet rs) throws SQLException {
+        return new Company(rs.getLong("companyID"),
+                     rs.getFloat("longitude"),
+                rs.getFloat("latitude"),
+                //rs.getInt("CarparkMonthCostSEK"),
+                rs.getInt("numberOfEmployee"),
+                rs.getInt("vacationDays"),
+                rs.getInt("noticePeriodMonth"),
+                rs.getInt("educationBudgetSEK"),
+                rs.getInt("wellnessContributionSEK"),
+                rs.getString("logo"),
                         rs.getString("companyName"),
                         rs.getString("address"),
+                rs.getString("postalCode"),
                 rs.getString("city"),
-                rs.getString("logo"));
+                rs.getString("tag"),
+                rs.getString("profitMarginal"),
+                rs.getString("netSalesChange"),
+                rs.getString("propotionOfWomanWithinITDep"),
+                rs.getString("propotionOfWomanWithinBoard"),
+                rs.getString("propotionOfWomanWithinLeadManagement"),
+                rs.getString("staffTurnover"),
+                rs.getString("backendProgramLanguage"),
+                rs.getString("frontendProgramLanguage"),
+                rs.getString("operationSystem"),
+                rs.getBoolean("bikeRoomAvailable"),
+                rs.getBoolean("carParkingAvailable"),
+                rs.getBoolean("meditationRoom"),
+                rs.getBoolean("permanentWorkplaces"),
+                rs.getBoolean("moreThanOneOffice"),
+                rs.getBoolean("benify"),
+                rs.getBoolean("unionConnected"),
+                rs.getBoolean("groupInsuranceIncluded"),
+                rs.getBoolean("businessCareIncluded"),
+                rs.getBoolean("collectiveAgreement"),
+                rs.getBoolean("occupationalIncluded"),
+                rs.getBoolean("fruitBasketIncluded"),
+                rs.getBoolean("breakfastIncluded"),
+                rs.getBoolean("lunchIncluded"),
+                rs.getBoolean("dinnerIncluded"),
+                rs.getBoolean("projectSteeringAgilt"));
+
+
     }
 
 
@@ -90,6 +135,8 @@ public class CompanyRepository {
         return companies;
     }
 
+
+
     public Company getCompanyById(Long id) {
         Company company = null;
         try (Connection conn = DriverManager.getConnection(connstr);
@@ -100,6 +147,47 @@ public class CompanyRepository {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 company = rsCompany(rs);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return company;
+    }
+
+
+
+    public Company getEverythingById(Long id) {
+        Company company = null;
+        try (Connection conn = DriverManager.getConnection(connstr);
+             PreparedStatement stmt = conn.prepareStatement("SELECT * " +
+                     "FROM Company " +
+
+                     "INNER JOIN CompanyGeneral ON Company.CompanyID = CompanyGeneral.CompanyID " +
+                            "Inner Join EmployeeAgreement ON Company.CompanyID  = EmployeeAgreement.CompanyID " +
+                             "Inner Join EmployeeBenefit ON Company.CompanyID = EmployeeBenefit.CompanyID " +
+                             "INNER JOIN CompanyFacility ON Company.CompanyID = CompanyFacility.CompanyID " +
+                     "Inner Join System ON Company.CompanyID = System.CompanyID " +
+                     "Where Company.CompanyID = ?")
+             /*PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Company INNER JOIN CompanyFacility ON Company.CompanyID = CompanyFacility.CompanyID\n" +
+                     "INNER JOIN CompanyGeneral ON Company.CompanyID = CompanyGeneral.CompanyID\n" +
+                     "Inner Join EmployeeAgreement ON Company.CompanyID  = EmployeeAgreement.CompanyID\n" +
+                     "Inner Join EmployeeBenefit ON Company.CompanyID = EmployeeBenefit.CompanyID\n" +
+                     "Inner Join System ON Company.CompanyID = System.CompanyID WHERE Company.CompanyID = 1");
+
+        */) {
+            System.out.println("SELECT * " +
+                    "FROM Company " +
+
+                    "INNER JOIN CompanyGeneral ON Company.CompanyID = CompanyGeneral.CompanyID " +
+                    "Inner Join EmployeeAgreement ON Company.CompanyID  = EmployeeAgreement.CompanyID " +
+                    "Inner Join EmployeeBenefit ON Company.CompanyID = EmployeeBenefit.CompanyID " +
+                    "INNER JOIN CompanyFacility ON Company.CompanyID = CompanyFacility.CompanyID " +
+                    "Inner Join System ON Company.CompanyID = System.CompanyID " +
+                    "Where Company.CompanyID = ?");
+            stmt.setString(1,Long.toString(id));
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                company = rsEverything(rs);
             }
         } catch (Exception e) {
             e.printStackTrace();

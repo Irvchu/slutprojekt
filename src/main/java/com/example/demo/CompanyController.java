@@ -50,6 +50,14 @@ public class CompanyController {
     }
 
     /**
+    @GetMapping("/searchResult/{id}")
+    public String searchCompanyID(@PathVariable long id) {
+
+        return "searchResult";
+    }
+    */
+
+    /**
      * Postmapping method which requests a parameter such as a company name or some
      * other tag the user would like to search for.
      * @param search
@@ -62,27 +70,42 @@ public class CompanyController {
         search = "%" + search + "%";
 
         List<Company> companies = companyRepository.getCompanyByName(search);
-        for (Company company: companies) {
+
+        long searchId = companies.get(0).companyId;
+
+        System.out.println(searchId + "we want an id");
+
+        Company company = null;
+
+        company = companyRepository.getEverythingById(searchId);
+
+        /*for (Company company: companies) {
             System.out.println(company.getCompanyName());
-        }
+        }*/
         /**
          * add the companies as a modelattribute so we can get hold of them in the HTML-Template
          * "Companies" - the name of the model. "companies" - the actual data being transeffered
          */
         model.addAttribute("Companies", companies);
+        model.addAttribute("Company", company);
 
         return "searchResult";
     }
 
-    @GetMapping("/searchResult/{id}")
+
+
+    @PostMapping("/searchResult/{id}")
     public String compareCompanies(@PathVariable Long id, HttpSession session) {
-        Company company = companyRepository.getCompanyById(id);
+        Company company = companyRepository.getEverythingById(id);
 
         List<Company> companies =  (List<Company>) session.getAttribute("Companies");
         if(companies == null) {
             companies = new ArrayList<>();
         }
-        companies.add(company);
+        if (company != null) {
+            companies.add(company);
+        }
+
         session.setAttribute("Companies", companies);
         System.out.println(session.getAttribute("Companies"));
 
