@@ -71,13 +71,6 @@ public class CompanyController {
 
         List<Company> companies = companyRepository.getCompanyByName(search);
 
-        long searchId = companies.get(0).companyId;
-
-        System.out.println(searchId + "we want an id");
-
-        Company company = null;
-
-        company = companyRepository.getEverythingById(searchId);
 
         /*for (Company company: companies) {
             System.out.println(company.getCompanyName());
@@ -87,18 +80,19 @@ public class CompanyController {
          * "Companies" - the name of the model. "companies" - the actual data being transeffered
          */
         model.addAttribute("Companies", companies);
-        model.addAttribute("Company", company);
+
 
         return "searchResult";
     }
 
 
 
-    @PostMapping("/searchResult/{id}")
-    public String compareCompanies(@PathVariable Long id, HttpSession session) {
+    @GetMapping("/searchResult/{id}")
+    public String compareCompanies(@PathVariable Long id, HttpSession session, Model model) {
         Company company = companyRepository.getEverythingById(id);
 
         List<Company> companies =  (List<Company>) session.getAttribute("Companies");
+
         if(companies == null) {
             companies = new ArrayList<>();
         }
@@ -107,6 +101,7 @@ public class CompanyController {
         }
 
         session.setAttribute("Companies", companies);
+        model.addAttribute("Company", company);
         System.out.println(session.getAttribute("Companies"));
 
         return "searchResult";
