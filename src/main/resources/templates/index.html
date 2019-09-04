@@ -48,23 +48,23 @@ $("#wrapper").click(function () {
     </div>
 </div>
 
-
+<form action="/filtered" method="post">
+    <ul>
+        <li th:each="checkboxValue: ${multiCheckboxAllValues}">
+            <input type="checkbox" name="filteredCompanies" th:value="${checkboxValue}" />
+            <label th:text="${checkboxValue}">
+                <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
+            </label>
+        </li>
+        <input type="submit" value="GO!">
+    </ul>
+</form>
 
     <div class="toggle_wrapper">
         <a href="#0" id="wrapper">Expand Filter ⏷</a>
     </div>
     <div id="wrapper_container" style="display: none;">
-        <form action="/filtered" method="post">
-            <ul>
-                <li th:each="checkboxValue: ${multiCheckboxAllValues}">
-                    <input type="checkbox" name="filteredCompanies" th:value="${checkboxValue}" />
-                    <label th:text="${checkboxValue}">
-                        <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
-                    </label>
-                </li>
-                <input type="submit" value="GO!">
-            </ul>
-        </form>
+
     </div>
 
 

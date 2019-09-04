@@ -75,7 +75,7 @@ public class CompanyRepository {
 
 
 
-    String connstr = "jdbc:sqlserver://localhost;databasename=Peoplefirst;user=dbadmin;password=dbadmin123";
+    String connstr = "jdbc:sqlserver://localhost;databasename=erikaspeople;user=dbadmin;password=dbadmin123";
 /*
     private  List <Company> getCompanies (String search) throws SQLException
 
@@ -216,7 +216,7 @@ public class CompanyRepository {
      * @param filteredString
      * @return
      */
-    public Company filterQueriesHelperBackendProgLang(String filteredString) {
+    /*public Company filterQueriesHelperBackendProgLang(String filteredString) {
         Company company = null;
         try {
             Connection conn = DriverManager.getConnection(connstr);
@@ -239,14 +239,14 @@ public class CompanyRepository {
             e.printStackTrace();
         }
         return company;
-    }
+    }*/
 
     /**
      * Method for making queries for BackendProgrammingLanguages
      * @param filteredCompanies
      * @return
      */
-    public List<Company> filterQueriesBackend(String[] filteredCompanies, List<Company> filteredCompaniesList) {
+   /* public List<Company> filterQueriesBackend(String[] filteredCompanies, List<Company> filteredCompaniesList) {
         for(int i = 0; i < filteredCompanies.length; i++) {
             String filteredString = filteredCompanies[i];
             filteredCompanies[i] = "%"+filteredString+"%";
@@ -254,9 +254,9 @@ public class CompanyRepository {
         }
         System.out.println(filteredCompaniesList.get(0).getCompanyName()+ " filterQueries");
         return filteredCompaniesList;
-    }
+    }*/
 
-    public Company filterQueriesHelperFrontendProgLang(String filteredString) {
+   /* public Company filterQueriesHelperFrontendProgLang(String filteredString) {
         Company company = null;
         try {
             Connection conn = DriverManager.getConnection(connstr);
@@ -279,9 +279,9 @@ public class CompanyRepository {
             e.printStackTrace();
         }
         return company;
-    }
+    }*/
 
-    public List<Company> filterQueriesFrontend(String[] filteredCompanies, List<Company> filteredCompaniesList) {
+   /* public List<Company> filterQueriesFrontend(String[] filteredCompanies, List<Company> filteredCompaniesList) {
         for(int i = 0; i < filteredCompanies.length; i++) {
             String filteredString = filteredCompanies[i];
             filteredCompanies[i] = "%"+filteredString+"%";
@@ -289,5 +289,54 @@ public class CompanyRepository {
         }
         System.out.println(filteredCompaniesList.get(0).getCompanyName()+ " filterQueries");
         return filteredCompaniesList;
-    }
+    }*/
+
+   public List<Company> filterQueries(String[] filteredCompanies) {
+       ArrayList<Company> filteredCompanyList = new ArrayList<>();
+       Company company = null;
+       String queryBuilder = "SELECT * FROM Company " +
+               "INNER JOIN CompanyGeneral ON Company.CompanyID = CompanyGeneral.CompanyID " +
+               "INNER JOIN EmployeeAgreement ON Company.CompanyID = EmployeeAgreement.CompanyID " +
+               "INNER JOIN EmployeeBenefit ON Company.CompanyID = EmployeeBenefit.CompanyID " +
+               "INNER JOIN CompanyFacility ON Company.CompanyID = CompanyFacility.CompanyID " +
+               "INNER JOIN System ON Company.CompanyID = System.CompanyID WHERE ";
+
+       String stringBuilder = "";
+       String endString = filteredCompanies[filteredCompanies.length-1];
+       System.out.println(endString);
+       try {
+           Connection conn = DriverManager.getConnection(connstr);
+           for(int i = 0; i < filteredCompanies.length; i++) {
+
+               queryBuilder = queryBuilder + "tag LIKE ?";
+              if(filteredCompanies[i].equals(endString)) {
+                   continue;
+               }else {
+                   queryBuilder = queryBuilder + " or ";
+               }
+           }
+
+           System.out.println(queryBuilder);
+           PreparedStatement ps = conn.prepareStatement(queryBuilder);
+
+           for(int i = 0; i < filteredCompanies.length; i++) {
+               int index = i + 1;
+               System.out.println(filteredCompanies[i]);
+               String newString = "%" + filteredCompanies[i] + "%";
+               ps.setString(index, newString);
+           }
+           System.out.println(queryBuilder);
+           ResultSet rs = ps.executeQuery();
+           while(rs.next()) {
+               //company = rsEverything(rs);
+               filteredCompanyList.add(rsEverything(rs));
+           }
+
+       }catch (SQLException e) {
+           e.printStackTrace();
+       }
+        return filteredCompanyList;
+
+   }
+
 }

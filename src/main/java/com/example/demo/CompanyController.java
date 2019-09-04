@@ -125,20 +125,11 @@ public class CompanyController {
     }
     @PostMapping("/filtered")
     public String hej(@RequestParam String[] filteredCompanies, Model model) {
-        System.out.println("postMapping");
-        List<Company> filteredCompaniesList = new ArrayList<>();
-        for(int i = 0; i < filteredCompanies.length; i++) {
-            String filteredString = filteredCompanies[i];
-            filteredCompanies[i] = filteredString;
-            Company companyBackend = companyRepository.filterQueriesHelperBackendProgLang(filteredCompanies[i]);
-            Company companyFrontend = companyRepository.filterQueriesHelperFrontendProgLang(filteredCompanies[i]);
-            if(companyBackend != null) {
-                filteredCompaniesList.add(companyBackend);
-            }
-            if(companyFrontend != null && companyFrontend.equals(companyBackend)) {
-                filteredCompaniesList.add(companyFrontend);
-            }
-        }
+        System.out.println("post");
+        List<Company> filteredCompaniesList;
+
+        filteredCompaniesList = companyRepository.filterQueries(filteredCompanies);
+
         model.addAttribute("filteredCompaniesList", filteredCompaniesList);
         return "searchResult";
     }
@@ -146,8 +137,8 @@ public class CompanyController {
     @ModelAttribute("multiCheckboxAllValues")
     public String[] getMultiCheckboxAllValues() {
         return new String[] {
-                "it", "Java", "C#", "Javascript",
-                "C", "Saturday", "Sunday"
+                "Backend=Java", "Frontend=Javascript", "Backend=C#", "Backend=Phyton",
+                "Frontend=React", "T-centralen", "Stockholm"
         };
     }
 /*
