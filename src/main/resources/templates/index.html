@@ -6,6 +6,7 @@
     <title> Adoor </title>
     <link rel="stylesheet" type="text/css" href="normalize.css" />
     <link rel="stylesheet" type="text/css"  href="style2.css" />
+
     ​
     ​
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,31 +18,17 @@
     <script>jQuery(document).ready(function($)
 {
 $("#wrapper").click(function () {
-<<<<<<< HEAD
-
                 $("#wrapper_container").slideToggle("slow");
-
-=======
-                $("#wrapper_container").slideToggle("slow");
->>>>>>> bfafdfd57210ca8c668184abf0a9e8bfc6f619cd
                 if ($("#wrapper").text() == "Expand Filter ⏷") {
-
                     $("#wrapper").html("Hide Filter ⏶")
                 }
                 else {
                     $("#wrapper").text("Expand Filter ⏷")
                 }
-<<<<<<< HEAD
-
             });
-
-=======
-            });
->>>>>>> bfafdfd57210ca8c668184abf0a9e8bfc6f619cd
         });
     </script>
 </head>
-
 <body class="PageBody">
 <div id="BodyContent">
 
@@ -58,27 +45,6 @@ $("#wrapper").click(function () {
         </form>
     </div>
 </div>
-
-<<<<<<< HEAD
-
-
-<div class="toggle_wrapper">
-    <a href="#0" id="wrapper">Expand Filter ⏷</a>
-</div>
-<div id="wrapper_container" style="display: none;">
-    <form action="/filtered" method="post">
-        <ul>
-            <li th:each="checkboxValue: ${multiCheckboxAllValues}">
-                <input type="checkbox" name="filteredCompanies" th:value="${checkboxValue}" />
-                <label th:text="${checkboxValue}">
-                    <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
-                </label>
-            </li>
-            <input type="submit" value="GO!">
-        </ul>
-    </form>
-</div>
-=======
     <div class="toggle_wrapper">
         <a href="#0" id="wrapper">Expand Filter ⏷</a>
     </div>
@@ -131,7 +97,6 @@ $("#wrapper").click(function () {
             </form>
     </div>
     </div>
->>>>>>> bfafdfd57210ca8c668184abf0a9e8bfc6f619cd
 
 
 <div class="downside">

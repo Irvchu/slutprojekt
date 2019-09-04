@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Search Result</title>
   <link rel="stylesheet" type="text/css" href="/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/style20.css" />
+    <link rel="stylesheet" type="text/css" href="style2.css" />
        <link rel="stylesheet" type="text/css" href="/styletable12.css" />
        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -21,26 +21,13 @@
     <button class="material-icons" id="icons">notifications</button>
     <div class="playground">
 
-
-<<<<<<< HEAD
         <form action="/searchResult" method="post" th:fragment="smallsearch">
             <input type="text" name="search" placeholder="Search..">
         </form>
     </div>
 </div>
 
-            <form action="/filtered" method="post">
-=======
-    <div><!-- id="ContentLeft">-->
-        <div><!-- id="Menu">-->
-
-           <form action="/searchResult" method="post" th:fragment="smallsearch"> <!-- id="SmallSearch">-->
-                <input type="text" style="width: 150px;" name="search" placeholder="Search...">
-                <input type="submit" value="GO!">
-
-           </form>
             <form action="/filtered">
->>>>>>> bfafdfd57210ca8c668184abf0a9e8bfc6f619cd
                 <ul>
                     <li th:each="company: ${filteredCompaniesList}">
                         <a th:href="'/searchResult/' +${company.companyId}" th:text="${company.companyName}"></a>
