@@ -1,27 +1,32 @@
 body {
   width: 100%;
   height: 100%;
+
 }
 .PageBody{
   background-color:   #ecebeb;
   padding: 10%;
   padding-top: 1%;
 }
+
 #BodyContent{
   background-color: white;
 height: 2%;
 }
+
 .header_filter{
 color: black;
 }
+
 /* Responsive Logo*/
 img {
   width: 15%;
   height: auto;
   margin-left: 2%;
+
 }
 /*Buttons*/
-  .material-icons {
+  #icons{
     float: right;
     padding-bottom: none;
     margin-top: 11%;/*nedre placering*/
@@ -31,33 +36,68 @@ img {
     border-radius:10px;
     border: none;
   }
-  .material-icons:hover {
+
+  #icons:hover {
     background-color: #ecebeb;
     color: white;
   }
+
+
   .playground {
     width: 100%;
     height: 50%;
+    font-family: 'Gayathri' , serif;
+    color: white;
+    text-shadow: 4px 4px 4px #aaa;
+    font-size: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #50BFBF;
     padding: 100px 100px 100px 100px;
+    background: linear-gradient(123deg, #024959, #3fa8bf, #27828c, #78d9e9, #50bfbf);
+    background-size: 1000% 1000%;
+
+    -webkit-animation: AnimationName 54s ease infinite;
+    -moz-animation: AnimationName 54s ease infinite;
+    animation: AnimationName 54s ease infinite;
   }
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:40% 0%}
+        50%{background-position:61% 100%}
+        100%{background-position:40% 0%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:40% 0%}
+        50%{background-position:61% 100%}
+        100%{background-position:40% 0%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:40% 0%}
+        50%{background-position:61% 100%}
+        100%{background-position:40% 0%}
+    }
+
+
+
 #containerid{
 width: 100%;
 }
+
 #searchbar{
   width: 100%;
   height: 50px;
-  background-color:#50BFBF;
 }
+
 input[type=text] {
   width: 30%;
   box-sizing: border-box;
   border: 2px solid #50BFBF;
   border-radius: 10px;
-  font-size: 16px;
+  font-family: 'Gayathri' , serif;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
   background-color: white;
   background-image: url('searchicon.png');
   background-position: 10px 10px;
@@ -70,125 +110,32 @@ input[type=text] {
  input[type=text]:focus {
   width: auto;
  }
+
          #background-image{
            background-color: #ecebeb;
            margin: 2%;
+
          }
-/* The container */
-.container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-/* Hide the browser's default checkbox */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 0px;
-  width: 0px;
-  background-color: #eee;
-}
-.filter_box{
-width: 100%;
-height: 40%;
-margin-bottom: 10%;
-}
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-/* Style the checkmark/indicator */
-.container_filter .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-/*CSS for the Sallary slider*/
-.slidecontainer {
-  width: 100%;
-}
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-.slider:hover {
-  opacity: 1;
-}
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  background: #4CAF50;
-  cursor: pointer;
-}
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  background: #4CAF50;
-  cursor: pointer;
-}
-.downside{
-padding-top: 5%;
-margin-top: 5%;
-background-color: #024959;
-height: 50vw;
-}
-<!-- Irvins CSS -->
+
+
 #largebox{
-width: 100%;
-height: 30px;
-background-color: blue;
-padding-top: 50px;
-padding-left: 10px;
-padding-right: 10px;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #50BFBF;
+  padding: 100px 100px 100px 100px;
 }
+
 .threeboxes{
-color: gray;
+font-family: 'Gayathri' , serif;
 text-align: center;
+color:#50BFBF;
+font-size: 20px;
+font-weight: bold;
 }
+
 #box1 {
 height: 25vw;
 width: 20vw;
@@ -196,6 +143,7 @@ background-color: white;
 float: left;
 margin-left: 5%;
 }
+
 #box2 {
 height: 25vw;
 width: 20vw;
@@ -203,6 +151,7 @@ background-color: white;
 float: left;
 margin-left: 35px;
 }
+
 #box3 {
 height: 25vw;
 width: 20vw;
@@ -210,16 +159,21 @@ background-color: white;
 float: left;
 margin-left: 35px;
 }
+
 <!--TESTAR DROP DOWN DIV-->
-.toggle_wrapper
-{
+.toggle_wrapper{
+
 }
+
 #wrapper_container{
     margin-top: 0px;
     margin-bottom: 30px;
     background: #3FA8BF;
     width: auto; height: 200px;
 }
+
+
+
 #wrapper
 {
     display: block;
@@ -227,16 +181,20 @@ margin-left: 35px;
     height: 35px;
     line-height: 35px;
     background: #3FA8BF;
+    font-family: 'Gayathri' , serif;
     text-align: center;
-    color: white;
     font-weight: bold;
-    font-variant: small-caps;
+    color: #fff;
+    font-size: 20px;
     box-shadow: 2px 2px 3px #888888;
     text-decoration:none;
 }
+
 #wrapper:hover
 {
     text-decoration:none;
+
+
     border-top: 1px groove white;
     border-left: 1px groove white;
     border-bottom: 1px solid #7B7B78;
@@ -245,13 +203,18 @@ margin-left: 35px;
     background: white;
     box-shadow: 1px 1px 2px #888888;
 }
-<!-- Irvins CSS slutar-->
+
 footer {
      position: fixed;
      left: 0;
      bottom: 0;
      width: 100%;
      background-color: white;
-     color: white;
+     font-family: 'Gayathri' , serif;
+     color: black;
+     font-weight: bold;
+     font-size: 16px;
      text-align: center;
 }
+
+

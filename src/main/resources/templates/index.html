@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title> Adoor </title>
     <link rel="stylesheet" type="text/css" href="normalize.css" />
-    <link rel="stylesheet" type="text/css" href="style20.css" />
+    <link rel="stylesheet" type="text/css"  href="style2.css" />
     ​
     ​
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gayathri">
     <script>jQuery(document).ready(function ($) {
             $("#wrapper").click(function () {
 
@@ -36,10 +37,11 @@
 
 
     <img src="Adoore.png" alt="Adoor logotype" height="150" width="150">
-    <button class="material-icons">person</button>
-    <button class="material-icons">notifications</button>
+    <button class="material-icons" id="icons">person</button>
+    <button class="material-icons" id="icons">notifications</button>
     <div class="playground">
 
+        <div>Adoore makes it possible to get to know a company better</div><br>
 
         <form id="searchbar" action="/searchResult" method="post">
             <input type="text" name="search" placeholder="Search..">
@@ -49,22 +51,22 @@
 
 
 
-    <div class="toggle_wrapper">
-        <a href="#0" id="wrapper">Expand Filter ⏷</a>
-    </div>
-    <div id="wrapper_container" style="display: none;">
-        <form action="/filtered" method="post">
-            <ul>
-                <li th:each="checkboxValue: ${multiCheckboxAllValues}">
-                    <input type="checkbox" name="filteredCompanies" th:value="${checkboxValue}" />
-                    <label th:text="${checkboxValue}">
-                        <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
-                    </label>
-                </li>
-                <input type="submit" value="GO!">
-            </ul>
-        </form>
-    </div>
+<div class="toggle_wrapper">
+    <a href="#0" id="wrapper">Expand Filter ⏷</a>
+</div>
+<div id="wrapper_container" style="display: none;">
+    <form action="/filtered" method="post">
+        <ul>
+            <li th:each="checkboxValue: ${multiCheckboxAllValues}">
+                <input type="checkbox" name="filteredCompanies" th:value="${checkboxValue}" />
+                <label th:text="${checkboxValue}">
+                    <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
+                </label>
+            </li>
+            <input type="submit" value="GO!">
+        </ul>
+    </form>
+</div>
 
 
 <div class="downside">
@@ -125,4 +127,5 @@
     Copyright © Adoor 2019
 </footer>
 </body>
+
 </html>
