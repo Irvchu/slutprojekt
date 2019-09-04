@@ -18,6 +18,7 @@ import java.util.List;
 public class CompanyController {
 
     List<Company> companiesAll;
+    Option option;
 
 
     @Autowired
@@ -125,31 +126,45 @@ public class CompanyController {
     }
     @PostMapping("/filtered")
     public String hej(@RequestParam String[] filteredCompanies, Model model) {
-        System.out.println("postMapping");
-        List<Company> filteredCompaniesList = new ArrayList<>();
-        for(int i = 0; i < filteredCompanies.length; i++) {
-            String filteredString = filteredCompanies[i];
-            filteredCompanies[i] = filteredString;
-            Company companyBackend = companyRepository.filterQueriesHelperBackendProgLang(filteredCompanies[i]);
-            Company companyFrontend = companyRepository.filterQueriesHelperFrontendProgLang(filteredCompanies[i]);
-            if(companyBackend != null) {
-                filteredCompaniesList.add(companyBackend);
-            }
-            if(companyFrontend != null && companyFrontend.equals(companyBackend)) {
-                filteredCompaniesList.add(companyFrontend);
-            }
-        }
+        System.out.println("post");
+        List<Company> filteredCompaniesList;
+
+        filteredCompaniesList = companyRepository.filterQueries(filteredCompanies);
+
         model.addAttribute("filteredCompaniesList", filteredCompaniesList);
         return "searchResult";
     }
 
-    @ModelAttribute("multiCheckboxAllValues")
-    public String[] getMultiCheckboxAllValues() {
-        return new String[] {
-                "it", "Java", "C#", "Javascript",
-                "C", "Saturday", "Sunday"
-        };
+    @ModelAttribute("multiCheckboxProgrammingLanguages")
+    public List<Option> getMultiCheckboxProgrammingLanguages() {
+        List<Option> optionList = new ArrayList<>();
+        optionList.add(new Option("Java", "Backend=Java"));
+        optionList.add(new Option("C#", "Backend=C#"));
+        optionList.add(new Option("Python", "Backend=Python"));
+        optionList.add(new Option("React", "Frontend=React"));
+        optionList.add(new Option("Javascript", "Frontend=Javascript"));
+        return optionList;
+        }
+
+    @ModelAttribute("multiCheckboxFacility")
+    public List<Option> getMultiCheckboxFacility() {
+        List<Option> optionList = new ArrayList<>();
+        optionList.add(new Option("Carparking", "Carparking=Yes"));
+        optionList.add(new Option("Meditation room", "Meditationroom=Yes"));
+        optionList.add(new Option("Biker room", "Bikerroom=yes"));
+        optionList.add(new Option("Fruitbasket", "Fruitbasket=Yes"));
+        optionList.add(new Option("Breakfast", "Breakfast=Yes"));
+        return optionList;
     }
+        @ModelAttribute("multiCheckboxGeneral")
+    public List<Option> getMultiCheckboxGeneral() {
+        List<Option> optionList = new ArrayList<>();
+        optionList.add(new Option("30% or more women", "ProportionWomen>30%"));
+        optionList.add(new Option("more than 5000 workers", "Workers>5000"));
+        optionList.add(new Option("Staff turnover less than 10%", "Staffturnover<10%)"));
+        return optionList;
+    }
+
 /*
     @GetMapping("/filtered")
     public String getFilteredCompanis(@RequestParam String[] filteredCompanies) {

@@ -17,18 +17,27 @@
     <script>jQuery(document).ready(function($)
 {
 $("#wrapper").click(function () {
+<<<<<<< HEAD
 
                 $("#wrapper_container").slideToggle("slow");
 
+=======
+                $("#wrapper_container").slideToggle("slow");
+>>>>>>> bfafdfd57210ca8c668184abf0a9e8bfc6f619cd
                 if ($("#wrapper").text() == "Expand Filter ⏷") {
+
                     $("#wrapper").html("Hide Filter ⏶")
                 }
                 else {
                     $("#wrapper").text("Expand Filter ⏷")
                 }
+<<<<<<< HEAD
 
             });
 
+=======
+            });
+>>>>>>> bfafdfd57210ca8c668184abf0a9e8bfc6f619cd
         });
     </script>
 </head>
@@ -50,6 +59,7 @@ $("#wrapper").click(function () {
     </div>
 </div>
 
+<<<<<<< HEAD
 
 
 <div class="toggle_wrapper">
@@ -68,6 +78,60 @@ $("#wrapper").click(function () {
         </ul>
     </form>
 </div>
+=======
+    <div class="toggle_wrapper">
+        <a href="#0" id="wrapper">Expand Filter ⏷</a>
+    </div>
+    <div id="wrapper_container" style="display: none;">
+        <div id="perransBox" class="mem">
+            <form action="/filtered" method="post">
+
+                <div id="perransBox1" class="mem" >
+                    <ul class="list">
+
+                        <h4>Programming Languages</h4>
+                        <li th:each="option: ${multiCheckboxProgrammingLanguages}">
+                            <input type="checkbox" name="filteredCompanies" th:value="${option.value}" />
+                            <label th:text="${option.name}">
+                                <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
+                            </label>
+                        </li>
+                    </ul>
+
+                </div>
+                <div id="perransBox2" class="mem">
+                    <ul class="list">
+
+                        <h4>Facilities</h4>
+                        <li th:each="option: ${multiCheckboxFacility}">
+                            <input type="checkbox" name="filteredCompanies" th:value="${option.value}" />
+                            <label th:text="${option.name}">
+                                <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
+                            </label>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div id="perransBox3" class="mem">
+                    <ul class="list">
+                        <h4>General</h4>
+                        <li th:each="option: ${multiCheckboxGeneral}">
+                            <input type="checkbox" name="filteredCompanies" th:value="${option.value}" />
+                            <label th:text="${option.name}">
+                                <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
+                            </label>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="perransSubmit">
+                <input type="submit" value="Search with filters!">
+                </div>
+            </form>
+    </div>
+    </div>
+>>>>>>> bfafdfd57210ca8c668184abf0a9e8bfc6f619cd
 
 
 <div class="downside">
