@@ -50,16 +50,15 @@
             </ul>
 
             <div class="background">
-                <div class="container" >
+                <div class="container">
                     <div class="panel pricing-table" >
 
-                        <div class="pricing-plan" th:each="company: ${session.CompaniesAll}">
+                        <div class="pricing-plan" th:each="company, iStat: ${session.CompaniesAll}">
                             <ul class="pricing-features">
                                 <li class="pricing-features-logo">  <img class="logo" th:src="'/'+ ${company.logo}" alt = "Company logo" ></li>
-                                <li class="pricing-features-item"  th:text="${company.address}"></li>
-                                <li class="pricing-features-item"  th:text="${company.city}"></li>
-                                <li class="pricing-features-item"  th:text="${company.educationBudgetSEK}"></li>
-                                <li class="pricing-features-item"  th:text="${company.noticePeriodMonth}"></li>
+                                <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Address</span></div><div  th:text="${company.address}"></div></li>
+                                <li class="pricing-features-item"  ><span class="listHeader" th:if = "${iStat.index==0}">City</span><span  th:text="${company.city}"></span></li>
+                                <li class="pricing-features-item"  ><span class="listHeader" th:if = "${iStat.index==0}">Edication Budget per year</span><span  th:text="${company.educationBudgetSEK}"></span></li>
                                 <li class="pricing-features-item"  th:text="${company.profitMarginal}"></li>
                                 <li class="pricing-features-item"  th:text="${company.netSalesChange}"></li>
                                 <li class="pricing-features-item"  th:text="${company.propotionOfWomanWithinITDep}"></li>
