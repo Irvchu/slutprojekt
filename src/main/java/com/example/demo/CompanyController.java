@@ -144,24 +144,25 @@ public class CompanyController {
         optionList.add(new Option("React", "Frontend=React"));
         optionList.add(new Option("Javascript", "Frontend=Javascript"));
         return optionList;
-        }
-
+    }
     @ModelAttribute("multiCheckboxFacility")
     public List<Option> getMultiCheckboxFacility() {
         List<Option> optionList = new ArrayList<>();
         optionList.add(new Option("Carparking", "Carparking=Yes"));
         optionList.add(new Option("Meditation room", "Meditationroom=Yes"));
-        optionList.add(new Option("Biker room", "Bikerroom=yes"));
-        optionList.add(new Option("Fruitbasket", "Fruitbasket=Yes"));
+        optionList.add(new Option("Biker room", "Bikerroom=Yes"));
+        optionList.add(new Option("Fruit basket", "Fruitbasket=Yes"));
         optionList.add(new Option("Breakfast", "Breakfast=Yes"));
         return optionList;
     }
-        @ModelAttribute("multiCheckboxGeneral")
+    @ModelAttribute("multiCheckboxGeneral")
     public List<Option> getMultiCheckboxGeneral() {
         List<Option> optionList = new ArrayList<>();
-        optionList.add(new Option("30% or more women", "ProportionWomen>30%"));
-        optionList.add(new Option("more than 5000 workers", "Workers>5000"));
-        optionList.add(new Option("Staff turnover less than 10%", "Staffturnover<10%)"));
+        optionList.add(new Option("Women In Tech > 30% ", "ItProportionWomen>30%"));
+        optionList.add(new Option("Women Within Board > 30% ", "WomenWithinBoard<30%"));
+        optionList.add(new Option("Staff turnover < 10%", "Staffturnover<10%"));
+        optionList.add(new Option("Employees > 5000", "Workers>5000"));
+        optionList.add(new Option("Collective Agreement", "CollectiveAgreement"));
         return optionList;
     }
 
