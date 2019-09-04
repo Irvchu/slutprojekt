@@ -49,9 +49,9 @@
 
             </ul>
 
-<<<<<<< HEAD
+
             <div class="background">
-                <div class="container">
+                <div class="container" >
                     <div class="panel pricing-table" >
 
                         <div class="pricing-plan" th:each="company, iStat: ${session.CompaniesAll}">
@@ -86,84 +86,6 @@
                             <a href="#/" class="pricing-button">Apply Now</a>
                             </ul>
                         </div>
-
-=======
-<div class="background">
-    <div class="container">
-        <div class="panel pricing-table" >
-            <div class="pricing-plan" th:each="company, iStat: ${session.CompaniesAll}">
-                <ul class="pricing-features">
-                    <li class="pricing-features-logo">  <img class="logo" th:src="'/'+ ${company.logo}" alt = "Company logo" ></li>
-                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Address</span></div><div  th:text="${company.address}"></div></li>
-                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">City</span></div><div  th:text="${company.city}"></div></li>
-                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Education Budget</span></div><div  th:text="${company.educationBudgetSEK}"></div></li>
-                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Profit marginal</span></div><div  th:text="${company.profitMarginal}"></div></li>
-                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Net Sales</span></div><div  th:text="${company.netSalesChange}"></div></li>
-                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Woman in Tech</span></div><div  th:text="${company.propotionOfWomanWithinITDep}"></div></li>
-                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Woman in Board</span></div><div  th:text="${company.propotionOfWomanWithinBoard}"></div></li>
-                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Woman in Lead Managment</span></div><div  th:text="${company.propotionOfWomanWithinLeadManagement}"></div></li>
-                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Staff turnover</span></div><div  th:text="${company.staffTurnover}"></div></li>
-                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Backend Program</span></div><div  th:text="${company.backendProgramLanguage}"></div></li>
-                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Frontend Program</span></div><div  th:text="${company.frontendProgramLanguage}"></div></li>
-                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Bike Room</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.bikeRoomAvailable}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.bikeRoomAvailable}" ></div> </li>
-                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Car parking near by</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.carParkingAvailable}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.carParkingAvailable}" ></div> </li>
-                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Meditation Room</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.meditationRoom}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.meditationRoom}" ></div> </li>
-                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Permanent Workplace/Table</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.permanentWorkplaces}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.permanentWorkplaces}" ></div> </li>
-                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Benify</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.benify}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.benify}" ></div> </li>
-                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Union Connected</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.unionConnected}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.unionConnected}" ></div> </li>
-                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Group insurance</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.groupInsuranceIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.groupInsuranceIncluded}" ></div> </li>
-                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Business care included</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.businessCareIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.businessCareIncluded}" ></div> </li>
-                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Collective Agreement</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.collectiveAgreement}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.collectiveAgreement}" ></div> </li>
-                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Fruit Basket</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.fruitBasketIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.fruitBasketIncluded}" ></div> </li>
-                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Breakfast included</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.breakfastIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.breakfastIncluded}" ></div> </li>
-                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Agilt project steering</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.projectSteeringAgilt}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.projectSteeringAgilt}" ></div> </li>
-                    <a href="#/" class="pricing-button">Apply Now</a>
-                </ul>
-            </div>
->>>>>>> Merge0409
-
-
-                    </div>
-                </div>
-            </div>
-
-    </div>
-
-    <!--
-    <div id="ContentRight">
-
-        <div th:if="${!companies.empty}">
-
-
-                </div>
-
-                </tr>
-            </table>
-
-
-            <div id="navBar">
-
-                <a th:if="${currentPage != 1}" th:href="'/result/' +${currentPage-1}">Previous page</a>
-
-
-                <span th:each="page : ${#numbers.sequence(1, numberOfPages)}">
-      <a th:if="${page != currentPage}"  th:href="'/result/' + ${page}"><span th:text="${page} "></span></a>
-      <span id ="currentPage" th:if="${page == currentPage} and ${numberOfPages != 1}"  th:text="${page}"></span>
-</span>
-
-                <a th:if="${currentPage != numberOfPages}" th:href="'/result/' + ${currentPage+1}">Next page</a>
-
-            </div>
-        </div>
-
-        <p th:if="${companies.empty}">
-            Something went wrong, please try again!
-        </p>
-
-
-    </div>
-</div>
--->
 
     <footer>
     Copyright © Adoor 2019
