@@ -150,11 +150,13 @@ public class CompanyController {
     public List<Option> getMultiCheckboxFacility() {
         List<Option> optionList = new ArrayList<>();
         optionList.add(new Option("Carparking", "Carparking=Yes"));
-        optionList.add(new Option("Meditationroom", "Meditationroom=Yes"));
+        optionList.add(new Option("Meditation room", "Meditationroom=Yes"));
+        optionList.add(new Option("Biker room", "Bikerroom=yes"));
+        optionList.add(new Option("Fruitbasket", "Fruitbasket=Yes"));
+        optionList.add(new Option("Breakfast", "Breakfast=Yes"));
         return optionList;
     }
-
-    @ModelAttribute("multiCheckboxGeneral")
+        @ModelAttribute("multiCheckboxGeneral")
     public List<Option> getMultiCheckboxGeneral() {
         List<Option> optionList = new ArrayList<>();
         optionList.add(new Option("30% or more women", "ProportionWomen>30%"));
