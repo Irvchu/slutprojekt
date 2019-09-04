@@ -18,6 +18,7 @@ import java.util.List;
 public class CompanyController {
 
     List<Company> companiesAll;
+    Option option;
 
 
     @Autowired
@@ -134,13 +135,34 @@ public class CompanyController {
         return "searchResult";
     }
 
-    @ModelAttribute("multiCheckboxAllValues")
-    public String[] getMultiCheckboxAllValues() {
-        return new String[] {
-                "Backend=Java", "Frontend=Javascript", "Backend=C#", "Backend=Phyton",
-                "Frontend=React", "T-centralen", "Stockholm"
-        };
+    @ModelAttribute("multiCheckboxProgrammingLanguages")
+    public List<Option> getMultiCheckboxProgrammingLanguages() {
+        List<Option> optionList = new ArrayList<>();
+        optionList.add(new Option("Java", "Backend=Java"));
+        optionList.add(new Option("C#", "Backend=C#"));
+        optionList.add(new Option("Python", "Backend=Python"));
+        optionList.add(new Option("React", "Frontend=React"));
+        optionList.add(new Option("Javascript", "Frontend=Javascript"));
+        return optionList;
+        }
+
+    @ModelAttribute("multiCheckboxFacility")
+    public List<Option> getMultiCheckboxFacility() {
+        List<Option> optionList = new ArrayList<>();
+        optionList.add(new Option("Carparking", "Carparking=Yes"));
+        optionList.add(new Option("Meditationroom", "Meditationroom=Yes"));
+        return optionList;
     }
+
+    @ModelAttribute("multiCheckboxGeneral")
+    public List<Option> getMultiCheckboxGeneral() {
+        List<Option> optionList = new ArrayList<>();
+        optionList.add(new Option("30% or more women", "ProportionWomen>30%"));
+        optionList.add(new Option("more than 5000 workers", "Workers>5000"));
+        optionList.add(new Option("Staff turnover less than 10%", "Staffturnover<10%)"));
+        return optionList;
+    }
+
 /*
     @GetMapping("/filtered")
     public String getFilteredCompanis(@RequestParam String[] filteredCompanies) {

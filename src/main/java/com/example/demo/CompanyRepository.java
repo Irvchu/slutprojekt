@@ -336,7 +336,6 @@ public class CompanyRepository {
            e.printStackTrace();
        }
         return filteredCompanyList;
-
    }
 
 }
