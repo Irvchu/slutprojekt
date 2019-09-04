@@ -75,7 +75,7 @@ public class CompanyRepository {
 
 
 
-    String connstr = "jdbc:sqlserver://localhost;databasename=erikaspeople;user=dbadmin;password=dbadmin123";
+    //String connstr = "jdbc:sqlserver://localhost;databasename=erikaspeople;user=dbadmin;password=dbadmin123";
 /*
     private  List <Company> getCompanies (String search) throws SQLException
 
@@ -123,7 +123,7 @@ public class CompanyRepository {
 
     public List<Company> getCompany(String search) {
 
-        try (Connection conn = DriverManager.getConnection(connstr);
+        try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM COMPANY")) {
             while (rs.next()) {
@@ -139,7 +139,7 @@ public class CompanyRepository {
 
     public Company getCompanyById(Long id) {
         Company company = null;
-        try (Connection conn = DriverManager.getConnection(connstr);
+        try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Company WHERE CompanyID = ?");
 
         ) {
@@ -158,7 +158,7 @@ public class CompanyRepository {
 
     public Company getEverythingById(Long id) {
         Company company = null;
-        try (Connection conn = DriverManager.getConnection(connstr);
+        try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * " +
                      "FROM Company " +
 
@@ -184,7 +184,7 @@ public class CompanyRepository {
     public List<Company> getCompanyByName(@RequestParam(defaultValue = "") String search) {
         List<Company> companies = new ArrayList<>();
         try {
-            Connection conn = DriverManager.getConnection(connstr);
+            Connection conn = dataSource.getConnection();
             //QUERY with a tag as a search function
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM Company WHERE CompanyName LIKE ? OR TAG LIKE ? ");
             //setstring parameter is basically and index for the "=" in the query
@@ -305,7 +305,7 @@ public class CompanyRepository {
        String endString = filteredCompanies[filteredCompanies.length-1];
        System.out.println(endString);
        try {
-           Connection conn = DriverManager.getConnection(connstr);
+           Connection conn = dataSource.getConnection();
            for(int i = 0; i < filteredCompanies.length; i++) {
 
                queryBuilder = queryBuilder + "tag LIKE ?";

@@ -26,8 +26,8 @@
            </form>
             <form action="/filtered">
                 <ul>
-                    <li th:each="company: ${filteredCompaniesList}" th:text="${company.companyName + company.address + company.backendProgramLanguage
-                   + company.frontendProgramLanguage}">
+                    <li th:each="company: ${filteredCompaniesList}">
+                        <a th:href="'/searchResult/' +${company.companyId}" th:text="${company.companyName}"></a>
                     </li>
                 </ul>
             </form>
@@ -36,7 +36,6 @@
             <ul>
 
                 <li th:each="company: ${Companies}"  >
-                    <span th:if="${Companies == null} "> <p>No search results</p>  </span>
                     <a th:href="'/searchResult/' +${company.companyId}"  th:text="${company.companyName}"></a>
                 </li>
 
