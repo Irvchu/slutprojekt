@@ -6,7 +6,7 @@
     <title>Search Result</title>
   <link rel="stylesheet" type="text/css" href="/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/style20.css" />
-       <link rel="stylesheet" type="text/css" href="/styletable11.css" />
+       <link rel="stylesheet" type="text/css" href="/styletable12.css" />
        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
 
    </head>
@@ -50,13 +50,12 @@
             </ul>
 
             <div class="background">
-                <div class="container">
-                    <div class="panel pricing-table">
+                <div class="container" >
+                    <div class="panel pricing-table" >
 
                         <div class="pricing-plan" th:each="company: ${session.CompaniesAll}">
                             <ul class="pricing-features">
-                                <li class="pricing-features-item">  <img th:src="'/'+ ${company.logo}" alt = "Company logo" height="120px" width="120px" ></li>
-                                <li class="pricing-features-item"  th:text="${company.companyName}"></li>
+                                <li class="pricing-features-logo">  <img class="logo" th:src="'/'+ ${company.logo}" alt = "Company logo" ></li>
                                 <li class="pricing-features-item"  th:text="${company.address}"></li>
                                 <li class="pricing-features-item"  th:text="${company.city}"></li>
                                 <li class="pricing-features-item"  th:text="${company.educationBudgetSEK}"></li>
@@ -69,21 +68,20 @@
                                 <li class="pricing-features-item"  th:text="${company.staffTurnover}"></li>
                                 <li class="pricing-features-item"  th:text="${company.backendProgramLanguage}"></li>
                                 <li class="pricing-features-item"  th:text="${company.frontendProgramLanguage}"></li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.bikeRoomAvailable}" height=10 width=10> <img src="/x_pic.png" th:if ="${!company.bikeRoomAvailable}" height=10 width=10> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.carParkingAvailable}" height=10 width=10> <img src="/x_pic.png" th:if ="${!company.carParkingAvailable}" height=10 width=10> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.meditationRoom}" height=10 width=10> <img src="/x_pic.png" th:if ="${!company.meditationRoom}" height=10 width=10> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.permanentWorkplaces}" height=10 width=10> <img src="/x_pic.png" th:if ="${!company.permanentWorkplaces}" height=10 width=10> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.benify}" height=10 width=10> <img src="/x_pic.png" th:if ="${!company.benify}" height=10 width=10> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.unionConnected}" height=10 width=10> <img src="/x_pic.png" th:if ="${!company.unionConnected}" height=10 width=10> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.occupationalIncluded}" height=10 width=10> <img src="/x_pic.png" th:if ="${!company.occupationalIncluded}" height=10 width=10> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.groupInsuranceIncluded}" height=10 width=10> <img src="/x_pic.png" th:if ="${!company.groupInsuranceIncluded}" height=10 width=10> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.businessCareIncluded}" height=10 width=10> <img src="/x_pic.png" th:if ="${!company.businessCareIncluded}" height=10 width=10> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.collectiveAgreement}" height=10 width=10> <img src="/x_pic.png" th:if ="${!company.collectiveAgreement}" height=10 width=10> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.occupationalIncluded}" height=10 width=10> <img src="/x_pic.png" th:if ="${!company.occupationalIncluded}" height=10 width=10> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.fruitBasketIncluded}" height=10 width=10> <img src="/x_pic.png" th:if ="${!company.fruitBasketIncluded}" height=10 width=10> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.breakfastIncluded}" height=10px width=10px> <img src="/x_pic.png" th:if ="${!company.breakfastIncluded}" height=10px width=10px> </li>
-                                <li class="pricing-features-item"> <img src="/ok.jpg" th:if ="${company.projectSteeringAgilt}" height=10% width=10%> <img src="/x_pic.png" th:if ="${!company.projectSteeringAgilt}" height=10% width=10%> </li>
-                                
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.bikeRoomAvailable}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.bikeRoomAvailable}" > </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.carParkingAvailable}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.carParkingAvailable}" > </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.meditationRoom}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.meditationRoom}" > </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.permanentWorkplaces}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.permanentWorkplaces}" > </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.benify}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.benify}" > </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.unionConnected}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.unionConnected}" > </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.occupationalIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.occupationalIncluded}" > </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.groupInsuranceIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.groupInsuranceIncluded}"> </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.businessCareIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.businessCareIncluded}"> </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.collectiveAgreement}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.collectiveAgreement}" > </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.occupationalIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.occupationalIncluded}" > </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.fruitBasketIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.fruitBasketIncluded}" > </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.breakfastIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.breakfastIncluded}" > </li>
+                                <li class="pricing-features-item"> <img class="okIcon" src="/ok.jpg" th:if ="${company.projectSteeringAgilt}"  > <img class="okIcon" src="/x_pic.png" th:if ="${!company.projectSteeringAgilt}"> </li>
 
                             <a href="#/" class="pricing-button">Apply Now</a>
                             </ul>
