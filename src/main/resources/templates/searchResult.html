@@ -5,38 +5,40 @@
     <meta charset="UTF-8">
     <title>Search Result</title>
   <link rel="stylesheet" type="text/css" href="/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/style20.css" />
+    <link rel="stylesheet" type="text/css" href="/style2.css" />
        <link rel="stylesheet" type="text/css" href="/styletable12.css" />
        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gayathri">
 
    </head>
-   <body> <!--id="PageBody"-->
+<body class="PageBody">
+<div id="BodyContent">
 
 
-<div> <!--id="BodyContent">-->
+    <img src="/Adoore.png" alt="Adoor logotype" height="150" width="150">
+    <button class="material-icons" id="icons">person</button>
+    <button class="material-icons" id="icons">notifications</button>
+    <div class="playground">
 
+        <form action="/searchResult" method="post" th:fragment="smallsearch">
+            <input type="text" name="search" placeholder="Search..">
+        </form>
+    </div>
+</div>
 
-    <div><!-- id="ContentLeft">-->
-        <div><!-- id="Menu">-->
-
-           <form action="/searchResult" method="post" th:fragment="smallsearch"> <!-- id="SmallSearch">-->
-                <input type="text" style="width: 150px;" name="search" placeholder="Search...">
-                <input type="submit" value="GO!">
-
-           </form>
-
-            <form action="/filtered" method="post">
+            <form action="/filtered">
                 <ul>
-                    <li th:each="company: ${filteredCompaniesList}" th:text="${company.companyName + company.address + company.backendProgramLanguage
-                   + company.frontendProgramLanguage}">
+                    <li th:each="company: ${filteredCompaniesList}">
+                        <a th:href="'/searchResult/' +${company.companyId}" th:text="${company.companyName}"></a>
                     </li>
                 </ul>
             </form>
 
+
             <ul>
 
                 <li th:each="company: ${Companies}"  >
-                    <span th:if="${Companies == null} "> <p>No search results</p>  </span>
                     <a th:href="'/searchResult/' +${company.companyId}"  th:text="${company.companyName}"></a>
                 </li>
 
@@ -47,6 +49,7 @@
 
             </ul>
 
+<<<<<<< HEAD
             <div class="background">
                 <div class="container">
                     <div class="panel pricing-table" >
@@ -84,6 +87,40 @@
                             </ul>
                         </div>
 
+=======
+<div class="background">
+    <div class="container">
+        <div class="panel pricing-table" >
+            <div class="pricing-plan" th:each="company, iStat: ${session.CompaniesAll}">
+                <ul class="pricing-features">
+                    <li class="pricing-features-logo">  <img class="logo" th:src="'/'+ ${company.logo}" alt = "Company logo" ></li>
+                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Address</span></div><div  th:text="${company.address}"></div></li>
+                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">City</span></div><div  th:text="${company.city}"></div></li>
+                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Education Budget</span></div><div  th:text="${company.educationBudgetSEK}"></div></li>
+                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Profit marginal</span></div><div  th:text="${company.profitMarginal}"></div></li>
+                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Net Sales</span></div><div  th:text="${company.netSalesChange}"></div></li>
+                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Woman in Tech</span></div><div  th:text="${company.propotionOfWomanWithinITDep}"></div></li>
+                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Woman in Board</span></div><div  th:text="${company.propotionOfWomanWithinBoard}"></div></li>
+                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Woman in Lead Managment</span></div><div  th:text="${company.propotionOfWomanWithinLeadManagement}"></div></li>
+                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Staff turnover</span></div><div  th:text="${company.staffTurnover}"></div></li>
+                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Backend Program</span></div><div  th:text="${company.backendProgramLanguage}"></div></li>
+                    <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Frontend Program</span></div><div  th:text="${company.frontendProgramLanguage}"></div></li>
+                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Bike Room</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.bikeRoomAvailable}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.bikeRoomAvailable}" ></div> </li>
+                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Car parking near by</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.carParkingAvailable}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.carParkingAvailable}" ></div> </li>
+                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Meditation Room</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.meditationRoom}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.meditationRoom}" ></div> </li>
+                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Permanent Workplace/Table</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.permanentWorkplaces}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.permanentWorkplaces}" ></div> </li>
+                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Benify</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.benify}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.benify}" ></div> </li>
+                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Union Connected</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.unionConnected}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.unionConnected}" ></div> </li>
+                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Group insurance</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.groupInsuranceIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.groupInsuranceIncluded}" ></div> </li>
+                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Business care included</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.businessCareIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.businessCareIncluded}" ></div> </li>
+                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Collective Agreement</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.collectiveAgreement}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.collectiveAgreement}" ></div> </li>
+                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Fruit Basket</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.fruitBasketIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.fruitBasketIncluded}" ></div> </li>
+                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Breakfast included</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.breakfastIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.breakfastIncluded}" ></div> </li>
+                    <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Agilt project steering</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.projectSteeringAgilt}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.projectSteeringAgilt}" ></div> </li>
+                    <a href="#/" class="pricing-button">Apply Now</a>
+                </ul>
+            </div>
+>>>>>>> Merge0409
 
 
                     </div>

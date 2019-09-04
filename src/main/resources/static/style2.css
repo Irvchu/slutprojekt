@@ -1,0 +1,257 @@
+body {
+  width: 100%;
+  height: 100%;
+
+}
+.PageBody{
+  background-color:   #ecebeb;
+  padding: 10%;
+  padding-top: 1%;
+}
+
+#BodyContent{
+  background-color: white;
+height: 2%;
+}
+
+.header_filter{
+color: black;
+}
+
+/* Responsive Logo*/
+img {
+  width: 15%;
+  height: auto;
+  margin-left: 2%;
+
+}
+/*Buttons*/
+  #icons{
+    float: right;
+    padding-bottom: none;
+    margin-top: 11%;/*nedre placering*/
+    margin-right: 2%;
+    color:black;
+    background-color: white;
+    border-radius:10px;
+    border: none;
+  }
+
+  #icons:hover {
+    background-color: #ecebeb;
+    color: white;
+  }
+
+  .playground{
+    width: 100%;
+    height: 50%;
+    font-family: 'Gayathri' , serif;
+    color: white;
+    text-shadow: 4px 4px 4px #aaa;
+    font-size: 4.0vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 100px 100px 100px;
+    background: linear-gradient(123deg, #024959, purple, #27828c, white, #50bfbf);
+    background-size: 1000% 1000%;
+
+    -webkit-animation: AnimationName 54s ease infinite;
+    -moz-animation: AnimationName 54s ease infinite;
+    animation: AnimationName 54s ease infinite;
+  }
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:40% 0%}
+        50%{background-position:61% 100%}
+        100%{background-position:40% 0%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:40% 0%}
+        50%{background-position:61% 100%}
+        100%{background-position:40% 0%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:40% 0%}
+        50%{background-position:61% 100%}
+        100%{background-position:40% 0%}
+    }
+
+#containerid{
+width: 100%;
+}
+
+input[type=text] {
+  width: 3.0vw;
+  box-sizing: border-box;
+  border: 2px solid #50BFBF;
+  border-radius: 10px;
+  font-family: 'Gayathri' , serif;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 1.8vw 7vw 0.2vw 10.0vw;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+ }
+ input[type=text]:focus {
+  width: auto;
+ }
+ background-image{
+           background-color: #ecebeb;
+           margin: 2%;
+         }
+
+#largebox{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #50BFBF;
+  padding: 100px 100px 100px 100px;
+}
+
+.threeboxes{
+font-family: 'Gayathri' , serif;
+text-align: center;
+color:#50BFBF;
+font-size: 20px;
+font-weight: bold;
+}
+
+#box1 {
+height: 25vw;
+width: 20vw;
+background-color: white;
+float: left;
+margin-left: 5%;
+}
+
+#box2 {
+height: 25vw;
+width: 20vw;
+background-color: white;
+float: left;
+margin-left: 35px;
+}
+
+#box3 {
+height: 25vw;
+width: 20vw;
+background-color: white;
+float: left;
+margin-left: 35px;
+}
+
+<!--TESTAR DROP DOWN DIV-->
+.toggle_wrapper{
+
+}
+
+#wrapper_container{
+    margin-top: 0px;
+    margin-bottom: 30px;
+    background: #3FA8BF;
+    width: auto; height: 30vw;
+}
+
+ #wrapper{
+    display: block;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    background: #3FA8BF;
+    font-family: 'Gayathri' , serif;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 20px;
+    box-shadow: 2px 2px 3px #888888;
+    text-decoration:none;
+}
+#wrapper:hover
+{
+    text-decoration:none;
+    border-top: 1px groove white;
+    border-left: 1px groove white;
+    border-bottom: 1px solid #7B7B78;
+    border-right: 1px solid #7B7B78;
+    color: #3FA8BF;
+    background: white;
+    box-shadow: 1px 1px 2px #888888;
+}
+
+#perransBox{
+width: 100%;
+height: 30px;
+background-color: #3FA8BF;
+;
+padding-top: 50px;
+padding-left: 10px;
+padding-right: 10px;
+}
+.perransThreeBoxes{
+color: #3FA8BF;
+;
+text-align: center;
+}
+#perransBox1 {
+background: #3FA8BF;
+height: 15vw;
+width: 20vw;
+float: left;
+margin-left: 5%;
+}
+#perransBox2 {
+background: #3FA8BF;
+height: 15vw;
+width: 20vw;
+float: left;
+margin-left: 35px;
+}
+#perransBox3 {
+background: #3FA8BF;
+height: 15vw;
+width: 20vw;
+float: left;
+margin-left: 35px;
+}
+
+.perransSubmit {
+display: block;
+margin-left: 450px;
+margin-right: 200px;
+
+
+}
+.mem
+{
+background: #3FA8BF;
+    float:left;
+    position: relative;
+
+}
+
+.list {
+list-style-type: none;
+}
+
+footer {
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     background-color: white;
+     font-family: 'Gayathri' , serif;
+     color: black;
+     font-weight: bold;
+     font-size: 16px;
+     text-align: center;
+}
+
+
