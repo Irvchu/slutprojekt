@@ -6,6 +6,7 @@
     <title> Adoor </title>
     <link rel="stylesheet" type="text/css" href="normalize.css" />
     <link rel="stylesheet" type="text/css"  href="style2.css" />
+    <link rel="stylesheet" type="text/css"  href="styletable12.css"/>
 
     ​
     ​
@@ -15,6 +16,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gayathri">
+    <script async src="https://www.feedgrabbr.com/widget/fgwidget.js"></script>
     <script>jQuery(document).ready(function($)
 {
 $("#wrapper").click(function () {
@@ -33,11 +35,7 @@ $("#wrapper").click(function () {
 <div id="BodyContent">
 
 
-
-    <a href="/">
-        <img alt="Adoor logotype" height="150" width="150"
-                th:src="@{/Adoore.png}" />
-    </a>
+    <img src="/Adoore.png" alt="Adoor logotype" height="150" width="150">
     <button class="material-icons" id="icons">person</button>
     <button class="material-icons" id="icons">notifications</button>
     <div class="playground">
@@ -47,71 +45,76 @@ $("#wrapper").click(function () {
         <form action="/searchResult" method="post">
             <input type="text" name="search" placeholder="Search..">
         </form>
-</div>
-</div>
-    <div class="toggle_wrapper">
-        <a href="#0" id="wrapper">Expand Filter ⏷</a>
     </div>
-    <div id="wrapper_container" style="display: none;">
+</div>
+<div class="toggle_wrapper">
+    <a href="#0" id="wrapper">Expand Filter ⏷</a>
+</div>
+<div id="wrapper_container" style="display: none;">
         <form action="/filtered" method="post">
 
-                   <div class="perransBox"> <ul class="list">
+            <div class="perransRow">
 
-                        <h4>Programming Languages</h4>
-                        <li th:each="option: ${multiCheckboxProgrammingLanguages}">
-                            <input type="checkbox" name="filteredCompanies" th:value="${option.value}" />
-                            <label class="filterbox" th:text="${option.name}">
-                                <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
-                            </label>
-                        </li>
-                    </ul>
-                   </div>
+                <div class="perransColumn" >
+                <ul class="list">
 
-                   <div class="perransBox"> <ul class="list">
+                    <h4>Programming Languages</h4>
+                    <li th:each="option: ${multiCheckboxProgrammingLanguages}">
+                        <input type="checkbox" name="filteredCompanies" th:value="${option.value}" />
+                        <label th:text="${option.name}">
+                            <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
+                        </label>
+                    </li>
+                </ul>
 
-                        <h4>Facilities</h4>
-                        <li th:each="option: ${multiCheckboxFacility}">
-                            <input type="checkbox" name="filteredCompanies" th:value="${option.value}" />
-                            <label class="filterbox" th:text="${option.name}">
-                                <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
-                            </label>
-                        </li>
-                    </ul>
-                   </div>
+            </div>
+                <div class="perransColumn" >
+                <ul class="list">
 
+                    <h4>Facilities</h4>
+                    <li th:each="option: ${multiCheckboxFacility}">
+                        <input type="checkbox" name="filteredCompanies" th:value="${option.value}" />
+                        <label th:text="${option.name}">
+                            <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
+                        </label>
+                    </li>
+                </ul>
 
-                   <div class="perransBox"> <ul class="list">
-                        <h4>General</h4>
-                        <li th:each="option: ${multiCheckboxGeneral}">
-                            <input type="checkbox" name="filteredCompanies" th:value="${option.value}" />
-                            <label class="filterbox" th:text="${option.name}">
-                                <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
-                            </label>
-                        </li>
+            </div>
 
-                    </ul>
-                       <button  class="material-icons">double_arrow   </button>
+                <div class="perransColumn" >
+                <ul class="list">
+                    <h4>General</h4>
+                    <li th:each="option: ${multiCheckboxGeneral}">
+                        <input type="checkbox" name="filteredCompanies" th:value="${option.value}" />
+                        <label th:text="${option.name}">
+                            <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
+                        </label>
+                    </li>
+                </ul>
 
-                   </div>
+                        <input type="submit" value="Search with filters!">
 
+            </div>
+
+            </div>
         </form>
 
-
-    </div>
-
+</div>
 
 
 <div class="downside">
     ​
     ​
-    <div id="largebox">
-        <div id="box1" class="threeboxes">
+    <div class="perransRow">
+        <div class="perransColumn">
             <h4>Feed</h4>
             <div class="feedgrabbr_widget" id="fgid_2c8999a958c4440a52abd374e"></div>
-            <script>if (typeof (fg_widgets) === "undefined") fg_widgets = new Array(); fg_widgets.push("fgid_2c8999a958c4440a52abd374e");</script>
-            <script async src="https://www.feedgrabbr.com/widget/fgwidget.js"></script>
+            <script>if (typeof (fg_widgets) === "undefined") fg_widgets = new Array();
+            fg_widgets.push("fgid_2c8999a958c4440a52abd374e");</script>
+
         </div>
-        <div id="box2" class="threeboxes">
+        <div class="perransColumn">
             <h4> Most searched companies </h4>
             <div class="container" id="containerid">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -146,7 +149,7 @@ $("#wrapper").click(function () {
             </div>
             ​
         </div>
-        <div id="box3" class="threeboxes">
+        <div class="perransColumn">
             <h4> About us</h4>
         </div>
         ​

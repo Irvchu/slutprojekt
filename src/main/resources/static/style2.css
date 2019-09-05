@@ -1,8 +1,12 @@
-body {
-  width: 100%;
-  height: 100%;
+@media (min-width: 900px) {
 
+  body {
+    height: 100%;
+
+  }
 }
+
+
 .PageBody{
   background-color:   #ecebeb;
   padding: 10%;
@@ -17,6 +21,7 @@ height: 2%;
 .header_filter{
 color: black;
 }
+
 
 /* Responsive Logo*/
 img {
@@ -106,47 +111,6 @@ input[type=text] {
            margin: 2%;
          }
 
-#largebox{
-  width: 100%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #50BFBF;
-  padding: 100px 100px 100px 100px;
-}
-
-.threeboxes{
-font-family: 'Gayathri' , serif;
-text-align: center;
-color:#50BFBF;
-font-size: 20px;
-font-weight: bold;
-}
-
-#box1 {
-height: 25vw;
-width: 20vw;
-background-color: white;
-float: left;
-margin-left: 5%;
-}
-
-#box2 {
-height: 25vw;
-width: 20vw;
-background-color: white;
-float: left;
-margin-left: 35px;
-}
-
-#box3 {
-height: 25vw;
-width: 20vw;
-background-color: white;
-float: left;
-margin-left: 35px;
-}
 
 <!--TESTAR DROP DOWN DIV-->
 .toggle_wrapper{
@@ -186,41 +150,6 @@ margin-left: 35px;
     box-shadow: 1px 1px 2px #888888;
 }
 
-#perransBox{
-width: 100%;
-height: 30px;
-background-color: #3FA8BF;
-;
-padding-top: 50px;
-padding-left: 10px;
-padding-right: 10px;
-}
-.perransThreeBoxes{
-color: #3FA8BF;
-;
-text-align: center;
-}
-#perransBox1 {
-background: #3FA8BF;
-height: 15vw;
-width: 20vw;
-float: left;
-margin-left: 5%;
-}
-#perransBox2 {
-background: #3FA8BF;
-height: 15vw;
-width: 20vw;
-float: left;
-margin-left: 35px;
-}
-#perransBox3 {
-background: #3FA8BF;
-height: 15vw;
-width: 20vw;
-float: left;
-margin-left: 35px;
-}
 
 .perransSubmit {
 display: block;
@@ -229,16 +158,35 @@ margin-right: 200px;
 
 
 }
-.mem
-{
-background: #3FA8BF;
-    float:left;
-    position: relative;
-
-}
 
 .list {
 list-style-type: none;
+}
+
+{
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.perransColumn  {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.perransRow:after !important{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .perransColumn {
+    width: 100%;
+  }
 }
 
 footer {
