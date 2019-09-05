@@ -20,7 +20,7 @@ public class Company {
     }
 
 
-    public Company(Long companyId, float longitude, float latitude, /*int carParingMonthCostSEK,*/ int numberOfEmployee, int vacationDays, int noticePeriodMonth, int educationBudgetSEK, int wellnessContribution, String logo, String companyName, String address, String postalCode, String city, String tag, String profitMarginal, String netSalesChange, String propotionOfWomanWithinITDep, String propotionOfWomanWithinBoard, String propotionOfWomanWithinLeadManagement, String staffTurnover, String backendProgramLanguage, String frontendProgramLanguage, String operativSystem, boolean bikeRoomAvailable, boolean carParkingAvailable, boolean meditationRoom, boolean permanentWorkplaces, boolean moreThanOneOffice, boolean benify, boolean unionConnected, boolean groupInsuranceIncluded, boolean businessCareIncluded, boolean collectiveAgreement, boolean occupationalIncluded, boolean fruitBasketIncluded, boolean breakfastIncluded, boolean lunchIncluded, boolean dinnerIncluded, boolean projectSteeringAgilt) {
+    public Company(Long companyId, float longitude, float latitude, /*int carParingMonthCostSEK,*/ int numberOfEmployee, int vacationDays, int noticePeriodMonth, int educationBudgetSEK, int wellnessContributionSEK, String logo, String companyName, String address, String postalCode, String city, String tag, String profitMarginal, String netSalesChange, String propotionOfWomanWithinITDep, String propotionOfWomanWithinBoard, String propotionOfWomanWithinLeadManagement, String staffTurnover, String backendProgramLanguage, String frontendProgramLanguage, String operationSystem, boolean bikeRoomAvailable, boolean carParkingAvailable, boolean meditationRoom, boolean permanentWorkplaces, boolean moreThanOneOffice, boolean benify, boolean unionConnected, boolean groupInsuranceIncluded, boolean businessCareIncluded, boolean collectiveAgreement, boolean occupationalIncluded, boolean fruitBasketIncluded, boolean breakfastIncluded, boolean lunchIncluded, boolean dinnerIncluded, boolean projectSteeringAgilt) {
         this.companyId = companyId;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -127,11 +127,11 @@ public class Company {
     public void setEducationBudgetSEK(int educationBudgetSEK) {
         this.educationBudgetSEK = educationBudgetSEK;
     }
-    public int getWellnessContribution() {
+    public int getWellnessContributionSEK() {
         return wellnessContributionSEK;
     }
-    public void setWellnessContribution(int wellnessContribution) {
-        this.wellnessContributionSEK = wellnessContribution;
+    public void setWellnessContributionSEK(int wellnessContributionSEK) {
+        this.wellnessContributionSEK = wellnessContributionSEK;
     }
     public String getCompanyName() {
         return companyName;
@@ -211,11 +211,11 @@ public class Company {
     public void setFrontendProgramLanguage(String frontendProgramLanguage) {
         this.frontendProgramLanguage = frontendProgramLanguage;
     }
-    public String getOperativSystem() {
+    public String getOperationSystem() {
         return operationSystem;
     }
-    public void setOperativSystem(String operativSystem) {
-        this.operationSystem = operativSystem;
+    public void setOperationSystem(String operationSystem) {
+        this.operationSystem = operationSystem;
     }
     public boolean isBikeRoomAvailable() {
         return bikeRoomAvailable;
