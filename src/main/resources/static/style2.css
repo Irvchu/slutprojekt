@@ -1,15 +1,6 @@
-<<<<<<< HEAD
-@media (min-width: 900px) {
-=======
 body {
 
   height: 100%;
->>>>>>> 321cdbcc48e5f62138811ce52ec489703c7af33d
-
-  body {
-    height: 100%;
-
-  }
 }
 
 
@@ -64,7 +55,7 @@ img {
     justify-content: center;
     align-items: center;
     padding: 100px 0px 100px 0px;
-    background: linear-gradient(123deg, #024959, purple, #27828c, white, #50bfbf);
+    background: linear-gradient(123deg, #024959, #56FFE3, #27828c, white, #50bfbf);
     background-size: 1000% 1000%;
 
     -webkit-animation: AnimationName 54s ease infinite;
@@ -195,9 +186,6 @@ list-style-type: none;
     width: 100%;
   }
 }
-
-
-
 
 #myInput {
   background-image: url('/css/searchicon.png');

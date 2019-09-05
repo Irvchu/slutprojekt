@@ -51,7 +51,10 @@ $("#wrapper").click(function () {
 <div id="BodyContent">
 
 
-    <img src="/Adoore.png" alt="Adoor logotype" height="150" width="150">
+    <a href="/">
+        <img alt="Adoor logotype" height="150" width="150"
+             th:src="@{/Adoore.png}" />
+    </a>
     <button class="material-icons" id="icons">person</button>
     <button class="material-icons" id="icons">notifications</button>
     <div class="playground">
@@ -69,22 +72,9 @@ $("#wrapper").click(function () {
 <div id="wrapper_container" style="display: none;">
         <form action="/filtered" method="post">
 
-<<<<<<< HEAD
-            <div class="perransRow">
-=======
-                </div>
-                <div id="perransBox2" class="mem">
-                    <ul class="list">
 
-                        <h4>Facilities</h4>
-                        <li th:each="option: ${multiCheckboxFacility}">
-                            <input type="checkbox"  name="filteredCompanies" th:value="${option.value}" />
-                            <label th:text="${option.name}">
-                                <!-- th:for="${#ids.prev('multiCheckboxSelectedValues')}"-->
-                            </label>
-                        </li>
-                    </ul>
->>>>>>> 321cdbcc48e5f62138811ce52ec489703c7af33d
+            <div class="perransRow">
+                </div>
 
                 <div class="perransColumn" >
                 <ul class="list">

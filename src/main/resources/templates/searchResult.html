@@ -3,23 +3,13 @@
       xmlns:style="http://java.sun.com/xml/ns/persistence/orm" xmlns:color="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-<<<<<<< HEAD
-    <link rel="stylesheet" type="text/css" href="/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/style2.css" />
-    <link rel="stylesheet" type="text/css" href="/styletable12.css" />
     <title>Search Result</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/style2.css" />
+    <link rel="stylesheet" type="text/css" href="/styletable11.css" />
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
-=======
-    <title>Search Result</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/style2.css" />
-       <link rel="stylesheet" type="text/css" href="/styletable11.css" />
-
-       <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
->>>>>>> 321cdbcc48e5f62138811ce52ec489703c7af33d
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gayathri">
 
@@ -94,8 +84,8 @@
                                 <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Meditation Room</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.meditationRoom}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.meditationRoom}" ></div> </li>
                                 <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Permanent Workplace/Table</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.permanentWorkplaces}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.permanentWorkplaces}" ></div> </li>
                                 <li class="pricing-features-space"  ><div class="listHeaderLayout"><span class="listHeaderSection" th:if = "${iStat.index==0}">Employee Benefits</span></div></li>
-                                <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Wellness Contribution</span></div><div  th:text="${company.wellnessContributionSEK}"></div></li>
-                                <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Education Budget</span></div><div  th:text="${company.educationBudgetSEK}"></div></li>
+                                <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Wellness Contribution (SEK) </span></div><div  th:text="${company.wellnessContributionSEK}"></div></li>
+                                <li class="pricing-features-item"  ><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Education Budget (SEK)</span></div><div  th:text="${company.educationBudgetSEK}"></div></li>
                                 <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Benify</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.benify}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.benify}" ></div> </li>
                                 <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Union Connected</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.unionConnected}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.unionConnected}" ></div> </li>
                                 <li class="pricing-features-item"><div class="listHeaderLayout"><span class="listHeader" th:if = "${iStat.index==0}">Group insurance</span></div><div> <img class="okIcon" src="/ok.jpg" th:if ="${company.groupInsuranceIncluded}" > <img class="okIcon" src="/x_pic.png" th:if ="${!company.groupInsuranceIncluded}" ></div> </li>
