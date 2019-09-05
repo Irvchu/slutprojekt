@@ -29,6 +29,7 @@
 
             <form action="/filtered">
                 <ul id="myUL">
+                    <p>Search result</p>
                     <li th:each="company: ${filteredCompaniesList}">
                         <a th:href="'/searchResult/' +${company.companyId}" th:text="${company.companyName}"></a>
                     </li>
