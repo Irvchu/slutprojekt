@@ -160,7 +160,8 @@ margin-left: 35px;
     margin-top: 0px;
     margin-bottom: 30px;
     background: #3FA8BF;
-    width: auto; height: 30vw;
+    width: auto;
+    height: 130vw;
 }
 
  #wrapper{
@@ -190,50 +191,17 @@ margin-left: 35px;
     background: white;
     box-shadow: 1px 1px 2px #888888;
 }
+.filterbox{
+    display: contents;
+}
 
-#perransBox{
-width: 100%;
-height: 30px;
-background-color: #3FA8BF;
-;
-padding-top: 50px;
-padding-left: 10px;
-padding-right: 10px;
-}
-.perransThreeBoxes{
-color: #3FA8BF;
-;
-text-align: center;
-}
-#perransBox1 {
+.perransBox{
 background: #3FA8BF;
-height: 15vw;
-width: 20vw;
+width: 25vw;
 float: left;
-margin-left: 5%;
-}
-#perransBox2 {
-background: #3FA8BF;
-height: 15vw;
-width: 20vw;
-float: left;
-margin-left: 35px;
-}
-#perransBox3 {
-background: #3FA8BF;
-height: 15vw;
-width: 20vw;
-float: left;
-margin-left: 35px;
 }
 
-.perransSubmit {
-display: block;
-margin-left: 450px;
-margin-right: 200px;
 
-
-}
 .mem
 {
 background: #3FA8BF;
