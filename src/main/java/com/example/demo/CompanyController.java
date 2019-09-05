@@ -162,9 +162,9 @@ public class CompanyController {
     @ModelAttribute("multiCheckboxFacility")
     public List<Option> getMultiCheckboxFacility() {
         List<Option> optionList = new ArrayList<>();
-        optionList.add(new Option("Carparking", "Carparking=Yes"));
+        optionList.add(new Option("Car parking", "Carparking=Yes"));
         optionList.add(new Option("Meditation room", "Meditationroom=Yes"));
-        optionList.add(new Option("Biker room", "Bikerroom=Yes"));
+        optionList.add(new Option("Bicycle room", "Bikerroom=Yes"));
         optionList.add(new Option("Fruit basket", "Fruitbasket=Yes"));
         optionList.add(new Option("Breakfast", "Breakfast=Yes"));
         return optionList;

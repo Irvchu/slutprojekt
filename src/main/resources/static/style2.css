@@ -1,5 +1,4 @@
 body {
-
   height: 100%;
 }
 
@@ -13,6 +12,7 @@ body {
 #BodyContent{
   background-color: white;
 height: 2%;
+box-shadow: 2px 2px 3px #888888;
 }
 
 .header_filter{
@@ -55,6 +55,8 @@ img {
     justify-content: center;
     align-items: center;
     padding: 100px 0px 100px 0px;
+    margin-top:3px;
+    box-shadow: 2px 2px 3px #888888;
     background: linear-gradient(123deg, #024959, #56FFE3, #27828c, white, #50bfbf);
     background-size: 1000% 1000%;
 
@@ -116,25 +118,28 @@ input[type=text] {
 }
 
 #wrapper_container{
-    margin-top: 0px;
-    margin-bottom: 30px;
-    background: #3FA8BF;
-    width: auto; height: 30vw;
+      margin-top: 3px;
+      background: #50BFBF;
+      width: auto;
+      height: 30vw;
+      box-shadow: 2px 2px 3px #888888;
 }
 
  #wrapper{
     display: block;
-    width: 100%;
-    height: 35px;
-    line-height: 35px;
-    background: #3FA8BF;
-    font-family: 'Gayathri' , serif;
-    text-align: center;
-    font-weight: bold;
-    color: #fff;
-    font-size: 20px;
-    box-shadow: 2px 2px 3px #888888;
-    text-decoration:none;
+        width: 100%;
+        height: 35px;
+        line-height: 35px;
+        background: #3FA8BF;
+        font-family: 'Gayathri' , serif;
+        text-align: center;
+        font-weight: bold;
+        color: #fff;
+        font-size: 18px;
+        padding: 1.0vw 2.0vw 2.3vw;
+        margin-top: 1.0vw;
+        box-shadow: 2px 2px 3px #888888;
+        text-decoration: none;
 }
 #wrapper:hover
 {
