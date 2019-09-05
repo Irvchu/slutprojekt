@@ -215,9 +215,12 @@ font-family: 'Gayathri' , serif;
   list-style-type: none;
   padding: 0;
   margin: 0;
+
+
 }
 
 #myUL p {
+background: #ecebeb;
 text-align:center;
 font-size: 25px;
 font-weight: bold;
@@ -226,6 +229,7 @@ font-weight: bold;
 #myUL li a {
   border: 1px solid #ddd;
   margin-top: -1px; */
+
 /* Prevent double borders */
 
   background-color: #f6f6f6;
@@ -236,9 +240,14 @@ font-weight: bold;
   display: block
 }
 
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
-}
+
+#myUL li a:hover {
+      background: linear-gradient(123deg, #024959, #56FFE3, #27828c, white, #50bfbf);
+      background-size: 1000% 1000%;
+
+      -webkit-animation: AnimationName 54s ease infinite;
+      -moz-animation: AnimationName 54s ease infinite;
+      animation: AnimationName 54s ease infinite;}
 
 
 footer {
