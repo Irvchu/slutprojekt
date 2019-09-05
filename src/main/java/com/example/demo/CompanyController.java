@@ -17,7 +17,7 @@ import java.util.List;
 @Controller
 public class CompanyController {
 
-    List<Company> companiesAll;
+
     Option option;
 
 
@@ -88,50 +88,65 @@ public class CompanyController {
 
 
     @GetMapping("/searchResult/{id}")
+<<<<<<< HEAD
     public String compareCompanies(@PathVariable Long id, HttpSession session, Model model) throws Exception {
+=======
+    public String compareCompanies(@PathVariable Long id, HttpSession session, Model model) {
+
+//        List<Company> companiesAll;
+>>>>>>> IrvinTriesToMergeWithErika
         Company companyAll = companyRepository.getEverythingById(id);
         List<Company> companies =  (List<Company>) session.getAttribute("Companies");
 
+        boolean companyExist=false;
         if(companies == null) {
             companies = new ArrayList<>();
         }
-        if (companyAll != null) {
+         for(Company company:companies){
+             if(company.getCompanyId().equals(companyAll.getCompanyId())){
+                 companyExist=true;
+             }
+         }
+
+        if (companyAll != null && companyExist==false) {
             companies.add(companyAll);
         }
 
-        if(companiesAll == null) {
-            companiesAll = new ArrayList<>();
-        }
-
-
-        if(companiesAll.size() > 2) {
+        if(companies.size() > 3) {
             System.out.println("in the if");
-            companiesAll.remove(0);
+            companies.remove(0);
 
         }
-        companiesAll.add(companyAll);
+
+
 
 
         session.setAttribute("Companies", companies);
-        session.setAttribute("CompaniesAll", companiesAll);
+        session.setAttribute("CompaniesAll", companies);
         System.out.println(session.getAttribute("Companies"));
 
         return "searchResult";
     }
 
+
     @GetMapping("/filtered")
-    public String getFilteredCompanis(@RequestParam String[] filteredCompanies, Model model) {
-        System.out.println("Getmappuing");
+    public String getFilteredCompanies(@RequestParam String[] filteredCompanies,HttpSession session, Model model) {
+        String filteredList = (String)session.getAttribute("filteredCompaniesListSession");
+        System.out.println("Getmapping");
         return "searchResult";
     }
     @PostMapping("/filtered")
-    public String hej(@RequestParam String[] filteredCompanies, Model model) {
+    public String hej(@RequestParam String[] filteredCompanies,HttpSession session, Model model) {
         System.out.println("post");
+
         List<Company> filteredCompaniesList;
 
         filteredCompaniesList = companyRepository.filterQueries(filteredCompanies);
 
         model.addAttribute("filteredCompaniesList", filteredCompaniesList);
+        session.setAttribute("filteredCompaniesListSession", filteredCompaniesList);
+        session.setAttribute("Companies",null);
+        session.setAttribute("CompaniesAll",null);
         return "searchResult";
     }
 
@@ -144,24 +159,25 @@ public class CompanyController {
         optionList.add(new Option("React", "Frontend=React"));
         optionList.add(new Option("Javascript", "Frontend=Javascript"));
         return optionList;
-        }
-
+    }
     @ModelAttribute("multiCheckboxFacility")
     public List<Option> getMultiCheckboxFacility() {
         List<Option> optionList = new ArrayList<>();
         optionList.add(new Option("Carparking", "Carparking=Yes"));
         optionList.add(new Option("Meditation room", "Meditationroom=Yes"));
-        optionList.add(new Option("Biker room", "Bikerroom=yes"));
-        optionList.add(new Option("Fruitbasket", "Fruitbasket=Yes"));
+        optionList.add(new Option("Biker room", "Bikerroom=Yes"));
+        optionList.add(new Option("Fruit basket", "Fruitbasket=Yes"));
         optionList.add(new Option("Breakfast", "Breakfast=Yes"));
         return optionList;
     }
-        @ModelAttribute("multiCheckboxGeneral")
+    @ModelAttribute("multiCheckboxGeneral")
     public List<Option> getMultiCheckboxGeneral() {
         List<Option> optionList = new ArrayList<>();
-        optionList.add(new Option("30% or more women", "ProportionWomen>30%"));
-        optionList.add(new Option("more than 5000 workers", "Workers>5000"));
-        optionList.add(new Option("Staff turnover less than 10%", "Staffturnover<10%)"));
+        optionList.add(new Option("Women In Tech > 30% ", "ItProportionWomen>30%"));
+        optionList.add(new Option("Women Within Board > 30% ", "WomenWithinBoard<30%"));
+        optionList.add(new Option("Staff turnover < 10%", "Staffturnover<10%"));
+        optionList.add(new Option("Employees > 5000", "Workers>5000"));
+        optionList.add(new Option("Collective Agreement", "CollectiveAgreement"));
         return optionList;
     }
 

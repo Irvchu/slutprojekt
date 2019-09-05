@@ -22,21 +22,22 @@
     <div class="playground">
 
         <form action="/searchResult" method="post" th:fragment="smallsearch">
-            <input type="text" name="search" placeholder="Search..">
+            <input type="text" id="myInput" onkeyup="myFunction()" name="search" placeholder="Search..">
         </form>
     </div>
 </div>
 
             <form action="/filtered">
-                <ul>
-                    <li th:each="company: ${filteredCompaniesList}">
+                <ul id="myUL">
+                    <p>Search result</p>
+                    <li th:each="company: ${session.filteredCompaniesListSession}">
                         <a th:href="'/searchResult/' +${company.companyId}" th:text="${company.companyName}"></a>
                     </li>
                 </ul>
             </form>
 
 
-            <ul>
+            <ul id="myUL">
 
                 <li th:each="company: ${Companies}"  >
                     <a th:href="'/searchResult/' +${company.companyId}"  th:text="${company.companyName}"></a>
