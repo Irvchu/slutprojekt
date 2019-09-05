@@ -68,7 +68,7 @@ public class CompanyController {
      * @return
      */
     @PostMapping("/searchResult")
-    public String searchCompanyTwo(@RequestParam String search, Model model, HttpSession session) throws Exception {
+    public String searchCompanyTwo(@RequestParam String search, Model model, HttpSession session)  {
         //important with the '%' when using LIKE in queries.
         search = "%" + search + "%";
 
@@ -88,13 +88,12 @@ public class CompanyController {
 
 
     @GetMapping("/searchResult/{id}")
-<<<<<<< HEAD
-    public String compareCompanies(@PathVariable Long id, HttpSession session, Model model) throws Exception {
-=======
+
+
     public String compareCompanies(@PathVariable Long id, HttpSession session, Model model) {
 
 //        List<Company> companiesAll;
->>>>>>> IrvinTriesToMergeWithErika
+
         Company companyAll = companyRepository.getEverythingById(id);
         List<Company> companies =  (List<Company>) session.getAttribute("Companies");
 
