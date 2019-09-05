@@ -294,12 +294,14 @@ public class CompanyRepository {
    public List<Company> filterQueries(String[] filteredCompanies) {
        ArrayList<Company> filteredCompanyList = new ArrayList<>();
        Company company = null;
+
        String queryBuilder = "SELECT * FROM Company " +
                "INNER JOIN CompanyGeneral ON Company.CompanyID = CompanyGeneral.CompanyID " +
                "INNER JOIN EmployeeAgreement ON Company.CompanyID = EmployeeAgreement.CompanyID " +
                "INNER JOIN EmployeeBenefit ON Company.CompanyID = EmployeeBenefit.CompanyID " +
                "INNER JOIN CompanyFacility ON Company.CompanyID = CompanyFacility.CompanyID " +
                "INNER JOIN System ON Company.CompanyID = System.CompanyID WHERE ";
+
 
        String stringBuilder = "";
        String endString = filteredCompanies[filteredCompanies.length-1];
