@@ -180,6 +180,10 @@ list-style-type: none;
   padding: 10px;
   height: 300px; /* Should be removed. Only for demonstration */
 }
+#sdg img{
+width:30%;
+padding-left:20px;
+}
 
 /* Clear floats after the columns */
 .perransRow:after !important{
