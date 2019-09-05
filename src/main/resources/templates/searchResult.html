@@ -30,7 +30,7 @@
             <form action="/filtered">
                 <ul id="myUL">
                     <p>Search result</p>
-                    <li th:each="company: ${filteredCompaniesList}">
+                    <li th:each="company: ${session.filteredCompaniesListSession}">
                         <a th:href="'/searchResult/' +${company.companyId}" th:text="${company.companyName}"></a>
                     </li>
                 </ul>

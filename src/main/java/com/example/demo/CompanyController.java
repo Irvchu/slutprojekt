@@ -17,7 +17,7 @@ import java.util.List;
 @Controller
 public class CompanyController {
 
-    List<Company> companiesAll;
+
     Option option;
 
 
@@ -89,49 +89,60 @@ public class CompanyController {
 
     @GetMapping("/searchResult/{id}")
     public String compareCompanies(@PathVariable Long id, HttpSession session, Model model) {
+
+//        List<Company> companiesAll;
         Company companyAll = companyRepository.getEverythingById(id);
         List<Company> companies =  (List<Company>) session.getAttribute("Companies");
 
+        boolean companyExist=false;
         if(companies == null) {
             companies = new ArrayList<>();
         }
-        if (companyAll != null) {
+         for(Company company:companies){
+             if(company.getCompanyId().equals(companyAll.getCompanyId())){
+                 companyExist=true;
+             }
+         }
+
+        if (companyAll != null && companyExist==false) {
             companies.add(companyAll);
         }
 
-        if(companiesAll == null) {
-            companiesAll = new ArrayList<>();
-        }
-
-
-        if(companiesAll.size() > 2) {
+        if(companies.size() > 3) {
             System.out.println("in the if");
-            companiesAll.remove(0);
+            companies.remove(0);
 
         }
-        companiesAll.add(companyAll);
+
+
 
 
         session.setAttribute("Companies", companies);
-        session.setAttribute("CompaniesAll", companiesAll);
+        session.setAttribute("CompaniesAll", companies);
         System.out.println(session.getAttribute("Companies"));
 
         return "searchResult";
     }
 
+
     @GetMapping("/filtered")
-    public String getFilteredCompanis(@RequestParam String[] filteredCompanies, Model model) {
-        System.out.println("Getmappuing");
+    public String getFilteredCompanies(@RequestParam String[] filteredCompanies,HttpSession session, Model model) {
+        String filteredList = (String)session.getAttribute("filteredCompaniesListSession");
+        System.out.println("Getmapping");
         return "searchResult";
     }
     @PostMapping("/filtered")
-    public String hej(@RequestParam String[] filteredCompanies, Model model) {
+    public String hej(@RequestParam String[] filteredCompanies,HttpSession session, Model model) {
         System.out.println("post");
+
         List<Company> filteredCompaniesList;
 
         filteredCompaniesList = companyRepository.filterQueries(filteredCompanies);
 
         model.addAttribute("filteredCompaniesList", filteredCompaniesList);
+        session.setAttribute("filteredCompaniesListSession", filteredCompaniesList);
+        session.setAttribute("Companies",null);
+        session.setAttribute("CompaniesAll",null);
         return "searchResult";
     }
 
