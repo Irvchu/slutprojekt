@@ -160,7 +160,8 @@ input[type=text] {
     color: #50BFBF;
     border-radius: 5px;
     background-color: white;
-    padding: 15px;
+    font-weight:bold;
+    padding: 5px;
     margin-top: 6%;
     margin-left: 35%;
 
