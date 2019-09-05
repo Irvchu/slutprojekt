@@ -52,7 +52,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 100px 100px 100px;
+    padding: 100px 0px 100px 0px;
     background: linear-gradient(123deg, #024959, purple, #27828c, white, #50bfbf);
     background-size: 1000% 1000%;
 
@@ -60,6 +60,7 @@ img {
     -moz-animation: AnimationName 54s ease infinite;
     animation: AnimationName 54s ease infinite;
   }
+
 
     @-webkit-keyframes AnimationName {
         0%{background-position:40% 0%}
@@ -242,8 +243,8 @@ list-style-type: none;
 }
 
 
-<<<<<<< HEAD
-=======
+/*
+
 #myInput {
   background-image: url('/css/searchicon.png');
   background-position: 10px 12px;
@@ -264,7 +265,9 @@ font-family: 'Gayathri' , serif;
 
 #myUL li a {
   border: 1px solid #ddd;
-  margin-top: -1px; /* Prevent double borders */
+  margin-top: -1px; */
+/* Prevent double borders *//*
+
   background-color: #f6f6f6;
   padding: 12px;
   text-decoration: none;
@@ -276,6 +279,7 @@ font-family: 'Gayathri' , serif;
 #myUL li a:hover:not(.header) {
   background-color: #eee;
 }
+*/
 
 >>>>>>> IrvinTriesToMergeWithErika
 
