@@ -180,6 +180,11 @@ public class CompanyController {
         return optionList;
     }
 
+    @GetMapping("/google_maps")
+    public String googleMaps(){
+        return "google_maps";
+    }
+
 /*
     @GetMapping("/filtered")
     public String getFilteredCompanis(@RequestParam String[] filteredCompanies) {

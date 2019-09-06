@@ -1,5 +1,6 @@
 body {
   height: 100%;
+  font-family: 'Gayathri' , serif;
 }
 
 
@@ -7,6 +8,7 @@ body {
   background-color:   #ecebeb;
   padding: 10%;
   padding-top: 1%;
+  font-family: 'Gayathri' , serif;
 }
 
 #BodyContent{
@@ -190,7 +192,16 @@ list-style-type: none;
   width: 33.33%;
   padding: 10px;
   height: 300px; /* Should be removed. Only for demonstration */
+  font-family: 'Gayathri' , serif;
 }
+
+.H4{
+font-family: 'Gayathri' , serif;
+font-weight: bold;
+font-siza: 18;
+
+}
+
 #sdg img{
 width:30%;
 padding-left:20px;
@@ -202,6 +213,14 @@ padding-left:20px;
   display: table;
   clear: both;
 }
+
+#Headoffice{
+    font-family: 'Gayathri' , serif;
+    width: 100%;
+    height: 10px;
+   margin-bottom:30px;
+}
+
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
@@ -269,7 +288,6 @@ footer {
      background-color: white;
      font-family: 'Gayathri' , serif;
      color: black;
-     font-weight: bold;
      font-size: 16px;
      text-align: center;
 }

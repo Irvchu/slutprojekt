@@ -78,7 +78,7 @@ $("#wrapper").click(function () {
                 <div class="perransColumn" >
                 <ul class="list">
 
-                    <div class="H4"> <h4>Programming Languages</h4></div>
+                    <h4 class="H4">Programming Languages</h4>
                     <li th:each="option: ${multiCheckboxProgrammingLanguages}">
                         <input type="checkbox" name="filteredCompanies" th:value="${option.value}" />
                         <label th:text="${option.name}">
@@ -91,7 +91,7 @@ $("#wrapper").click(function () {
                 <div class="perransColumn" >
                 <ul class="list">
 
-                    <h4>Facilities</h4>
+                    <h4 class="H4">Facilities</h4>
                     <li th:each="option: ${multiCheckboxFacility}">
                         <input type="checkbox" name="filteredCompanies" th:value="${option.value}" />
                         <label th:text="${option.name}">
@@ -104,7 +104,7 @@ $("#wrapper").click(function () {
 
                 <div class="perransColumn" >
                 <ul class="list">
-                    <h4>General</h4>
+                    <h4 class="H4">General</h4>
                     <li th:each="option: ${multiCheckboxGeneral}">
                         <input type="checkbox" name="filteredCompanies" th:value="${option.value}" />
                         <label th:text="${option.name}">
@@ -129,13 +129,13 @@ $("#wrapper").click(function () {
     ​
     <div class="perransRow">
         <div class="perransColumn">
-            <h4>Feed</h4>
+            <h4 class="H4">Feed</h4>
             <div class="feedgrabbr_widget" id="fgid_82c7029460a86d8bbb6c765e0"></div>
             <script>if (typeof (fg_widgets) === "undefined") fg_widgets = new Array(); fg_widgets.push("fgid_82c7029460a86d8bbb6c765e0");</script>
             <script async src="https://www.feedgrabbr.com/widget/fgwidget.js"></script>
         </div>
         <div class="perransColumn" id="sdg">
-            <h4> SDGs Targeted </h4>
+            <h4 class="H4"> SDGs Targeted </h4>
             <img  src="/GoodHealth.PNG"  alt="Good Health" height="500px" width="500px">
             <img  src="/Gender.PNG"  alt="Good Health" height="200px" width="200px"><br><br>
             <img  src="/Work.PNG"  alt="Good Health" height="50%" width="50%">
@@ -144,10 +144,13 @@ $("#wrapper").click(function () {
 
         </div>
         <div class="perransColumn">
-            <h4> About us</h4>
+            <h4 class="H4"> About us</h4>
             <p>Erika, Irvin, Olga and Per-Joel <br> started Adoor because they noticed <br> a lack of website for job seekers <br> that compares between companies.<br><br>
                 That's why they created www.adoor.com <br> to solve this problem.
                 We want to be the <br> place where job seeking candidates go to <br> when you want to compare between different <br> employers and what they have to offer. <br> In the future we also want to add value <br> for our users through tips about</p>
+
+
+            <a class="H4" href="/google_maps"> CONTACT US </a>
         </div>
         ​
     </div> <!-- Slutet av largebox-div-->
